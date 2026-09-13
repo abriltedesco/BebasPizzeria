@@ -7,3 +7,16 @@
 script = ExtResource("1_0uyns")
 
 [node name="Cliente" parent="." unique_id=177738231 instance=ExtResource("2_2p2iw")]
+
+[node name="debug" type="Control" parent="." unique_id=1651170847]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="nombreCliente" type="Label" parent="debug" unique_id=1961057578]
+layout_mode = 0
+offset_right = 159.0
+offset_bottom = 78.0
+theme_override_font_sizes/font_size = 64
+text = "NOMBRE"
