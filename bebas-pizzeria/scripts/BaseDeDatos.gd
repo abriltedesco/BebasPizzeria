@@ -9,7 +9,12 @@ var listaClientes = [
 ]
 
 var listaOrdenes = [
-	{"tipo": "Muzzarella", "dificultad": "facil", "ingredientes": ["masa", "salsa", "muzzarella"]},
+	{
+	"tipo": "Muzzarella",
+	"dificultad": "facil", 
+	"ingredientes": ["masa", "salsa", "muzzarella"]
+	},
+	
 	{"tipo": "Fugazzetta", "dificultad": "facil", "ingredientes": ["masa", "muzzarella", "cebolla"]},
 	{"tipo": "Jamon", "dificultad": "facil", "ingredientes": ["masa", "salsa", "muzzarella", "jamon"]},
 	{"tipo": "Napolitana", "dificultad": "facil", "ingredientes": ["masa", "salsa", "muzzarella", "tomate"]},
