@@ -1,0 +1,8 @@
+~ start
+Cliente: Hola !!! soy {{ClienteActual.nombre}}, queria pedir una pizza de {{ClienteActual.pizza}}
+Cliente: Me gustaria que tenga....
+Cliente: {{ClienteActual.obtenerIngrediente()}}
+Cliente: {{ClienteActual.obtenerIngrediente()}}
+Cliente: {{ClienteActual.obtenerIngrediente()}}
+Cliente: {{ClienteActual.obtenerIngrediente()}}
+=> END

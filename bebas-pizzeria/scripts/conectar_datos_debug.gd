@@ -9,9 +9,9 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	nombreClienteLabel.text = $"../Cliente".datos_cliente["nombre"]
-	tipoOrdenLabel.text= $"../Cliente".datos_orden["tipo"]
-	dificultadOrdenLabel.text = $"../Cliente".datos_orden["dificultad"]
-	ingredientesOrdenLabel.text = ", ".join($"../Cliente".datos_orden["ingredientes"])
-		
+# func _process(delta: float) -> void:
+# 	nombreClienteLabel.text = $"../Cliente".datos_cliente["nombre"]
+# 	tipoOrdenLabel.text= $"../Cliente".datos_orden["tipo"]
+# 	dificultadOrdenLabel.text = $"../Cliente".datos_orden["dificultad"]
+# 	ingredientesOrdenLabel.text = ", ".join($"../Cliente".datos_orden["ingredientes"])
+# 		

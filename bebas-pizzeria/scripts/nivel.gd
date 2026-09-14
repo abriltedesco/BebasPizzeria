@@ -11,6 +11,12 @@ func generarPedido():
 	var clienteElegido = clientesDisp.pick_random()
 	var ordenElegida = ordenes.pick_random()
 	
+	var dialogo = load("res://dialogue/pedido_cliente.dialogue")
+	var escenaGlobo = load("res://addons/dialogue_manager/example_balloon/example_balloon.tscn").instantiate()
+	add_child(escenaGlobo)
+	escenaGlobo.start(dialogo, "start", [self])
+	#await escenaGlobo.dialogue_ended
+	
 	cliente.inicializarDatos(clienteElegido, ordenElegida)
 	
 	print("llego ", clienteElegido["nombre"], " y pidió ", ordenElegida["tipo"])
