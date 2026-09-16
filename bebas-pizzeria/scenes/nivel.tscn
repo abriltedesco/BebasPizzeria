@@ -10,6 +10,7 @@ script = ExtResource("1_0uyns")
 [node name="Cliente" parent="." unique_id=177738231 instance=ExtResource("2_2p2iw")]
 
 [node name="debug" type="Control" parent="." unique_id=1651170847]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
