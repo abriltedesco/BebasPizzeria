@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 @export var datos_cliente = {}
 @export var datos_orden = {}

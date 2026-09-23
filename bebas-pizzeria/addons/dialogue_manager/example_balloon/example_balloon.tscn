@@ -64,7 +64,12 @@ MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlsx6"]
-bg_color = Color(0.4277754, 0.533519, 0.6968588, 1)
+bg_color = Color(0.74456364, 0.963754, 0.6036955, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 60
 corner_radius_top_right = 60
 corner_radius_bottom_right = 60
@@ -128,10 +133,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 256.0
-offset_top = -654.0
-offset_right = -233.0
-offset_bottom = -447.0
+offset_left = 210.0
+offset_top = -639.0
+offset_right = -164.0
+offset_bottom = -452.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_left = 60
@@ -165,6 +170,7 @@ visible = false
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
 mouse_filter = 1
+theme_override_colors/default_color = Color(0.06879827, 0.06879828, 0.06879828, 1)
 text = "Character"
 fit_content = true
 scroll_active = false
@@ -174,6 +180,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.84
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Dialogue..."
 
 [node name="Control" type="Control" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1162966119]
@@ -183,7 +190,9 @@ size_flags_vertical = 8
 
 [node name="Progress" type="Polygon2D" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Control" unique_id=821575988]
 unique_name_in_owner = true
-polygon = PackedVector2Array(0, 0, 10, 10, 20, 0)
+position = Vector2(17, 0)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(3, 2, 10, 10, 17, 2, 10, 4)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Control" unique_id=452325722]
 libraries/ = SubResource("AnimationLibrary_1337t")

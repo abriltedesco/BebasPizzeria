@@ -1,5 +1,7 @@
 extends Node2D
 @onready var cliente = $Cliente
+@onready var orden = $Control
+signal termino_dialogo
 
 func _ready():
 	generarPedido()
@@ -18,3 +20,5 @@ func generarPedido():
 	var escenaGlobo = load("res://addons/dialogue_manager/example_balloon/example_balloon.tscn").instantiate()
 	add_child(escenaGlobo)
 	escenaGlobo.start(dialogo, "start", [self])
+	await escenaGlobo.tree_exited
+	orden.actualizarOrden()
