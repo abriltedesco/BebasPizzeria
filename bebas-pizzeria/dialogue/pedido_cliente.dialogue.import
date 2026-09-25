@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bjn2sikk5is62"
+path="res://.godot/imported/pedido_cliente.dialogue-df17339eabd524e4e6e98df5f4761e8d.tres"
+
+[deps]
+
+source_file="res://dialogue/pedido_cliente.dialogue"
+dest_files=["res://.godot/imported/pedido_cliente.dialogue-df17339eabd524e4e6e98df5f4761e8d.tres"]
+
+[params]
+
+defaults=true

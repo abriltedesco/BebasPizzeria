@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b4eak3ueb0ccu"]
+
+[ext_resource type="Script" uid="uid://xbygkk6ckv1q" path="res://scriptsOrdenes/nivel.gd" id="1_0uyns"]
+[ext_resource type="PackedScene" uid="uid://3a6n60f6t1pr" path="res://scenesOrdenes/cliente.tscn" id="2_2p2iw"]
+[ext_resource type="Script" uid="uid://dq86ngasndy5h" path="res://scriptsOrdenes/conectar_datos_debug.gd" id="3_ixlnu"]
+[ext_resource type="Texture2D" uid="uid://brytwlrtif2ej" path="res://assetsOrdenes/background.png" id="4_gs83u"]
+[ext_resource type="PackedScene" uid="uid://brpmjhh8585mf" path="res://scenesOrdenes/orden.tscn" id="5_v4w84"]
+
+[node name="Nivel" type="Node2D" unique_id=135980533]
+script = ExtResource("1_0uyns")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=867922662]
+offset_top = -1.0
+offset_right = 1153.0
+offset_bottom = 648.0
+texture = ExtResource("4_gs83u")
+
+[node name="Cliente" parent="." unique_id=177738231 instance=ExtResource("2_2p2iw")]
+
+[node name="conectarDatosDebug" type="Node" parent="." unique_id=1792322736]
+script = ExtResource("3_ixlnu")
+
+[node name="Control" parent="." unique_id=931416878 instance=ExtResource("5_v4w84")]
+offset_left = 886.0
+offset_top = 10.0
+offset_right = 886.0
+offset_bottom = 10.0

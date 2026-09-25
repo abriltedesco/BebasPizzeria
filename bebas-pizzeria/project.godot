@@ -1,0 +1,38 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="BebasPizzeria"
+run/main_scene="uid://b4eak3ueb0ccu"
+config/features=PackedStringArray("4.6", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+BaseDeDatos="*uid://c5vdt0p7j2tbp"
+DialogueManager="*uid://c3rodes2l3gxb"
+ClienteActual="*uid://3e8jd3tpkvm3"
+
+[dialogue_manager]
+
+editor/advanced/custom_test_scene_path="res://addonsOrdenes/dialogue_manager/test_scene.tscn"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
