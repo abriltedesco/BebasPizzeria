@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://b0g18pd8a04fm"]
+
+[ext_resource type="Texture2D" uid="uid://dbp8rrlsavesy" path="res://cocina/assets/barra/health_00.png" id="1_hscyw"]
+[ext_resource type="Texture2D" uid="uid://b55pe6yeiytay" path="res://cocina/assets/barra/health_01.png" id="2_uc2fe"]
+[ext_resource type="Texture2D" uid="uid://cc81s7abw0pw1" path="res://cocina/assets/barra/health_02.png" id="3_bioks"]
+[ext_resource type="Texture2D" uid="uid://cclrpjahw4sh6" path="res://cocina/assets/barra/health_03.png" id="4_iw0le"]
+[ext_resource type="Texture2D" uid="uid://b16nbyj7y1uvs" path="res://cocina/assets/barra/health_04.png" id="5_yo8wn"]
+[ext_resource type="Texture2D" uid="uid://bxtgb0q8gaitw" path="res://cocina/assets/barra/health_05.png" id="6_04ptj"]
+[ext_resource type="Texture2D" uid="uid://b5l6njtbu3yi3" path="res://cocina/assets/barra/health_06.png" id="7_d2qj1"]
+[ext_resource type="Texture2D" uid="uid://cxjmyus1f7lst" path="res://cocina/assets/barra/health_07.png" id="8_2vdn5"]
+[ext_resource type="Texture2D" uid="uid://m47jiwnq8xrr" path="res://cocina/assets/barra/health_08.png" id="9_mw34b"]
+[ext_resource type="Texture2D" uid="uid://qtr80lukik00" path="res://cocina/assets/barra/health_09.png" id="10_cnjl5"]
+[ext_resource type="Texture2D" uid="uid://b4nvj3mjrxv2l" path="res://cocina/assets/barra/health_10.png" id="11_srbvl"]
+[ext_resource type="Texture2D" uid="uid://lf5sx21o1rlk" path="res://cocina/assets/barra/health_danger.png" id="12_q46p6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mhdqi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hscyw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_uc2fe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bioks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_iw0le")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yo8wn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_04ptj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_d2qj1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2vdn5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mw34b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_cnjl5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_srbvl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_q46p6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.4
+}]
+
+[node name="Node2D" type="AnimatedSprite2D" unique_id=1543349636]
+sprite_frames = SubResource("SpriteFrames_mhdqi")
+frame = 4
+frame_progress = 0.5093623
