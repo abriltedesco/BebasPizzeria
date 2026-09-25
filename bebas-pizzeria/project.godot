@@ -21,13 +21,13 @@ BaseDeDatos="*uid://c5vdt0p7j2tbp"
 DialogueManager="*uid://c3rodes2l3gxb"
 ClienteActual="*uid://3e8jd3tpkvm3"
 
+[dialogue_manager]
+
+editor/advanced/custom_test_scene_path="res://addonsOrdenes/dialogue_manager/test_scene.tscn"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
-
-[internationalization]
-
-locale/translations_pot_files=PackedStringArray("res://dialogue/pedido_cliente.dialogue")
 
 [physics]
 

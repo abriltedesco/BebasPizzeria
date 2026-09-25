@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://brpmjhh8585mf"]
+
+[ext_resource type="Script" uid="uid://l4rfrjj8bwv5" path="res://scenesOrdenes/orden.gd" id="1_nga61"]
+
+[node name="Control" type="Control" unique_id=931416878]
+layout_mode = 3
+anchor_right = 0.22700001
+anchor_bottom = 0.569
+offset_left = 1.0
+offset_top = 2.0
+offset_right = -0.5040283
+offset_bottom = 0.28799438
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nga61")
+
+[node name="TextureRect" type="ColorRect" parent="." unique_id=807662768]
+layout_mode = 0
+offset_right = 264.0
+offset_bottom = 374.0
+color = Color(0, 0, 0, 1)
+
+[node name="pizza" type="Label" parent="." unique_id=1152892299]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 24.0
+offset_right = 268.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(0.7058824, 0.8666667, 0.07450981, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 21
+text = "PIZZA : "
+
+[node name="items" type="Label" parent="." unique_id=1733429394]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 73.0
+offset_right = 231.0
+offset_bottom = 310.0
+theme_override_font_sizes/font_size = 22
+text = "- item"
+
+[node name="ordenDe" type="Label" parent="." unique_id=1327739379]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 332.0
+offset_right = 228.0
+offset_bottom = 372.0
+theme_override_font_sizes/font_size = 16
+text = "Orden de:"
