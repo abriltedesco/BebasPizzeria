@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b6ggt7odva88f"]
+
+[ext_resource type="Script" uid="uid://b4ncooqtnm2tu" path="res://scripts/juego.gd" id="1_juego"]
+[ext_resource type="PackedScene" uid="uid://b4eak3ueb0ccu" path="res://escenas/nivel.tscn" id="2_pedidos"]
+[ext_resource type="PackedScene" uid="uid://bapbfm66lk0x6" path="res://escenas/cocina.tscn" id="3_cocina"]
+[ext_resource type="PackedScene" uid="uid://c8gixx6toav56" path="res://escenas/interfaz_partida.tscn" id="4_interfaz"]
+
+[node name="Juego" type="Node" unique_id=550360825]
+script = ExtResource("1_juego")
+
+[node name="TimerPartida" type="Timer" parent="." unique_id=1123291511]
+wait_time = 180.0
+one_shot = true
+
+[node name="Pedidos" parent="." unique_id=1968411043 instance=ExtResource("2_pedidos")]
+
+[node name="Cocina" parent="." unique_id=195620959 instance=ExtResource("3_cocina")]
+
+[node name="Interfaz" parent="." unique_id=2019180497 instance=ExtResource("4_interfaz")]

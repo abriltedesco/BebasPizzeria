@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b4eak3ueb0ccu"]
+
+[ext_resource type="Script" uid="uid://xbygkk6ckv1q" path="res://scripts/nivel.gd" id="1_0uyns"]
+[ext_resource type="PackedScene" uid="uid://3a6n60f6t1pr" path="res://escenas/cliente.tscn" id="2_2p2iw"]
+[ext_resource type="Texture2D" uid="uid://brytwlrtif2ej" path="res://assets/background.png" id="4_gs83u"]
+[ext_resource type="PackedScene" uid="uid://brpmjhh8585mf" path="res://escenas/orden.tscn" id="5_v4w84"]
+
+[sub_resource type="Curve2D" id="Curve2D_ruta"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1100, 290, 0, 0, 0, 0, 600, 290, 0, 0, 0, 0, 600, 370)
+}
+point_count = 3
+
+[node name="Nivel" type="Node2D" unique_id=135980533]
+script = ExtResource("1_0uyns")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=867922662]
+offset_top = -1.0
+offset_right = 1153.0
+offset_bottom = 648.0
+texture = ExtResource("4_gs83u")
+
+[node name="Cliente" parent="." unique_id=177738231 instance=ExtResource("2_2p2iw")]
+
+[node name="RutaCliente" type="Path2D" parent="." unique_id=1986306399]
+curve = SubResource("Curve2D_ruta")
+
+[node name="PuntoAparicion" type="Marker2D" parent="." unique_id=1807072278]
+position = Vector2(1100, 290)
+
+[node name="PuntoMostrador" type="Marker2D" parent="." unique_id=1492059219]
+position = Vector2(600, 370)
+
+[node name="Control" parent="." unique_id=931416878 instance=ExtResource("5_v4w84")]
+offset_left = 886.0
+offset_top = 10.0
+offset_right = 886.0
+offset_bottom = 10.0
