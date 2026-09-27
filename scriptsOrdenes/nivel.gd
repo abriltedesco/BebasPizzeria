@@ -2,9 +2,13 @@ extends Node2D
 @onready var cliente = $Cliente
 @onready var clienteMov = $Cliente/movimientoCliente
 @onready var orden = $Control
+var entregaNodo:Node= null
 
 func _ready():
 	orden.visible = false
+	entregaNodo= get_tree().get_first_node_in_group("entrega")
+	if entregaNodo== null:
+		print("no hay entrega para el cliente aun")
 	generarPedido()
 
 func generarPedido():
@@ -25,5 +29,10 @@ func generarPedido():
 	
 	orden.visible = true
 	orden.actualizarOrden()
-	await orden.termino_orden
+	await orden.textoListo
+	var entregaExitosa:bool=false
+	if entregaNodo:
+		entregaExitosa=await entregaNodo.pedido_resuelto
 	clienteMov.irse()
+	await clienteMov.salida_terminada
+	generarPedido()

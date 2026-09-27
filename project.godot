@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 BaseDeDatos="*uid://c5vdt0p7j2tbp"
 DialogueManager="*uid://c3rodes2l3gxb"
 ClienteActual="*uid://3e8jd3tpkvm3"
+Puntaje="*uid://1wh4glx0m4mn"
 
 [display]
 
@@ -29,6 +30,13 @@ window/stretch/aspect="expand"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+
+[importer_defaults]
+
+animation_library={
+&"animation/trimming": true,
+&"import_script/path": "uid://1wh4glx0m4mn"
+}
 
 [input]
 

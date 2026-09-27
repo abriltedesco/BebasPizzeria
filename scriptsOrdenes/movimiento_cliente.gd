@@ -1,5 +1,6 @@
 extends Node
 signal movimiento_terminado 
+signal salida_terminada
 @onready var animacion = $"../AnimatedSprite2D"
 
 func _ready() -> void:
@@ -28,3 +29,4 @@ func irse():
 	var posicionFinal = Vector2(animacion.position.x + 500, animacion.position.y)
 	tween.tween_property(animacion, "position", posicionFinal, 2) 
 	await tween.finished
+	salida_terminada.emit()

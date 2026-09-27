@@ -4,7 +4,7 @@ extends Control
 @onready var labelPizza = $pizza
 @onready var labelItems = $items
 
-signal termino_orden 
+signal textoListo
 
 func actualizarOrden():
 	labelOrden.text = "Orden de: " + ClienteActual.nombre
@@ -34,4 +34,4 @@ func actualizarOrden():
 	tween.tween_property(labelItems, "visible_characters", labelItems.text.length(), tiempoI)
 	
 	await tween.finished
-	termino_orden.emit()
+	textoListo.emit()

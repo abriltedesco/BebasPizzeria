@@ -10,23 +10,23 @@ var listaClientes = [
 
 var listaOrdenes = [
 	{
-	"tipo": "Muzzarella",
+	"tipo": "queso",
 	"dificultad": "facil", 
-	"ingredientes": ["masa", "salsa", "muzzarella"]
+	"ingredientes": ["masa", "tomate", "queso"]
 	},
 	
-	{"tipo": "Fugazzetta", "dificultad": "facil", "ingredientes": ["masa", "muzzarella", "cebolla"]},
-	{"tipo": "Jamon", "dificultad": "facil", "ingredientes": ["masa", "salsa", "muzzarella", "jamon"]},
-	{"tipo": "Napolitana", "dificultad": "facil", "ingredientes": ["masa", "salsa", "muzzarella", "tomate"]},
+	{"tipo": "Fugazzetta", "dificultad": "facil", "ingredientes": ["masa", "queso", "cebolla"]},
+	{"tipo": "Jamon", "dificultad": "facil", "ingredientes": ["masa", "tomate", "queso", "jamon"]},
+	{"tipo": "Napolitana", "dificultad": "facil", "ingredientes": ["masa", "tomate", "queso", "tomate"]},
 		
-	{"tipo": "Calabresa", "dificultad": "media", "ingredientes": ["masa", "salsa", "muzzarella", "longaniza", "morron"]},
-	{"tipo": "Rucula y crudo", "dificultad": "media", "ingredientes": ["masa", "salsa", "muzzarella", "rucula", "jamonCrudo"]},
-	{"tipo": "Pepperoni", "dificultad": "media", "ingredientes": ["masa", "salsa", "muzzarella", "tomate", "pepperoni"]},
-	{"tipo": "Margarita", "dificultad": "facil", "ingredientes": ["masa", "salsa", "muzzarella", "albahaca", "aceite"]},
+	{"tipo": "Calabresa", "dificultad": "media", "ingredientes": ["masa", "tomate", "queso", "longaniza", "morron"]},
+	{"tipo": "Rucula y crudo", "dificultad": "media", "ingredientes": ["masa", "tomate", "queso", "rucula", "jamonCrudo"]},
+	{"tipo": "Pepperoni", "dificultad": "media", "ingredientes": ["masa", "tomate", "queso", "tomate", "pepperoni"]},
+	{"tipo": "Margarita", "dificultad": "facil", "ingredientes": ["masa", "tomate", "queso", "albahaca", "aceite"]},
 	
-	{"tipo": "Cuatro Quesos", "dificultad": "dificil", "ingredientes": ["harina", "agua", "salsa", "mozzarella", "roquefort", "parmesano", "provolone"]},
-	{"tipo": "Super Completa", "dificultad": "dificil", "ingredientes": ["harina", "agua", "salsa", "muzzarella", "jamon", "morron", "huevo", "aceitunas"]},
-	{"tipo": "Bomba Frita", "dificultad": "dificil", "ingredientes": ["harina", "agua", "salsa", "muzzarella", "papasFritas", "cheddar", "panceta", "verdeo"]}
+	{"tipo": "Cuatro Quesos", "dificultad": "dificil", "ingredientes": ["harina", "agua", "tomate", "mozzarella", "roquefort", "parmesano", "provolone"]},
+	{"tipo": "Super Completa", "dificultad": "dificil", "ingredientes": ["harina", "agua", "tomate", "queso", "jamon", "morron", "huevo", "aceitunas"]},
+	{"tipo": "Bomba Frita", "dificultad": "dificil", "ingredientes": ["harina", "agua", "tomate", "queso", "papasFritas", "cheddar", "panceta", "verdeo"]}
 ]
 
 func ordenesConDificultad(dificultad):

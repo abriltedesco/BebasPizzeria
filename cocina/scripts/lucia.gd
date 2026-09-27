@@ -8,6 +8,7 @@ extends CharacterBody2D
 const SPEED = 300
 
 var mano_item= ""
+var mano_item_tipo=""
 var plato_en_mano = false
 
 func _ready() -> void:
@@ -56,8 +57,9 @@ func interactuar() -> void:
 			estacionCercana= nodo
 	if estacionCercana:
 		estacionCercana.interactuar(self)
-func agarrar_item(item: String) -> void:
+func agarrar_item(item: String, tipo: String ="") -> void:
 	mano_item= item
+	mano_item_tipo=tipo
 	if item=="plato" or item=="pizzaplato":
 		plato_en_mano=true
 	else:
@@ -67,6 +69,7 @@ func agarrar_item(item: String) -> void:
 
 func soltar_item() -> void:
 	mano_item=""
+	mano_item_tipo=""
 	plato_en_mano=false
 	if mano and mano.has_method("clear"):
 		mano.clear()
