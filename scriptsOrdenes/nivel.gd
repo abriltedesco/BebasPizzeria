@@ -18,7 +18,7 @@ func generarPedido():
 	await clienteMov.movimiento_terminado
 	
 	var dialogo = load("res://dialogue/pedido_cliente.dialogue")
-	var escenaGlobo = load("res://addonsOrdenes/dialogue_manager/example_balloon/example_balloon.tscn").instantiate()
+	var escenaGlobo = load("res://addons/dialogue_manager/example_balloon/example_balloon.tscn").instantiate()
 	add_child(escenaGlobo)
 	escenaGlobo.start(dialogo, "start", [self])
 	await escenaGlobo.tree_exited
