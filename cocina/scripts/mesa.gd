@@ -29,10 +29,15 @@ func interactuar(jugador: CharacterBody2D) -> void:
 		elif item_mano in ["pizzaq1oh", "pizzaqoh"]:
 			nuevo_sprite.scale = Vector2(0.8, 0.8)
 			nuevo_sprite.texture = load("res://cocina/assets/comida/pizzaqoh.png")
-		elif item_mano in ["pizzahecha", "food16"]:
+		elif item_mano == "pizzahecha":
 			nuevo_sprite.scale = Vector2(0.8, 0.8)
 			nuevo_sprite.texture = load("res://cocina/assets/comida/pizzacocinada.png")
-			
+		elif item_mano == "pizzaquemada":
+			nuevo_sprite.scale = Vector2(0.8, 0.8)
+			nuevo_sprite.texture = load("res://cocina/assets/comida/pizzaquemada.png")
+		elif item_mano == "pizzaplato":
+			nuevo_sprite.scale = Vector2(0.4, 0.4)
+			nuevo_sprite.texture = load("res://cocina/assets/comida/pizzaplato.png")
 		if has_node("CollisionShape2D"):
 			nuevo_sprite.position = $CollisionShape2D.position
 		else:
@@ -53,17 +58,6 @@ func interactuar(jugador: CharacterBody2D) -> void:
 					
 			var item_creado = "pizzaq1oh"
 			var path_pizza = "res://cocina/assets/comida/pizzaqoh.png"
-			
-			if "plato" in items_en_mesa:
-				for idx in range(items_en_mesa.size() - 1, -1, -1):
-					if items_en_mesa[idx] == "plato":
-						items_en_mesa.remove_at(idx)
-						var sp = sprites_items[idx]
-						sp.queue_free()
-						sprites_items.remove_at(idx)
-				item_creado = "pizzaplato"
-				path_pizza = "res://cocina/assets/comida/pizzaplato.png"
-				
 			items_en_mesa.append(item_creado)
 			
 			var sp_pizza = Sprite2D.new()
@@ -78,9 +72,23 @@ func interactuar(jugador: CharacterBody2D) -> void:
 				sp_pizza.position = $CollisionShape2D.position
 			else:
 				sp_pizza.position = Vector2.ZERO
-				
 			add_child(sp_pizza)
 			sprites_items.append(sp_pizza)
+		if "pizzahecha" in items_en_mesa and "plato" in items_en_mesa:
+			for sacar in ["pizzahecha", "plato"]:
+				var item= items_en_mesa.rfind(sacar)
+				items_en_mesa.remove_at(item)
+				sprites_items[item].queue_free()
+				sprites_items.remove_at(item)
+			items_en_mesa.append("pizzaplato")
+			var pizzaplatoSprite = Sprite2D.new()
+			pizzaplatoSprite.texture_filter = TEXTURE_FILTER_NEAREST
+			pizzaplatoSprite.scale = Vector2(0.4, 0.4)
+			pizzaplatoSprite.texture = load("res://cocina/assets/comida/pizzaplato.png")
+			if has_node("CollisionShape2D"):
+				pizzaplatoSprite.position = $CollisionShape2D.position
+			add_child(pizzaplatoSprite)
+			sprites_items.append(pizzaplatoSprite)
 	else:
 		if items_en_mesa.size() > 0:
 			var item_tomado = items_en_mesa.pop_back()

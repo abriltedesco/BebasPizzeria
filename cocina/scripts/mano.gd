@@ -28,10 +28,15 @@ func set_item(nombre: String) -> void:
 			"plato":
 				sprite.texture = load("res://cocina/assets/comida/plato.png")
 				sprite.scale = Vector2(0.4, 0.4)
+			"pizzaplato":
+				sprite.texture = load("res://cocina/assets/comida/pizzaplato.png")
+				sprite.scale = Vector2(0.4, 0.4)
 			"pizzaq1oh", "pizzaqoh":
 				sprite.texture = load("res://cocina/assets/comida/pizzaqoh.png")
-			"pizzahecha", "food16":
+			"pizzahecha":
 				sprite.texture = load("res://cocina/assets/comida/pizzacocinada.png")
+			"pizzaquemada":
+				sprite.texture = load("res://cocina/assets/comida/pizzaquemada.png")
 			_:
 				sprite.visible = false
 				visible = false

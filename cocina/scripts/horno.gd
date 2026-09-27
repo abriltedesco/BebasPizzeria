@@ -71,7 +71,7 @@ func interactuar(jugador: CharacterBody2D) -> void:
 			elif tiempo_horno <= 4.0:
 				resultado = "pizzahecha"
 			else:
-				resultado = "food16"
+				resultado = "pizzaquemada"
 				
 			horno_activo = false
 			pizza_en_horno = ""
