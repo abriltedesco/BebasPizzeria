@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bapbfm66lk0x6"]
 
 [ext_resource type="Texture2D" uid="uid://b5itl5axfjkf4" path="res://assets/Kitchen and more tileset [16x16]/tileset.png" id="1_1kxht"]
+[ext_resource type="Script" uid="uid://dg82tahmmht4q" path="res://escenas/cocina.gd" id="1_4dbra"]
 [ext_resource type="PackedScene" uid="uid://d3374hb2pwn4h" path="res://escenas/lucia.tscn" id="2_y27vd"]
 [ext_resource type="Script" uid="uid://d3ql2xq1v25je" path="res://scripts/cocina/mesa.gd" id="3_mesa"]
 [ext_resource type="Script" uid="uid://ck38qn7bg8cub" path="res://scripts/cocina/horno.gd" id="4_horno"]
@@ -612,6 +613,7 @@ size = Vector2(54.477615, 32.608673)
 [node name="Node2D" type="Node2D" unique_id=453564565]
 position = Vector2(1.0000038, 0)
 scale = Vector2(1.34, 1.8400006)
+script = ExtResource("1_4dbra")
 
 [node name="cocina" type="TileMapLayer" parent="." unique_id=1084194]
 scale = Vector2(1.34, 1)

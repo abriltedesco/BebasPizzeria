@@ -36,3 +36,4 @@ func _mostrar_cocina() -> void:
 	cocina.visible= true
 	cocina.process_mode= Node.PROCESS_MODE_INHERIT
 	interfaz.set_vista_cocina(true)
+	cocina.mostrar_instrucciones()
