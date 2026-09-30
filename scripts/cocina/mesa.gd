@@ -118,12 +118,12 @@ func intentar_emplatar(zona: CollisionShape2D) -> void:
 		return
 
 	var tipo_pizza= tipos_en_mesa[lugar_pizza]
-
-	if lugar_pizza> lugar_plato:
+	
+	if lugar_pizza > lugar_plato:
 		quitar_item_en_indice(lugar_pizza)
-		quitar_item_en_indice(lugar_pizza)
+		quitar_item_en_indice(lugar_plato)
 	else:
-		quitar_item_en_indice(lugar_pizza)
+		quitar_item_en_indice(lugar_plato)
 		quitar_item_en_indice(lugar_pizza)
 
 	var tipo_pizzaplato = tipo_pizza

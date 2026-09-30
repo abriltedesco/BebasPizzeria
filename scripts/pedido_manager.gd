@@ -3,53 +3,75 @@ extends Node
 signal pedido_cambiado
 signal cliente_esperando_cambiado
 signal tiempo_agotado
+signal nivel_completado
 
-var partida_iniciada= false
-var partida_finalizada= false
-var pedido_activo= false
-var cliente_esperando= true
+var partida_iniciada = false
+var partida_finalizada = false
+var cliente_esperando = true
 
-func iniciar_partida() -> void:
-	if partida_iniciada:
-		return
-	partida_iniciada= true
+var secuencial = true
+var max_clientes_nivel = 2
+var clientes_generados = 0
+var pedidos_activos = []
+var max_simultaneos = 1
+
+func configurar_nivel(esSecuencial: bool, cantLimite: int, totalClientes: int) -> void:
+	secuencial = esSecuencial
+	max_simultaneos = cantLimite
+	max_clientes_nivel = totalClientes
+	clientes_generados = 0
+	pedidos_activos.clear()
+	partida_iniciada = true
+	partida_finalizada = false
+	cliente_esperando = true
 
 func tomar_pedido(nombre_cliente: String, orden: Dictionary) -> bool:
-	if partida_finalizada or pedido_activo or not cliente_esperando:
+	if partida_finalizada or !cliente_esperando or pedidos_activos.size() >= max_simultaneos:
 		return false
 
-	ClienteActual.nombre= nombre_cliente
-	ClienteActual.pizza= orden["tipo"]
-	ClienteActual.dificultad= orden["dificultad"]
-	ClienteActual.listaOrden= orden["ingredientes"].duplicate()
-	ClienteActual.reiniciarIndice()
+	var nuevo_pedido = {
+		"nombre": nombre_cliente,
+		"pizza": orden["tipo"],
+		"listaOrden": orden["ingredientes"].duplicate()
+	}
 	
-	pedido_activo= true
-	cliente_esperando= false
+	pedidos_activos.append(nuevo_pedido)
+	clientes_generados += 1
+	cliente_esperando = false
+	
 	pedido_cambiado.emit()
 	cliente_esperando_cambiado.emit()
+	
+	if !secuencial and clientes_generados < max_clientes_nivel: # si el nivel permite pedidos simultáneos y faltan clientes, 
+		esperar_nuevo_cliente()  # el timer del prox cliente arranca inmediatamente mientras haces esta pizza
+		
 	return true
 
-func completar_pedido() -> void:
-	if not pedido_activo or partida_finalizada:
+func completar_pedido(indice_pedido: int = 0) -> void:
+	if pedidos_activos.is_empty() or partida_finalizada:
 		return
-	pedido_activo= false
+		
+	pedidos_activos.remove_at(indice_pedido)
 	pedido_cambiado.emit()
-	esperar_nuevo_cliente()
+	
+	if secuencial and clientes_generados < max_clientes_nivel:
+		esperar_nuevo_cliente()
+	elif clientes_generados >= max_clientes_nivel and pedidos_activos.is_empty():
+		nivel_completado.emit()
 
 func esperar_nuevo_cliente() -> void:
 	await get_tree().create_timer(3.0).timeout
-	if partida_finalizada or pedido_activo:
+	if partida_finalizada:
 		return
-	cliente_esperando= true
+	cliente_esperando = true
 	cliente_esperando_cambiado.emit()
-
+	
 func finalizar_partida() -> void:
 	if partida_finalizada:
 		return
-	partida_finalizada= true
-	pedido_activo= false
-	cliente_esperando= false
+	partida_finalizada = true
+	pedidos_activos.clear()
+	cliente_esperando = false
 	pedido_cambiado.emit()
 	cliente_esperando_cambiado.emit()
 	tiempo_agotado.emit()

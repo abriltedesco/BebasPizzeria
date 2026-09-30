@@ -12,7 +12,7 @@ func _ready() -> void:
 	add_to_group("entrega")
 
 func interactuar(jugador: CharacterBody2D) -> void:
-	if jugador.mano_item!= "pizzaplato" or not PedidoManager.pedido_activo:
+	if jugador.mano_item!= "pizzaplato" or PedidoManager.pedidos_activos.is_empty():
 		return
 
 	var tipo_entregado: String= jugador.mano_item_tipo
@@ -23,14 +23,24 @@ func interactuar(jugador: CharacterBody2D) -> void:
 		Puntaje.sumarPedidoFallido()
 		pedido_resuelto.emit(false)
 		PedidoManager.completar_pedido()
-	elif tipo_entregado== ClienteActual.pizza:
+		
+	# buscamos a quién le pertenece esta pizza exacta dentro de los pedidos activos
+	var indice_cliente =-1
+	for i in range(PedidoManager.pedidos_activos.size()):
+		if tipo_entregado == PedidoManager.pedidos_activos[i]["pizza"]:
+			indice_cliente = i
+			break
+
+	if indice_cliente != -1:
+		# pertenece a alguien de la lista
 		pizzasEntregadas+= 1
 		Puntaje.sumarPedidoCompletado(ClienteActual.dificultad)
 		pizza_entregada.emit(pizzasEntregadas)
 		pedido_resuelto.emit(true)
-		PedidoManager.completar_pedido()
+		PedidoManager.completar_pedido(indice_cliente) 
 	else:
+		# perfecta pero no había sido pedida
 		pizzasFallidas+= 1
 		Puntaje.sumarPedidoFallido()
 		pedido_resuelto.emit(false)
-		PedidoManager.completar_pedido()
+		PedidoManager.completar_pedido(0)

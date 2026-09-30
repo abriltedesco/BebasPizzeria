@@ -5,20 +5,22 @@ extends Control
 @onready var labelItems= $items
 
 signal textoListo
+var datos_propios: Dictionary = {}
 
 func actualizarOrden():
-	labelOrden.text= "Orden de: "+ClienteActual.nombre
-	labelPizza.text= "PIZZA : "+ClienteActual.pizza
+	labelOrden.text = "Orden de: " + datos_propios["nombre"]
+	labelPizza.text = "PIZZA : " + datos_propios["pizza"]
 	
-	var textoIngredientes= ""
+	var textoIngredientes = ""
 	
-	for ingrediente in ClienteActual.listaOrden:
-		textoIngredientes+="- "+ingrediente+"\n"
-	labelItems.text= textoIngredientes
+	for ingrediente in datos_propios["listaOrden"]:
+		textoIngredientes += "- " + ingrediente + "\n"
+	labelItems.text = textoIngredientes
 		
-	labelOrden.visible_characters= 0
-	labelPizza.visible_characters= 0
-	labelItems.visible_characters= 0
+	labelOrden.visible_characters = 0
+	labelPizza.visible_characters = 0
+	labelItems.visible_characters = 0
+
 	
 	var tween= create_tween()
 	var tiempoN= labelOrden.text.length() * 0.05  

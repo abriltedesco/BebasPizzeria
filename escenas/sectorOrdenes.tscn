@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b4eak3ueb0ccu"]
 
-[ext_resource type="Script" uid="uid://xbygkk6ckv1q" path="res://scripts/nivel.gd" id="1_0uyns"]
+[ext_resource type="Script" uid="uid://xbygkk6ckv1q" path="res://scripts/sectorOrdenes.gd" id="1_0uyns"]
 [ext_resource type="PackedScene" uid="uid://3a6n60f6t1pr" path="res://escenas/cliente.tscn" id="2_2p2iw"]
 [ext_resource type="Texture2D" uid="uid://brytwlrtif2ej" path="res://assets/background.png" id="4_gs83u"]
 [ext_resource type="PackedScene" uid="uid://brpmjhh8585mf" path="res://escenas/orden.tscn" id="5_v4w84"]

@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://c8gixx6toav56"]
 
-[ext_resource type="Script" uid="uid://cq1cqcrnjml28" path="res://scripts/interfaz_partida.gd" id="1_interfaz"]
+[ext_resource type="Script" uid="uid://xe3q0hxpfoho" path="res://scripts/interfaz_partida.gd" id="1_interfaz"]
 [ext_resource type="Texture2D" uid="uid://de1v2ew301hjl" path="res://assets/señal.png" id="2_señal"]
+[ext_resource type="Script" uid="uid://c6qljumy4talo" path="res://scripts/actualizador_ui.gd" id="3_r4hgc"]
 
 [node name="Interfaz" type="CanvasLayer" unique_id=1553922497]
 layer = 20
@@ -18,7 +19,7 @@ theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 26
 text = "05:00"
 
-[node name="LabelPuntaje" type="Label" parent="."]
+[node name="LabelPuntaje" type="Label" parent="." unique_id=1760712657]
 offset_left = 16.0
 offset_top = 58.0
 offset_right = 200.0
@@ -59,3 +60,6 @@ grow_vertical = 2
 texture = ExtResource("2_señal")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="ActualizadorUI" type="Node" parent="." unique_id=214139385]
+script = ExtResource("3_r4hgc")
