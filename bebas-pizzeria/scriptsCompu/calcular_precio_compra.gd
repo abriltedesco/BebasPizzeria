@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 
 func _on_comprar_pressed() -> void:
 	var precioCompra = cargarPrecioIngrediente.precioIngrediente * cantidadUnidadesIngrediente.cantDefault
-	if precioCompra < cargarPlataJugador.dineroJugador:
+	if precioCompra <= cargarPlataJugador.dineroJugador:
 		cargarPlataJugador.dineroJugador -= precioCompra
 		print("se compro bien")
 	else:
