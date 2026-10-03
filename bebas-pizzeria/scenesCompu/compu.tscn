@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://d2vr10hmpgblt"]
+
+[node name="Compu" type="Node2D" unique_id=1264377963]
+
+[node name="Control" type="Control" parent="." unique_id=1405904674]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control" unique_id=1738951386]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="listaIngredientes" type="VBoxContainer" parent="Control" unique_id=1903238956]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 92.0
+offset_right = 325.0
+offset_bottom = 142.0
+
+[node name="datosIngrediente" type="HBoxContainer" parent="Control/listaIngredientes" unique_id=910967469]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/listaIngredientes/datosIngrediente" unique_id=690406040]
+layout_mode = 2
+text = "Nombre del item"
+
+[node name="Label2" type="Label" parent="Control/listaIngredientes/datosIngrediente" unique_id=767959430]
+layout_mode = 2
+text = "cantidad del item"
