@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://w3q1ctdej4k8" path="res://scriptsCompu/cargarCantidadIngrediente.gd" id="1_bjutb"]
 [ext_resource type="Script" uid="uid://bb80njbsngkdq" path="res://scriptsCompu/sumar_unidad_ingrediente.gd" id="2_0jrrv"]
 [ext_resource type="Script" uid="uid://ph12jhsoy4of" path="res://scriptsCompu/restar_unidad_ingrediente.gd" id="3_fdmqi"]
+[ext_resource type="Script" uid="uid://dho076jugrajt" path="res://scriptsCompu/cargar_plata_del_jugador.gd" id="5_f6tkj"]
+[ext_resource type="Script" uid="uid://g3xu0naign84" path="res://scriptsCompu/cargar_precio_ingrediente.gd" id="6_cgoj7"]
+[ext_resource type="Script" uid="uid://b7qgoxpo1q4ed" path="res://scriptsCompu/calcular_precio_compra.gd" id="7_djw2i"]
 
 [node name="Compu" type="Node2D" unique_id=1264377963]
 
@@ -19,32 +22,49 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="listaIngredientes" type="VBoxContainer" parent="Control/Panel" unique_id=1903238956]
-layout_mode = 0
-offset_left = 55.0
-offset_top = 92.0
-offset_right = 433.0
-offset_bottom = 150.0
+[node name="listaIngredientes" type="VBoxContainer" parent="Control/Panel" unique_id=915079943]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -232.0
+offset_right = 592.0
+offset_bottom = -174.0
+grow_vertical = 2
 
-[node name="datosIngrediente" type="HBoxContainer" parent="Control/Panel/listaIngredientes" unique_id=910967469]
+[node name="ingrediente" type="VBoxContainer" parent="Control/Panel/listaIngredientes" unique_id=1903238956]
 layout_mode = 2
 
-[node name="nombreIngrediente" type="Label" parent="Control/Panel/listaIngredientes/datosIngrediente" unique_id=690406040]
+[node name="datosIngrediente" type="HBoxContainer" parent="Control/Panel/listaIngredientes/ingrediente" unique_id=910967469]
+layout_mode = 2
+
+[node name="nombreIngrediente" type="Label" parent="Control/Panel/listaIngredientes/ingrediente/datosIngrediente" unique_id=690406040]
 layout_mode = 2
 text = "Nombre del ingrediente"
 
-[node name="cantidadIngrediente" type="Label" parent="Control/Panel/listaIngredientes/datosIngrediente" unique_id=767959430]
+[node name="VSeparator2" type="VSeparator" parent="Control/Panel/listaIngredientes/ingrediente/datosIngrediente" unique_id=1218362929]
+layout_mode = 2
+
+[node name="cantidadIngrediente" type="Label" parent="Control/Panel/listaIngredientes/ingrediente/datosIngrediente" unique_id=767959430]
 layout_mode = 2
 text = "cantidad del ingrediente"
 
-[node name="botonesUnidad" type="HBoxContainer" parent="Control/Panel/listaIngredientes" unique_id=132523027]
+[node name="VSeparator" type="VSeparator" parent="Control/Panel/listaIngredientes/ingrediente/datosIngrediente" unique_id=333606413]
 layout_mode = 2
 
-[node name="restarUnidad" type="Button" parent="Control/Panel/listaIngredientes/botonesUnidad" unique_id=889711272]
+[node name="precioIngrediente" type="Label" parent="Control/Panel/listaIngredientes/ingrediente/datosIngrediente" unique_id=257413958]
+layout_mode = 2
+text = "precio del ingrediente"
+
+[node name="botonesUnidad" type="HBoxContainer" parent="Control/Panel/listaIngredientes/ingrediente" unique_id=132523027]
+layout_mode = 2
+
+[node name="restarUnidad" type="Button" parent="Control/Panel/listaIngredientes/ingrediente/botonesUnidad" unique_id=889711272]
 layout_mode = 2
 text = "-"
 
-[node name="sumarUnidad" type="Button" parent="Control/Panel/listaIngredientes/botonesUnidad" unique_id=190591276]
+[node name="sumarUnidad" type="Button" parent="Control/Panel/listaIngredientes/ingrediente/botonesUnidad" unique_id=190591276]
 layout_mode = 2
 text = "+"
 
@@ -56,6 +76,14 @@ offset_right = 1127.7742
 offset_bottom = 621.0
 text = "COMPRAR"
 
+[node name="dineroJugador" type="Label" parent="Control/Panel" unique_id=2114601768]
+layout_mode = 0
+offset_left = 1001.0
+offset_top = 96.0
+offset_right = 1072.0
+offset_bottom = 120.0
+text = "$ XXX.XX"
+
 [node name="cargarCantidadIngrediente" type="Node" parent="." unique_id=389020990]
 script = ExtResource("1_bjutb")
 
@@ -65,5 +93,15 @@ script = ExtResource("2_0jrrv")
 [node name="restarUnidadIngrediente" type="Node" parent="." unique_id=1125153926]
 script = ExtResource("3_fdmqi")
 
-[connection signal="pressed" from="Control/Panel/listaIngredientes/botonesUnidad/restarUnidad" to="restarUnidadIngrediente" method="_on_restar_unidad_pressed"]
-[connection signal="pressed" from="Control/Panel/listaIngredientes/botonesUnidad/sumarUnidad" to="sumarUnidadIngrediente" method="_on_sumar_unidad_pressed"]
+[node name="cargarPlataDelJugador" type="Node" parent="." unique_id=2012018393]
+script = ExtResource("5_f6tkj")
+
+[node name="cargarPrecioIngrediente" type="Node" parent="." unique_id=387067645]
+script = ExtResource("6_cgoj7")
+
+[node name="calcularPrecioCompra" type="Node" parent="." unique_id=44644054]
+script = ExtResource("7_djw2i")
+
+[connection signal="pressed" from="Control/Panel/listaIngredientes/ingrediente/botonesUnidad/restarUnidad" to="restarUnidadIngrediente" method="_on_restar_unidad_pressed"]
+[connection signal="pressed" from="Control/Panel/listaIngredientes/ingrediente/botonesUnidad/sumarUnidad" to="sumarUnidadIngrediente" method="_on_sumar_unidad_pressed"]
+[connection signal="pressed" from="Control/Panel/comprar" to="calcularPrecioCompra" method="_on_comprar_pressed"]

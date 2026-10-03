@@ -1,6 +1,6 @@
 extends Node
 
-@onready var cantIngredienteLabel = $"../Control/Panel/listaIngredientes/datosIngrediente/cantidadIngrediente"
+@onready var cantIngredienteLabel = $"../Control/Panel/listaIngredientes/ingrediente/datosIngrediente/cantidadIngrediente"
 @export var cantDefault = 0
 
 # Called when the node enters the scene tree for the first time.
