@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://d2vr10hmpgblt"]
 
+[ext_resource type="Script" uid="uid://w3q1ctdej4k8" path="res://scriptsCompu/cargarCantidadIngrediente.gd" id="1_bjutb"]
+[ext_resource type="Script" uid="uid://bb80njbsngkdq" path="res://scriptsCompu/sumar_unidad_ingrediente.gd" id="2_0jrrv"]
+[ext_resource type="Script" uid="uid://ph12jhsoy4of" path="res://scriptsCompu/restar_unidad_ingrediente.gd" id="3_fdmqi"]
+
 [node name="Compu" type="Node2D" unique_id=1264377963]
 
 [node name="Control" type="Control" parent="." unique_id=1405904674]
@@ -15,20 +19,51 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="listaIngredientes" type="VBoxContainer" parent="Control" unique_id=1903238956]
+[node name="listaIngredientes" type="VBoxContainer" parent="Control/Panel" unique_id=1903238956]
 layout_mode = 0
 offset_left = 55.0
 offset_top = 92.0
-offset_right = 325.0
-offset_bottom = 142.0
+offset_right = 433.0
+offset_bottom = 150.0
 
-[node name="datosIngrediente" type="HBoxContainer" parent="Control/listaIngredientes" unique_id=910967469]
+[node name="datosIngrediente" type="HBoxContainer" parent="Control/Panel/listaIngredientes" unique_id=910967469]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/listaIngredientes/datosIngrediente" unique_id=690406040]
+[node name="nombreIngrediente" type="Label" parent="Control/Panel/listaIngredientes/datosIngrediente" unique_id=690406040]
 layout_mode = 2
-text = "Nombre del item"
+text = "Nombre del ingrediente"
 
-[node name="Label2" type="Label" parent="Control/listaIngredientes/datosIngrediente" unique_id=767959430]
+[node name="cantidadIngrediente" type="Label" parent="Control/Panel/listaIngredientes/datosIngrediente" unique_id=767959430]
 layout_mode = 2
-text = "cantidad del item"
+text = "cantidad del ingrediente"
+
+[node name="botonesUnidad" type="HBoxContainer" parent="Control/Panel/listaIngredientes" unique_id=132523027]
+layout_mode = 2
+
+[node name="restarUnidad" type="Button" parent="Control/Panel/listaIngredientes/botonesUnidad" unique_id=889711272]
+layout_mode = 2
+text = "-"
+
+[node name="sumarUnidad" type="Button" parent="Control/Panel/listaIngredientes/botonesUnidad" unique_id=190591276]
+layout_mode = 2
+text = "+"
+
+[node name="comprar" type="Button" parent="Control/Panel" unique_id=36881155]
+layout_mode = 0
+offset_left = 965.0
+offset_top = 563.0
+offset_right = 1127.7742
+offset_bottom = 621.0
+text = "COMPRAR"
+
+[node name="cargarCantidadIngrediente" type="Node" parent="." unique_id=389020990]
+script = ExtResource("1_bjutb")
+
+[node name="sumarUnidadIngrediente" type="Node" parent="." unique_id=525990355]
+script = ExtResource("2_0jrrv")
+
+[node name="restarUnidadIngrediente" type="Node" parent="." unique_id=1125153926]
+script = ExtResource("3_fdmqi")
+
+[connection signal="pressed" from="Control/Panel/listaIngredientes/botonesUnidad/restarUnidad" to="restarUnidadIngrediente" method="_on_restar_unidad_pressed"]
+[connection signal="pressed" from="Control/Panel/listaIngredientes/botonesUnidad/sumarUnidad" to="sumarUnidadIngrediente" method="_on_sumar_unidad_pressed"]

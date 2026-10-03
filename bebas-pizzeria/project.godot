@@ -27,7 +27,7 @@ editor/advanced/custom_test_scene_path="res://addonsOrdenes/dialogue_manager/tes
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray()
 
 [physics]
 
