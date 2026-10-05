@@ -25,7 +25,7 @@ func _ready() -> void:
 
 func on_tiempo_agotado() -> void:
 	PedidoManager.finalizar_partida()
-	get_tree().change_scene_to_file("res://escenas/GameOver.tscn")
+	get_tree().change_scene_to_file("res://escenas/interfaces/GameOver.tscn")
 
 func _alternar_vista() -> void:
 	if cocina.visible:

@@ -15,6 +15,14 @@ var clientes_generados = 0
 var pedidos_activos = []
 var max_simultaneos = 1
 
+@export var duracion_pedido: float = 60.0
+
+func _process(delta: float) -> void:
+	if !partida_iniciada or partida_finalizada:
+		return
+	for pedido in pedidos_activos:
+		pedido["tiempo_transcurrido"] = minf(pedido["tiempo_transcurrido"] + delta, pedido["duracion"])
+
 func configurar_nivel(esSecuencial: bool, cantLimite: int, totalClientes: int) -> void:
 	secuencial = esSecuencial
 	max_simultaneos = cantLimite
@@ -32,7 +40,10 @@ func tomar_pedido(nombre_cliente: String, orden: Dictionary) -> bool:
 	var nuevo_pedido = {
 		"nombre": nombre_cliente,
 		"pizza": orden["tipo"],
-		"listaOrden": orden["ingredientes"].duplicate()
+		"listaOrden": orden["ingredientes"].duplicate(),
+		"tiempo_transcurrido": 0.0,
+		"duracion": maxf(duracion_pedido, 0.1),
+		"desplegado": false
 	}
 	
 	pedidos_activos.append(nuevo_pedido)

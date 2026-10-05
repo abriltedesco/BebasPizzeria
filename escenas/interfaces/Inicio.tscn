@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://ccj1q3tju1wej"]
+
+[ext_resource type="FontFile" uid="uid://co4gjim8awrfd" path="res://assets/KGBlankSpaceSolid.ttf" id="1_ak55l"]
+[ext_resource type="Script" uid="uid://d1e1gcmni0763" path="res://scripts/empezar.gd" id="2_dap4t"]
+[ext_resource type="Script" uid="uid://b3oi7waqrgwh8" path="res://scripts/salir.gd" id="3_ak55l"]
+
+[node name="GameOver" type="Node2D" unique_id=1481331450]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1574166932]
+offset_right = 1151.0
+offset_bottom = 663.0
+color = Color(0.72197855, 0.9418724, 0.58471394, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1948582639]
+offset_left = 278.0
+offset_top = 227.0
+offset_right = 865.0
+offset_bottom = 315.0
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=83270852]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ak55l")
+theme_override_font_sizes/font_size = 60
+text = "Beba's pizzeria"
+horizontal_alignment = 1
+
+[node name="empezar" type="Button" parent="VBoxContainer" unique_id=742793987]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Empezar"
+script = ExtResource("2_dap4t")
+
+[node name="salir" type="Button" parent="VBoxContainer" unique_id=2030483682]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Salir
+"
+script = ExtResource("3_ak55l")
+
+[connection signal="pressed" from="VBoxContainer/empezar" to="VBoxContainer/empezar" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/salir" to="VBoxContainer/salir" method="_on_pressed"]

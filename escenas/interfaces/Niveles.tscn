@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://bexh7xs0t0hoi"]
+
+[ext_resource type="FontFile" uid="uid://co4gjim8awrfd" path="res://assets/KGBlankSpaceSolid.ttf" id="1_kr487"]
+[ext_resource type="Texture2D" uid="uid://b1ckgu2pdme6v" path="res://assets/niveles/Number1 7x10.png" id="1_yb8ee"]
+[ext_resource type="Script" uid="uid://c153tet84r3q7" path="res://scripts/1.gd" id="2_5yyky"]
+[ext_resource type="Texture2D" uid="uid://c04yyd5tupatx" path="res://assets/niveles/Number2 7x10.png" id="3_m0eom"]
+[ext_resource type="Texture2D" uid="uid://dqm3t3tcphw2o" path="res://assets/niveles/Number3 7x10.png" id="4_f3p4y"]
+[ext_resource type="Texture2D" uid="uid://pmtpwgcufbas" path="res://assets/niveles/Number4 7x10.png" id="5_n52og"]
+[ext_resource type="Texture2D" uid="uid://b1hmfsguxk43g" path="res://assets/niveles/Number5 7x10.png" id="6_mut80"]
+
+[node name="Niveles" type="Node2D" unique_id=649537921]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1332806337]
+offset_right = 1151.0
+offset_bottom = 649.0
+color = Color(0.72197855, 0.9418724, 0.58471394, 1)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1417895997]
+offset_left = 34.0
+offset_top = 95.0
+offset_right = 1114.0
+offset_bottom = 295.0
+theme_override_constants/separation = 240
+
+[node name="1" type="TextureButton" parent="HBoxContainer2" unique_id=1970676346]
+texture_filter = 1
+texture_repeat = 2
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("1_yb8ee")
+script = ExtResource("2_5yyky")
+
+[node name="2" type="TextureButton" parent="HBoxContainer2" unique_id=1106791282]
+custom_minimum_size = Vector2(200, 15)
+layout_mode = 2
+texture_normal = ExtResource("3_m0eom")
+
+[node name="3" type="TextureButton" parent="HBoxContainer2" unique_id=1306374930]
+custom_minimum_size = Vector2(200, 15)
+layout_mode = 2
+texture_normal = ExtResource("4_f3p4y")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2025914585]
+offset_left = 327.0
+offset_top = 376.0
+offset_right = 827.0
+offset_bottom = 576.0
+theme_override_constants/separation = 100
+
+[node name="4" type="TextureButton" parent="HBoxContainer" unique_id=1083146936]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("5_n52og")
+
+[node name="5" type="TextureButton" parent="HBoxContainer" unique_id=1570235232]
+custom_minimum_size = Vector2(200, 15)
+layout_mode = 2
+texture_normal = ExtResource("6_mut80")
+
+[node name="Label" type="Label" parent="." unique_id=1451447106]
+offset_left = 448.0
+offset_top = 11.0
+offset_right = 695.0
+offset_bottom = 91.0
+theme_override_fonts/font = ExtResource("1_kr487")
+theme_override_font_sizes/font_size = 60
+text = "Niveles"
+
+[connection signal="pressed" from="HBoxContainer2/1" to="HBoxContainer2/1" method="_on_pressed"]

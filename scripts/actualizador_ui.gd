@@ -29,7 +29,7 @@ func actualizar_lista_pedidos(pedidos_activos: Array) -> void:
 	for ticket_viejo in contenedor_pedidos.get_children():
 		ticket_viejo.queue_free()
 		
-	var orden_escena = load("res://escenas/orden.tscn")
+	var orden_escena = load("res://escenas/interfaces/orden.tscn")
 	var distancia_x = 0
 	
 	for datos_pedido in pedidos_activos:
