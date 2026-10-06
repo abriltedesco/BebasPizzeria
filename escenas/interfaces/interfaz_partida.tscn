@@ -19,7 +19,7 @@ theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 26
 text = "05:00"
 
-[node name="LabelPuntaje" type="Label" parent="." unique_id=1760712657]
+[node name="LabelPropinas" type="Label" parent="." unique_id=1760712657]
 offset_left = 16.0
 offset_top = 58.0
 offset_right = 200.0
@@ -28,7 +28,7 @@ theme_override_colors/font_color = Color(1, 0.956863, 0.839216, 1)
 theme_override_colors/font_outline_color = Color(0.164706, 0.0901961, 0.0705882, 1)
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 18
-text = "Puntaje: $0"
+text = "Propina: $0"
 
 [node name="BotonFlecha" type="TextureButton" parent="." unique_id=1882575722]
 anchors_preset = 6

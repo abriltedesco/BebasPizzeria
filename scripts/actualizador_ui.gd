@@ -1,7 +1,7 @@
 extends Node
 
 @onready var label_tiempo = $"../LabelTiempo"
-@onready var label_puntaje = $"../LabelPuntaje"
+@onready var label_puntaje = $"../LabelPropina"
 @onready var aviso_cliente = $"../AvisoCliente"
 var contenedor_pedidos: Control 
 

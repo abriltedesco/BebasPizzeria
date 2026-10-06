@@ -13,7 +13,7 @@
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1332806337]
 offset_right = 1151.0
 offset_bottom = 649.0
-color = Color(0.72197855, 0.9418724, 0.58471394, 1)
+color = Color(0.47058824, 0, 0, 1)
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1417895997]
 offset_left = 34.0

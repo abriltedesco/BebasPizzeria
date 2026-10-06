@@ -8,7 +8,8 @@ var ingredientes_por_nivel: Dictionary = {
 var ingredientes_desbloqueados: Array[String] = []
 func _ready() -> void:
 	add_to_group("controlador_ingredientes")
-	ingredientes_desbloqueados = ingredientes_por_nivel.get(ProgresoManager.nivel_actual, [])
+	var lista: Array = ingredientes_por_nivel.get(ProgresoManager.nivel_actual,[])
+	ingredientes_desbloqueados.assign(lista)
 func esta_desbloqueado(ingrediente: String) -> bool:
 	return ingrediente in ingredientes_desbloqueados
 func desbloquear(ingrediente: String) -> void:
