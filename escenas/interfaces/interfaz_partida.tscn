@@ -19,7 +19,7 @@ theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 26
 text = "05:00"
 
-[node name="LabelPropinas" type="Label" parent="." unique_id=1760712657]
+[node name="LabelPropina" type="Label" parent="." unique_id=1760712657]
 offset_left = 16.0
 offset_top = 58.0
 offset_right = 200.0

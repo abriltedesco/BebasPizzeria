@@ -4,6 +4,7 @@ extends Node2D
 @onready var clienteMov= $Cliente/movimientoCliente
 @onready var orden= $Control
 @onready var ruta_cliente= $RutaCliente
+@onready var finNivel= $finNivel
 
 @export var tipo_pedido= "queso"
 
@@ -12,12 +13,23 @@ var atendiendo= false
 func _ready() -> void:
 	orden.visible= false
 	cliente.visible= false
+	finNivel.visible= false
 	clienteMov.configurar_ruta(ruta_cliente)
 	PedidoManager.configurar_nivel(true, 1, 2)
+	PedidoManager.dia_terminado.connect(finDia)
 
 func _process(_delta: float) -> void:
 	if is_visible_in_tree() and PedidoManager.cliente_esperando and !atendiendo:
 		generar_pedido()
+
+func finDia() -> void:
+	atendiendo= true
+	finNivel.visible= true
+	finNivel.play("dianoche")
+	await get_tree().create_timer(11.0).timeout
+	finNivel.visible= false
+	atendiendo= false
+	PedidoManager.continuar_despues_del_dia()
 
 func generar_pedido() -> void:
 	atendiendo = true

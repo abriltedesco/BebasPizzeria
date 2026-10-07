@@ -4,8 +4,8 @@ extends Node
 @onready var interfaz= $Interfaz
 @onready var timer_partida= $TimerPartida
 var entrega_node: Node = null
-var se_entrego_algo := false
-var entrega_fue_exitosa := false
+var pizzaEntregada= false
+var entregaExitosa= false
 func _ready() -> void:
 	match ProgresoManager.nivel_actual:
 		1:
@@ -20,28 +20,29 @@ func _ready() -> void:
 	interfaz.configurar_timer(timer_partida)
 	timer_partida.timeout.connect(on_tiempo_agotado)
 	PedidoManager.nivel_completado.connect(on_nivel_completado)
+	
 	entrega_node = get_tree().get_first_node_in_group("entrega")
 	if entrega_node:
 		entrega_node.pedido_resuelto.connect(_on_pedido_resuelto)
 	else:
-		print("no hay ninguna estacion en entrega")
+		print("juego.gd: no hay ninguna estación en el grupo 'entrega'.")
 	timer_partida.start()
 	_mostrar_pedidos()
 func _on_pedido_resuelto(exito: bool) -> void:
-	se_entrego_algo = true
-	entrega_fue_exitosa = exito
+	pizzaEntregada=true
+	entregaExitosa=exito
 func on_tiempo_agotado() -> void:
 	timer_partida.stop()
 	_mostrar_pedidos()
-	if not se_entrego_algo:
+	if not pizzaEntregada:
 		print("no se entregó nada")
 		PedidoManager.finalizar_partida()
 		get_tree().change_scene_to_file("res://escenas/interfaces/GameOver.tscn")
 		return
-	if entrega_fue_exitosa:
+	if entregaExitosa:
 		Puntaje.sumarPropina(100)
-		if !(ProgresoManager.nivel_actual == 5):
-			ProgresoManager.nivel_actual = 1
+		if !(ProgresoManager.nivel_actual==5):
+			ProgresoManager.nivel_actual=1
 		get_tree().change_scene_to_file("res://escenas/interfaces/Niveles.tscn")
 	else:
 		print("no coinciden los ingredientes")

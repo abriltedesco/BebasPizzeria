@@ -4,10 +4,12 @@ signal pedido_cambiado
 signal cliente_esperando_cambiado
 signal tiempo_agotado
 signal nivel_completado
+signal dia_terminado
 
 var partida_iniciada = false
 var partida_finalizada = false
 var cliente_esperando = true
+var pedidos_correctos = 0
 
 var secuencial = true
 var max_clientes_nivel = 2
@@ -32,6 +34,7 @@ func configurar_nivel(esSecuencial: bool, cantLimite: int, totalClientes: int) -
 	partida_iniciada = true
 	partida_finalizada = false
 	cliente_esperando = true
+	pedidos_correctos= 0
 
 func tomar_pedido(nombre_cliente: String, orden: Dictionary) -> bool:
 	if partida_finalizada or !cliente_esperando or pedidos_activos.size() >= max_simultaneos:
@@ -58,17 +61,34 @@ func tomar_pedido(nombre_cliente: String, orden: Dictionary) -> bool:
 		
 	return true
 
-func completar_pedido(indice_pedido: int = 0) -> void:
+func completar_pedido(indice_pedido: int = 0, exito: bool = true) -> void:
 	if pedidos_activos.is_empty() or partida_finalizada:
 		return
 		
 	pedidos_activos.remove_at(indice_pedido)
 	pedido_cambiado.emit()
 	
-	if secuencial and clientes_generados < max_clientes_nivel:
-		esperar_nuevo_cliente()
-	elif clientes_generados >= max_clientes_nivel and pedidos_activos.is_empty():
+	if exito:
+		pedidos_correctos+= 1
+	
+	if exito and pedidos_correctos%2== 0:
+		dia_terminado.emit()
+	elif clientes_generados>= max_clientes_nivel and pedidos_activos.is_empty():
 		nivel_completado.emit()
+	elif secuencial and clientes_generados< max_clientes_nivel:
+		esperar_nuevo_cliente()
+
+# llamado por sectorOrdenes al terminar la animación de fin de día
+func continuar_despues_del_dia() -> void:
+	if partida_finalizada:
+		return
+	if clientes_generados>= max_clientes_nivel and pedidos_activos.is_empty():
+		nivel_completado.emit()
+	elif secuencial and clientes_generados< max_clientes_nivel:
+		esperar_nuevo_cliente()
+	else:
+		cliente_esperando= true
+		cliente_esperando_cambiado.emit()
 
 func esperar_nuevo_cliente() -> void:
 	await get_tree().create_timer(3.0).timeout

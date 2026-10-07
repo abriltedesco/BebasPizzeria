@@ -12,8 +12,10 @@ func sumarPedidoCompletado(dificultad: String = "facil") -> void:
 	pedidos_completados+= 1
 	dinero+= premioDificultad.get(dificultad, 10)
 	cambio_puntaje.emit(dinero,pedidos_completados,pedidos_fallidos)
-
 func sumarPedidoFallido() -> void:
 	pedidos_fallidos+=1
-	dinero-= 10
+	cambio_puntaje.emit(dinero,pedidos_completados,pedidos_fallidos)
+	
+func sumarPropina(monto:int=100) -> void:
+	dinero+=monto
 	cambio_puntaje.emit(dinero,pedidos_completados,pedidos_fallidos)

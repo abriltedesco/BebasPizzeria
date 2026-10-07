@@ -20,6 +20,7 @@ func _ready() -> void:
 	PedidoManager.tiempo_agotado.connect(actualizador.mostrar_tiempo_agotado)
 	Puntaje.cambio_puntaje.connect(_on_cambio_puntaje)
 	PedidoManager.pedido_cambiado.connect(_on_pedido_cambiado)
+	actualizador.actualizar_puntaje(Puntaje.dinero, Puntaje.pedidos_completados, Puntaje.pedidos_fallidos)
 
 func _process(_delta: float) -> void:
 	if timer_partida== null or timer_partida.is_stopped():

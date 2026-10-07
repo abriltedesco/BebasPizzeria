@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b4eak3ueb0ccu" path="res://escenas/sectorOrdenes.tscn" id="2_pedidos"]
 [ext_resource type="PackedScene" uid="uid://bapbfm66lk0x6" path="res://escenas/cocina.tscn" id="3_cocina"]
 [ext_resource type="PackedScene" uid="uid://c8gixx6toav56" path="res://escenas/interfaces/interfaz_partida.tscn" id="4_interfaz"]
-[ext_resource type="Script" uid="uid://dk34obytrvvka" path="res://controlador_ingredientes.gd" id="5_qnwci"]
+[ext_resource type="Script" uid="uid://dk34obytrvvka" path="res://scripts/controlador_ingredientes.gd" id="5_qnwci"]
 
 [node name="Juego" type="Node" unique_id=550360825]
 script = ExtResource("1_juego")

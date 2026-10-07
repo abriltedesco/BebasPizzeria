@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://ccj1q3tju1wej"]
 
-[ext_resource type="FontFile" uid="uid://co4gjim8awrfd" path="res://assets/KGBlankSpaceSolid.ttf" id="1_ak55l"]
 [ext_resource type="Script" uid="uid://e0ftspfopmk" path="res://scripts/loading.gd" id="1_vwema"]
 [ext_resource type="Script" uid="uid://d1e1gcmni0763" path="res://scripts/empezar.gd" id="2_dap4t"]
+[ext_resource type="Texture2D" uid="uid://bcx3yeyem2p2p" path="res://assets/cuadricula.jpeg" id="2_tu23a"]
 [ext_resource type="Script" uid="uid://b3oi7waqrgwh8" path="res://scripts/salir.gd" id="3_ak55l"]
+[ext_resource type="FontFile" uid="uid://bxrixcbxf2rqt" path="res://assets/Pix32.ttf" id="3_xjh86"]
 [ext_resource type="Texture2D" uid="uid://b2if2iyev7psk" path="res://assets/loading/pixil-frame-0.png" id="4_u1wj4"]
 [ext_resource type="Texture2D" uid="uid://br6atsy41hust" path="res://assets/loading/pixil-frame-1.png" id="5_vwema"]
 [ext_resource type="Texture2D" uid="uid://cx7cp4eqmh83d" path="res://assets/loading/pixil-frame-2.png" id="6_y7m4w"]
 [ext_resource type="Texture2D" uid="uid://p07f8vjs4ghl" path="res://assets/loading/pixil-frame-3.png" id="7_2acob"]
+[ext_resource type="Texture2D" uid="uid://cks4w3pdx2dle" path="res://assets/bannerdrop/pixil-frame-0.png" id="8_y7m4w"]
+[ext_resource type="Texture2D" uid="uid://cus0yyhj62ffi" path="res://assets/bannerdrop/pixil-frame-1.png" id="9_2acob"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tu23a"]
 animations = [{
@@ -29,6 +32,20 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_xjh86"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_y7m4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2acob")
+}],
+"loop": true,
+"name": &"quesoderretido",
+"speed": 1.0
+}]
+
 [node name="GameOver" type="Node2D" unique_id=1481331450]
 script = ExtResource("1_vwema")
 
@@ -37,6 +54,13 @@ offset_right = 1151.0
 offset_bottom = 663.0
 color = Color(0.47058824, 0, 0, 1)
 
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect" unique_id=904877169]
+modulate = Color(1, 1, 1, 0.16470589)
+position = Vector2(576.0626, 327.14072)
+rotation = 1.5707964
+scale = Vector2(0.8904981, 0.8810209)
+texture = ExtResource("2_tu23a")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1948582639]
 offset_left = 278.0
 offset_top = 295.0
@@ -44,35 +68,39 @@ offset_right = 865.0
 offset_bottom = 505.0
 theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=83270852]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.99215686, 0.9411765, 0.8352941, 1)
-theme_override_fonts/font = ExtResource("1_ak55l")
-theme_override_font_sizes/font_size = 60
-text = "Beba's pizzeria"
-horizontal_alignment = 1
-
 [node name="empezar" type="Button" parent="VBoxContainer" unique_id=742793987]
+texture_filter = 1
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_xjh86")
 theme_override_font_sizes/font_size = 30
-text = "Empezar"
+text = "EMPEZAR"
 script = ExtResource("2_dap4t")
 
 [node name="salir" type="Button" parent="VBoxContainer" unique_id=2030483682]
+texture_filter = 1
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_xjh86")
 theme_override_font_sizes/font_size = 30
-text = "Salir
+text = "SALIR
 "
 script = ExtResource("3_ak55l")
 
 [node name="pizzaload" type="AnimatedSprite2D" parent="." unique_id=492151584]
 texture_filter = 1
-position = Vector2(563.00006, 221)
-scale = Vector2(3.5, 3.4)
+position = Vector2(571, 465.00003)
+scale = Vector2(2.6249988, 2.5249991)
 sprite_frames = SubResource("SpriteFrames_tu23a")
 animation = &"loading"
 frame = 3
 frame_progress = 0.80807
+
+[node name="titulo" type="AnimatedSprite2D" parent="." unique_id=1964083914]
+texture_filter = 1
+position = Vector2(531, 251.00002)
+scale = Vector2(4.6895833, 3.6250002)
+sprite_frames = SubResource("SpriteFrames_xjh86")
+animation = &"quesoderretido"
+frame_progress = 0.22672465
 
 [connection signal="pressed" from="VBoxContainer/empezar" to="VBoxContainer/empezar" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/salir" to="VBoxContainer/salir" method="_on_pressed"]

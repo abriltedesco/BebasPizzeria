@@ -38,5 +38,5 @@ func actualizar_lista_pedidos(pedidos_activos: Array) -> void:
 		nuevo_ticket.position = Vector2(distancia_x, 0)
 		nuevo_ticket.datos_propios = datos_pedido
 		contenedor_pedidos.add_child(nuevo_ticket)
-		nuevo_ticket.actualizarOrden()
+		nuevo_ticket.call_deferred("actualizarOrden")
 		distancia_x += 180

@@ -19,15 +19,17 @@ func interactuar(jugador: CharacterBody2D) -> void:
 	jugador.soltar_item()
 	
 	if tipo_entregado.begins_with("quemada:") or tipo_entregado.begins_with("sincocinar:"):
-		pizzasFallidas += 1
+		pizzasFallidas+= 1
 		Puntaje.sumarPedidoFallido()
+		print("Orden incorrecta: la pizza no estaba lista correctamente.")
 		pedido_resuelto.emit(false)
-		PedidoManager.completar_pedido()
+		PedidoManager.completar_pedido(0, false)
+		return
 		
 	# buscamos a quién le pertenece esta pizza exacta dentro de los pedidos activos
-	var indice_cliente =-1
+	var indice_cliente=-1
 	for i in range(PedidoManager.pedidos_activos.size()):
-		if tipo_entregado == PedidoManager.pedidos_activos[i]["pizza"]:
+		if tipo_entregado ==PedidoManager.pedidos_activos[i]["pizza"]:
 			indice_cliente = i
 			break
 
@@ -35,12 +37,14 @@ func interactuar(jugador: CharacterBody2D) -> void:
 		# pertenece a alguien de la lista
 		pizzasEntregadas+= 1
 		Puntaje.sumarPedidoCompletado(ClienteActual.dificultad)
+		print("Orden entregada correctamente.")
 		pizza_entregada.emit(pizzasEntregadas)
 		pedido_resuelto.emit(true)
-		PedidoManager.completar_pedido(indice_cliente) 
+		PedidoManager.completar_pedido(indice_cliente, true)
 	else:
 		# perfecta pero no había sido pedida
 		pizzasFallidas+= 1
 		Puntaje.sumarPedidoFallido()
+		print("los ingredientes no coinciden con el pedido.")
 		pedido_resuelto.emit(false)
-		PedidoManager.completar_pedido(0)
+		PedidoManager.completar_pedido(0, false)
