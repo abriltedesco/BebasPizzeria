@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://butko8uh5g0q2"]
+
+[ext_resource type="Script" uid="uid://b4ncooqtnm2tu" path="res://scripts/niveles/nivel1.gd" id="1_aut7t"]
+[ext_resource type="PackedScene" uid="uid://cqqi8p7cojj5k" path="res://escenas/interfaces/avisoCliente.tscn" id="2_f3nfr"]
+[ext_resource type="PackedScene" uid="uid://b4eak3ueb0ccu" path="res://escenas/sectorOrdenes.tscn" id="2_va15h"]
+[ext_resource type="PackedScene" uid="uid://bapbfm66lk0x6" path="res://escenas/cocina.tscn" id="3_f3nfr"]
+[ext_resource type="PackedScene" uid="uid://c8gixx6toav56" path="res://escenas/interfaces/interfaz_partida.tscn" id="4_4o4wv"]
+[ext_resource type="Script" uid="uid://dk34obytrvvka" path="res://scripts/controlador_ingredientes.gd" id="5_3bfgn"]
+[ext_resource type="PackedScene" uid="uid://cx10hu03n6lk8" path="res://escenas/interfaces/fin_nivel.tscn" id="6_bxo3k"]
+
+[node name="nivel1" type="Node" unique_id=550360825]
+script = ExtResource("1_aut7t")
+
+[node name="TimerPartida" type="Timer" parent="." unique_id=1123291511]
+wait_time = 180.0
+one_shot = true
+
+[node name="avisoCliente" parent="." unique_id=1387325305 instance=ExtResource("2_f3nfr")]
+
+[node name="Pedidos" parent="." unique_id=1968411043 instance=ExtResource("2_va15h")]
+
+[node name="Cocina" parent="." unique_id=195620959 instance=ExtResource("3_f3nfr")]
+
+[node name="Interfaz" parent="." unique_id=2019180497 instance=ExtResource("4_4o4wv")]
+
+[node name="ControladorIngredientes" type="Node" parent="." unique_id=740779704]
+script = ExtResource("5_3bfgn")
+
+[node name="finNivel" parent="." unique_id=683502859 instance=ExtResource("6_bxo3k")]

@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cx10hu03n6lk8"]
+
+[ext_resource type="Texture2D" uid="uid://c1nt5uin46y0" path="res://assets/transiciondianoche/pixil-frame-0.png" id="1_kx41e"]
+[ext_resource type="Texture2D" uid="uid://dhq8i8u8tomhf" path="res://assets/transiciondianoche/pixil-frame-1.png" id="2_867ca"]
+[ext_resource type="Texture2D" uid="uid://bnnytmhfkanjn" path="res://assets/transiciondianoche/pixil-frame-2.png" id="3_wwbko"]
+[ext_resource type="Texture2D" uid="uid://br5xe17rex1u1" path="res://assets/transiciondianoche/pixil-frame-3.png" id="4_4yc1o"]
+[ext_resource type="Texture2D" uid="uid://cj8xu5my4taki" path="res://assets/transiciondianoche/pixil-frame-4.png" id="5_qpth7"]
+[ext_resource type="Texture2D" uid="uid://d4kf3uwp13pa5" path="res://assets/transiciondianoche/pixil-frame-5.png" id="6_uouvg"]
+[ext_resource type="Texture2D" uid="uid://b0k4i1l481b1j" path="res://assets/transiciondianoche/pixil-frame-6.png" id="7_wjwpx"]
+[ext_resource type="Texture2D" uid="uid://dkg5cydmuusv3" path="res://assets/transiciondianoche/pixil-frame-7.png" id="8_03rcd"]
+[ext_resource type="Texture2D" uid="uid://dxcn4iptpqe37" path="res://assets/transiciondianoche/pixil-frame-8.png" id="9_rppt8"]
+[ext_resource type="Texture2D" uid="uid://djj1cykiycu5k" path="res://assets/transiciondianoche/pixil-frame-9.png" id="10_5lcr1"]
+[ext_resource type="Texture2D" uid="uid://iyc6dtpscxkk" path="res://assets/transiciondianoche/pixil-frame-10.png" id="11_lls6l"]
+[ext_resource type="Texture2D" uid="uid://ci588crpjhame" path="res://assets/transiciondianoche/pixil-frame-11.png" id="12_4reri"]
+[ext_resource type="Texture2D" uid="uid://lptqrbkaasbq" path="res://assets/transiciondianoche/pixil-frame-12.png" id="13_w40qd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0mjp0"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("1_kx41e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_867ca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wwbko")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4yc1o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qpth7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uouvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wjwpx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_03rcd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rppt8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5lcr1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_lls6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4reri")
+}, {
+"duration": 2.0,
+"texture": ExtResource("13_w40qd")
+}],
+"loop": false,
+"name": &"dianoche",
+"speed": 1.5
+}]
+
+[node name="finNivel" type="CanvasLayer" unique_id=1424605654]
+layer = 10
+
+[node name="animacion" type="AnimatedSprite2D" parent="." unique_id=1249955858]
+position = Vector2(574.5, 322)
+scale = Vector2(1.1474609, 1.0154322)
+sprite_frames = SubResource("SpriteFrames_0mjp0")
+animation = &"dianoche"

@@ -71,13 +71,11 @@ func completar_pedido(indice_pedido: int = 0, exito: bool = true) -> void:
 	if exito:
 		pedidos_correctos+= 1
 	
-	if exito and pedidos_correctos%2== 0:
-		dia_terminado.emit()
-	elif clientes_generados>= max_clientes_nivel and pedidos_activos.is_empty():
+	if clientes_generados >= max_clientes_nivel and pedidos_activos.is_empty():
 		nivel_completado.emit()
-	elif secuencial and clientes_generados< max_clientes_nivel:
+	elif secuencial and clientes_generados < max_clientes_nivel:
 		esperar_nuevo_cliente()
-
+		
 # llamado por sectorOrdenes al terminar la animación de fin de día
 func continuar_despues_del_dia() -> void:
 	if partida_finalizada:

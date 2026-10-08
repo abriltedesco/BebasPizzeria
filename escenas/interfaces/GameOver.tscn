@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://3wg55bjt1xhc"]
 
 [ext_resource type="FontFile" uid="uid://co4gjim8awrfd" path="res://assets/KGBlankSpaceSolid.ttf" id="1_84qc5"]
-[ext_resource type="Script" uid="uid://cbhnbakbdgiwt" path="res://scripts/reintentar.gd" id="2_olqmb"]
-[ext_resource type="Script" uid="uid://bv2ht7q8yc1xg" path="res://scripts/siguiente.gd" id="3_7ad26"]
+[ext_resource type="Script" uid="uid://cbhnbakbdgiwt" path="res://scripts/botones/reintentar.gd" id="2_olqmb"]
+[ext_resource type="Script" uid="uid://bv2ht7q8yc1xg" path="res://scripts/botones/siguiente.gd" id="3_7ad26"]
 [ext_resource type="Script" uid="uid://br5f7ym5nbrjh" path="res://scripts/menú.gd" id="4_mabfh"]
 
 [node name="GameOver" type="Node2D" unique_id=1481331450]

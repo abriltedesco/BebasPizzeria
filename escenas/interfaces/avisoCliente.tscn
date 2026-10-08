@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cqqi8p7cojj5k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kl61j"]
+bg_color = Color(0.35927752, 0.6775027, 0.5044106, 1)
+
+[node name="Control" type="Control" unique_id=1387325305]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=680892152]
+layout_mode = 0
+offset_right = 161.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_kl61j")
+text = "llegó un cliente!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
