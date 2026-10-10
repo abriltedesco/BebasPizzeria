@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-BaseDeDatos="*uid://c5vdt0p7j2tbp"
+BaseDeDatos="*uid://dohftegtcr4c7"
 DialogueManager="*uid://c3rodes2l3gxb"
 ClienteActual="*uid://3e8jd3tpkvm3"
 

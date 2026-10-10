@@ -1,5 +1,6 @@
 extends Node
 
+@onready var baseDeDatos = "res://scriptsCompu/baseDeDatosIngredientes.gd"
 @onready var cantIngredienteLabel = $"../Control/Panel/listaIngredientes/ingrediente/datosIngrediente/cantidadIngrediente"
 @export var cantDefault = 0
 
