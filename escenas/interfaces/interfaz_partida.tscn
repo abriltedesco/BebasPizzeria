@@ -3,6 +3,23 @@
 [ext_resource type="Script" uid="uid://xe3q0hxpfoho" path="res://scripts/interfaz_partida.gd" id="1_interfaz"]
 [ext_resource type="Texture2D" uid="uid://de1v2ew301hjl" path="res://assets/señal.png" id="2_señal"]
 [ext_resource type="Script" uid="uid://c6qljumy4talo" path="res://scripts/actualizador_ui.gd" id="3_r4hgc"]
+[ext_resource type="Texture2D" uid="uid://b80bbtrg4opoo" path="res://assets/recetario/recetario.png" id="4_qw2mv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qw2mv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qs1a5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7nyl0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gcpej"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1akc8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_idc0b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ibq8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_77pog"]
 
 [node name="Interfaz" type="CanvasLayer" unique_id=1553922497]
 layer = 20
@@ -63,3 +80,22 @@ stretch_mode = 5
 
 [node name="ActualizadorUI" type="Node" parent="." unique_id=214139385]
 script = ExtResource("3_r4hgc")
+
+[node name="recetario" type="Button" parent="." unique_id=1503808423]
+offset_left = 1060.0
+offset_top = 2.0
+offset_right = 1150.0
+offset_bottom = 99.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qw2mv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_qs1a5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7nyl0")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_gcpej")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1akc8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_idc0b")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_1ibq8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_77pog")
+icon = ExtResource("4_qw2mv")
+expand_icon = true
+
+[connection signal="pressed" from="recetario" to="." method="_on_recetario_pressed"]

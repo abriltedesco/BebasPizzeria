@@ -2,6 +2,7 @@ extends Node
 
 signal pedido_cambiado
 signal cliente_esperando_cambiado
+signal pedido_resuelto(exito: bool, motivo: String)
 signal tiempo_agotado
 signal nivel_completado
 signal dia_terminado
@@ -22,8 +23,12 @@ var max_simultaneos = 1
 func _process(delta: float) -> void:
 	if !partida_iniciada or partida_finalizada:
 		return
-	for pedido in pedidos_activos:
+	for i in range(pedidos_activos.size()- 1,-1,-1):
+		var pedido = pedidos_activos[i]
 		pedido["tiempo_transcurrido"] = minf(pedido["tiempo_transcurrido"] + delta, pedido["duracion"])
+		if pedido["tiempo_transcurrido"]>= pedido["duracion"]:
+			Puntaje.sumarPedidoFallido()
+			completar_pedido(i, false, "tiempo")
 
 func configurar_nivel(esSecuencial: bool, cantLimite: int, totalClientes: int) -> void:
 	secuencial = esSecuencial
@@ -61,12 +66,13 @@ func tomar_pedido(nombre_cliente: String, orden: Dictionary) -> bool:
 		
 	return true
 
-func completar_pedido(indice_pedido: int = 0, exito: bool = true) -> void:
+func completar_pedido(indice_pedido: int = 0, exito: bool = true, motivo: String = "") -> void:
 	if pedidos_activos.is_empty() or partida_finalizada:
 		return
 		
 	pedidos_activos.remove_at(indice_pedido)
 	pedido_cambiado.emit()
+	pedido_resuelto.emit(exito, motivo)
 	
 	if exito:
 		pedidos_correctos+= 1

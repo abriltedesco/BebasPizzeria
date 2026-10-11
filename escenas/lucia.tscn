@@ -98,7 +98,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cyyig"]
-size = Vector2(31, 46)
+size = Vector2(31, 49)
 
 [node name="lucia" type="CharacterBody2D" unique_id=1491044463]
 motion_mode = 1
@@ -111,7 +111,7 @@ sprite_frames = SubResource("SpriteFrames_qw880")
 animation = &"caminar derecha"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=870073644]
-position = Vector2(0.5, 9)
+position = Vector2(0.5, 4.5)
 shape = SubResource("RectangleShape2D_cyyig")
 
 [node name="Mano" type="Node2D" parent="." unique_id=386092246]

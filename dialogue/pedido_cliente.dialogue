@@ -2,3 +2,11 @@
 Cliente: Hola !!! soy {{ClienteActual.nombre}}, queria pedir una pizza de {{ClienteActual.pizza}}
 Cliente: Me gustaria que tenga....
 => END
+
+~ respuesta_exito
+Cliente: {{ClienteActual.respuesta}}
+=> END
+
+~ respuesta_fallo
+Cliente: {{ClienteActual.respuesta}}
+=> END

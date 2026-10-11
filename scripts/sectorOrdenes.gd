@@ -61,6 +61,19 @@ func generar_pedido() -> void:
 	await escena_globo.tree_exited
 	
 	PedidoManager.tomar_pedido(clienteElegido["nombre"], ordenElegida)
+	var resultado_pedido=await PedidoManager.pedido_resuelto
+	var exito_pedido:bool=resultado_pedido[0]
+	var motivo_pedido: String=resultado_pedido[1]
+	while !is_visible_in_tree() and !PedidoManager.partida_finalizada:
+		await get_tree().process_frame
+	if !PedidoManager.partida_finalizada:
+		ClienteActual.respuesta=BaseDeDatos.obtenerRespuestaCliente(exito_pedido, motivo_pedido)
+		var titulo_respuesta="respuesta_exito" if exito_pedido else "respuesta_fallo"
+		var escena_globo_respuesta=load("res://addons/dialogue_manager/example_balloon/example_balloon.tscn").instantiate()
+		add_child(escena_globo_respuesta)
+		escena_globo_respuesta.start(dialogo, titulo_respuesta, [self])
+		await escena_globo_respuesta.tree_exited
+	
 	clienteMov.irse()
 	await clienteMov.salida_terminada
 	cliente.visible = false

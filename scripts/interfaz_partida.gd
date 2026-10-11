@@ -1,12 +1,11 @@
 extends CanvasLayer
-
 signal cambiar_vista
 
 @onready var actualizador = $ActualizadorUI
 @onready var boton_flecha= $BotonFlecha
-
 var izquierda= preload("res://assets/izquierda.png")
 var derecha= preload("res://assets/derecha.png")
+const recetarioEsc= preload("res://escenas/recetario.tscn")
 # @onready var aviso_cliente= $AvisoCliente
 
 var vista_cocina= false
@@ -50,3 +49,11 @@ func _on_cambio_puntaje(dinero, completados, fallidos):
 	
 func _on_pedido_cambiado():
 	actualizador.actualizar_lista_pedidos(PedidoManager.pedidos_activos)
+
+
+func _on_recetario_pressed() -> void:
+	var recetario= recetarioEsc.instantiate()
+	recetario.process_mode = Node.PROCESS_MODE_ALWAYS 
+	recetario.estaCerrado.connect(func(): get_tree().paused = false)
+	add_child(recetario)
+	get_tree().paused = true

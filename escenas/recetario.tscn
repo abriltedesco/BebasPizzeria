@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://dhpukfqf1hn6t"]
+
+[ext_resource type="Script" uid="uid://oon357dofqp0" path="res://scripts/cocina/recetario.gd" id="1_bfdfp"]
+[ext_resource type="Texture2D" uid="uid://bcx3yeyem2p2p" path="res://assets/cuadricula.jpeg" id="2_5tjtc"]
+[ext_resource type="Texture2D" uid="uid://0dt0avh282wy" path="res://assets/recetario/queso.png" id="2_bgrq1"]
+[ext_resource type="FontFile" uid="uid://bxrixcbxf2rqt" path="res://assets/Pix32.ttf" id="3_5oaxe"]
+[ext_resource type="Texture2D" uid="uid://dbyphjk6abs18" path="res://assets/izquierda.png" id="5_bfdfp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2sief"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yoo0k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bgrq1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5oaxe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_st7po"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0k8t6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1w6u8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6cpce"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jppau"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t2pxq"]
+
+[node name="recetario" type="Node2D" unique_id=1395224980]
+script = ExtResource("1_bfdfp")
+
+[node name="fondo" type="Sprite2D" parent="." unique_id=650291306]
+position = Vector2(577.2275, 320.91132)
+rotation = -1.5707964
+scale = Vector2(0.8916474, 0.8838685)
+texture = ExtResource("2_5tjtc")
+
+[node name="spriteActual" type="Sprite2D" parent="." unique_id=739134500]
+texture_filter = 1
+position = Vector2(577.99994, 324.25)
+scale = Vector2(4.89, 4.3433332)
+texture = ExtResource("2_bgrq1")
+
+[node name="queso" type="Button" parent="." unique_id=1552903735]
+offset_left = 158.0
+offset_top = 117.0
+offset_right = 277.0
+offset_bottom = 235.0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.29803923, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0.5019608)
+theme_override_fonts/font = ExtResource("3_5oaxe")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2sief")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yoo0k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bgrq1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5oaxe")
+text = "
+
+
+
+
+QUESO"
+autowrap_trim_flags = 0
+
+[node name="volver" type="Button" parent="." unique_id=926864370]
+offset_left = 52.0
+offset_top = 246.0
+offset_right = 141.0
+offset_bottom = 357.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_st7po")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_0k8t6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1w6u8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_6cpce")
+theme_override_styles/hover = SubResource("StyleBoxTexture_jppau")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_t2pxq")
+icon = ExtResource("5_bfdfp")
+expand_icon = true
+
+[connection signal="pressed" from="queso" to="." method="_on_queso_pressed"]
+[connection signal="pressed" from="volver" to="." method="_on_volver_pressed"]

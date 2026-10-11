@@ -49,6 +49,8 @@ var listaIngredientes = [
 	{"nombre": "aceite", "valor": 4},
 	{"nombre": "pepperoni", "valor": 3},
 ]
+var respuestasPedidoExitoso=["¡Muchas gracias!"]
+var respuestasPedidoFallido=["Esto no es lo que esperaba...", "Me hiciste esperar demasiado"]
 
 func ordenesConDificultad(dificultad):
 	var ordenesFiltradas=[]
@@ -62,3 +64,9 @@ func obtenerOrdenPorTipo(tipo: String)-> Dictionary:
 		if orden["tipo"].to_lower()== tipo.to_lower():
 			return orden
 	return {}
+
+func obtenerRespuestaCliente(exito: bool, motivo: String= "")-> String:
+	if !exito and motivo== "tiempo":
+		return "Me hiciste esperar demasiado"
+	var respuestas=respuestasPedidoExitoso if exito else respuestasPedidoFallido
+	return respuestas.pick_random()#para agregar en el futuro mas respuestas capazzz?? nose que opinannn

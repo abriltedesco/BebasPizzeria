@@ -572,88 +572,88 @@ func _process(delta: float) -> void:
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ajnhd"]
-size = Vector2(41.04477, 42.39129)
+size = Vector2(41.04477, 35.869553)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhbb7"]
-size = Vector2(38.955276, 41.847816)
+size = Vector2(38.955276, 34.239124)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8uc1"]
-size = Vector2(44.776123, 44.5652)
+size = Vector2(44.776123, 36.41303)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qwn2f"]
-size = Vector2(37.83574, 41.304333)
+size = Vector2(37.83574, 34.23912)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gk8bi"]
-size = Vector2(42.238808, 40.760853)
+size = Vector2(42.238808, 32.06521)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utjl3"]
-size = Vector2(40.447754, 41.84781)
+size = Vector2(40.447754, 33.15216)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvova"]
-size = Vector2(61.49253, 20)
+size = Vector2(43.43283, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pvawt"]
-size = Vector2(71.7911, 29.347801)
+size = Vector2(56.71635, 29.347801)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ae7wb"]
-size = Vector2(36.86567, 41.95651)
+size = Vector2(36.86567, 33.804337)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4a3hp"]
 size = Vector2(61.194027, 139.67386)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wq60e"]
-size = Vector2(70.89552, 24.456512)
+size = Vector2(55.223892, 24.456512)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqaqw"]
-size = Vector2(69.40299, 25.543472)
+size = Vector2(54.850754, 25.543472)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfbpf"]
-size = Vector2(67.31343, 23.369547)
+size = Vector2(54.62687, 23.369547)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01m7b"]
-size = Vector2(44.029823, 47.66303)
+size = Vector2(44.029823, 42.771725)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sscn4"]
-size = Vector2(67.31342, 22.282608)
+size = Vector2(56.119408, 22.282608)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qddnn"]
-size = Vector2(54.477615, 32.608673)
+size = Vector2(84.328354, 32.608673)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u34sk"]
-size = Vector2(65.22388, 20)
+size = Vector2(35.59701, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jamon"]
-size = Vector2(40.298462, 67.78264)
+size = Vector2(40.298462, 47.673943)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rucula"]
-size = Vector2(34.32837, 67.78264)
+size = Vector2(34.32837, 47.67395)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huevo"]
-size = Vector2(42.537323, 66.69569)
+size = Vector2(42.537323, 47.673946)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_albahaca"]
-size = Vector2(33.582123, 67.23916)
+size = Vector2(33.582123, 47.130463)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aceitunas"]
-size = Vector2(85.313416, 26.630447)
+size = Vector2(63.6716, 26.630447)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_papas"]
-size = Vector2(81.58208, 29.891281)
+size = Vector2(62.925346, 29.891281)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cheddar"]
-size = Vector2(83.28357, 29.347832)
+size = Vector2(54.47754, 29.347832)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_roquefort"]
-size = Vector2(78.80597, 26.630417)
+size = Vector2(47.014923, 26.630417)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_parmesano"]
-size = Vector2(34.32834, 57.15207)
+size = Vector2(34.32834, 44.65207)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aceite"]
-size = Vector2(38.80597, 55.521637)
+size = Vector2(38.80597, 45.195557)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pepperoni"]
-size = Vector2(43.2836, 57.15207)
+size = Vector2(43.2836, 45.195557)
 
 [node name="Node2D" type="Node2D" unique_id=453564565]
 position = Vector2(1.0000038, 0)
@@ -674,39 +674,39 @@ scale = Vector2(1.5, 1)
 script = ExtResource("3_mesa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mesa" unique_id=1744532947]
-position = Vector2(100.37313, 34.239117)
+position = Vector2(100.37313, 30.978249)
 shape = SubResource("RectangleShape2D_ajnhd")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Mesa" unique_id=1690301396]
-position = Vector2(226.11937, 37.228245)
+position = Vector2(226.11937, 33.423897)
 shape = SubResource("RectangleShape2D_hhbb7")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Mesa" unique_id=87794404]
-position = Vector2(480.597, 35.326077)
+position = Vector2(480.597, 31.249989)
 shape = SubResource("RectangleShape2D_x8uc1")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Mesa" unique_id=1627469225]
-position = Vector2(611.9403, 36.95651)
+position = Vector2(611.9403, 33.4239)
 shape = SubResource("RectangleShape2D_qwn2f")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Mesa" unique_id=31996046]
-position = Vector2(290.52234, 37.771725)
+position = Vector2(290.52234, 33.423904)
 shape = SubResource("RectangleShape2D_gk8bi")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Mesa" unique_id=244813432]
-position = Vector2(349.99997, 37.22825)
+position = Vector2(349.99997, 32.880424)
 shape = SubResource("RectangleShape2D_utjl3")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Mesa" unique_id=1396577880]
-position = Vector2(53.73134, 207.60863)
+position = Vector2(44.70149, 207.60863)
 shape = SubResource("RectangleShape2D_qvova")
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="Mesa" unique_id=624212011]
-position = Vector2(814.1044, 216.84775)
+position = Vector2(821.64166, 216.84775)
 shape = SubResource("RectangleShape2D_pvawt")
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="Mesa" unique_id=1860737238]
-position = Vector2(677.6119, 37.173897)
+position = Vector2(677.6119, 33.097813)
 shape = SubResource("RectangleShape2D_ae7wb")
 
 [node name="Horno" type="Area2D" parent="." unique_id=775126702]
@@ -730,7 +730,7 @@ shape = SubResource("RectangleShape2D_4a3hp")
 script = ExtResource("7_queso")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Queso" unique_id=1367227705]
-position = Vector2(45.149235, 73.64128)
+position = Vector2(37.31342, 73.64128)
 shape = SubResource("RectangleShape2D_wq60e")
 
 [node name="Label" type="Label" parent="Queso" unique_id=247519807]
@@ -748,7 +748,7 @@ horizontal_alignment = 1
 script = ExtResource("8_tomate")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tomate" unique_id=943375700]
-position = Vector2(41.791035, 118.74997)
+position = Vector2(34.514915, 118.74997)
 shape = SubResource("RectangleShape2D_tqaqw")
 
 [node name="Label" type="Label" parent="Tomate" unique_id=1112352492]
@@ -766,7 +766,7 @@ horizontal_alignment = 1
 script = ExtResource("9_masa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Masa" unique_id=282803208]
-position = Vector2(43.95521, 169.29343)
+position = Vector2(37.61193, 169.29343)
 shape = SubResource("RectangleShape2D_nfbpf")
 
 [node name="Label" type="Label" parent="Masa" unique_id=960684727]
@@ -784,7 +784,7 @@ horizontal_alignment = 1
 script = ExtResource("10_plato")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plato" unique_id=67982514]
-position = Vector2(741.41785, 35.951077)
+position = Vector2(741.41785, 33.50542)
 shape = SubResource("RectangleShape2D_01m7b")
 
 [node name="Label" type="Label" parent="Plato" unique_id=1477722444]
@@ -802,7 +802,7 @@ horizontal_alignment = 1
 script = ExtResource("11_basura")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Basura" unique_id=599448507]
-position = Vector2(46.940292, 251.3586)
+position = Vector2(41.343277, 251.3586)
 shape = SubResource("RectangleShape2D_sscn4")
 
 [node name="Label" type="Label" parent="Basura" unique_id=33659462]
@@ -820,11 +820,11 @@ horizontal_alignment = 1
 script = ExtResource("12_entrega")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entrega" unique_id=1836927089]
-position = Vector2(105.59701, 336.41293)
+position = Vector2(106.34328, 336.41293)
 shape = SubResource("RectangleShape2D_qddnn")
 
 [node name="Label" type="Label" parent="Entrega" unique_id=526847062]
-offset_left = 85.820885
+offset_left = 85.8209
 offset_top = 322.826
 offset_right = 125.82088
 offset_bottom = 345.826
@@ -838,7 +838,7 @@ horizontal_alignment = 1
 script = ExtResource("20_cebolla")
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Cebolla" unique_id=1367096463]
-position = Vector2(60.447754, 293.47815)
+position = Vector2(45.63432, 293.47815)
 shape = SubResource("RectangleShape2D_u34sk")
 
 [node name="Label" type="Label" parent="Cebolla" unique_id=185601942]
@@ -856,7 +856,7 @@ horizontal_alignment = 1
 script = ExtResource("20_jamon")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jamón" unique_id=1759264005]
-position = Vector2(331.34323, 124.10868)
+position = Vector2(331.34323, 134.16301)
 shape = SubResource("RectangleShape2D_jamon")
 
 [node name="Label" type="Label" parent="Jamón" unique_id=1130050223]
@@ -874,7 +874,7 @@ horizontal_alignment = 1
 script = ExtResource("20_rucula")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rucula" unique_id=1893741514]
-position = Vector2(398.50745, 124.10868)
+position = Vector2(398.50745, 134.16302)
 shape = SubResource("RectangleShape2D_rucula")
 
 [node name="Label" type="Label" parent="Rucula" unique_id=1899272898]
@@ -892,7 +892,7 @@ horizontal_alignment = 1
 script = ExtResource("20_huevo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Huevo" unique_id=474579083]
-position = Vector2(461.56714, 124.65215)
+position = Vector2(461.56714, 134.16302)
 shape = SubResource("RectangleShape2D_huevo")
 
 [node name="Label" type="Label" parent="Huevo" unique_id=2098667613]
@@ -910,7 +910,7 @@ horizontal_alignment = 1
 script = ExtResource("20_albahaca")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Albahaca" unique_id=318606698]
-position = Vector2(525, 124.38042)
+position = Vector2(525, 134.43475)
 shape = SubResource("RectangleShape2D_albahaca")
 
 [node name="Label" type="Label" parent="Albahaca" unique_id=799424001]
@@ -928,7 +928,7 @@ horizontal_alignment = 1
 script = ExtResource("20_aceitunas")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aceitunas" unique_id=1960006157]
-position = Vector2(255.34323, 168.74994)
+position = Vector2(266.16415, 168.74994)
 shape = SubResource("RectangleShape2D_aceitunas")
 
 [node name="Label" type="Label" parent="Aceitunas" unique_id=867435494]
@@ -946,7 +946,7 @@ horizontal_alignment = 1
 script = ExtResource("20_papas")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Papas" unique_id=2107772479]
-position = Vector2(257.20892, 217.66296)
+position = Vector2(266.53726, 217.66296)
 shape = SubResource("RectangleShape2D_papas")
 
 [node name="Label" type="Label" parent="Papas" unique_id=1529170527]
@@ -965,7 +965,7 @@ position = Vector2(202.98506, 92.93475)
 script = ExtResource("20_cheddar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cheddar" unique_id=384165561]
-position = Vector2(601.6418, 170.10864)
+position = Vector2(616.04474, 170.10864)
 shape = SubResource("RectangleShape2D_cheddar")
 
 [node name="Label" type="Label" parent="Cheddar" unique_id=165286095]
@@ -984,7 +984,7 @@ position = Vector2(202.98506, 97.28258)
 script = ExtResource("20_roquefort")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roquefort" unique_id=278776242]
-position = Vector2(599.4029, 216.03253)
+position = Vector2(615.2985, 216.03252)
 shape = SubResource("RectangleShape2D_roquefort")
 
 [node name="Label" type="Label" parent="Roquefort" unique_id=1073627474]
@@ -1002,7 +1002,7 @@ horizontal_alignment = 1
 script = ExtResource("20_parmesano")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Parmesano" unique_id=1732910132]
-position = Vector2(332.8358, 254.57603)
+position = Vector2(332.8358, 248.32603)
 shape = SubResource("RectangleShape2D_parmesano")
 
 [node name="Label" type="Label" parent="Parmesano" unique_id=90752661]
@@ -1020,7 +1020,7 @@ horizontal_alignment = 1
 script = ExtResource("20_aceite")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aceite" unique_id=80759213]
-position = Vector2(396.26865, 253.76082)
+position = Vector2(396.26865, 248.59778)
 shape = SubResource("RectangleShape2D_aceite")
 
 [node name="Label" type="Label" parent="Aceite" unique_id=879220048]
@@ -1038,7 +1038,7 @@ horizontal_alignment = 1
 script = ExtResource("20_pepperoni")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pepperoni" unique_id=1060612184]
-position = Vector2(461.94028, 254.57603)
+position = Vector2(461.94028, 248.59778)
 shape = SubResource("RectangleShape2D_pepperoni")
 
 [node name="Label" type="Label" parent="Pepperoni" unique_id=1678380672]

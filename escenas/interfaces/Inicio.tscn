@@ -12,6 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://cks4w3pdx2dle" path="res://assets/bannerdrop/pixil-frame-0.png" id="8_y7m4w"]
 [ext_resource type="Texture2D" uid="uid://cus0yyhj62ffi" path="res://assets/bannerdrop/pixil-frame-1.png" id="9_2acob"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tu23a"]
+bg_color = Color(0.39337015, 0.09450119, 0.06781646, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjh86"]
+bg_color = Color(0.39215687, 0.09411765, 0.06666667, 1)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_tu23a"]
 animations = [{
 "frames": [{
@@ -73,6 +79,7 @@ texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_xjh86")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_tu23a")
 text = "EMPEZAR"
 script = ExtResource("2_dap4t")
 
@@ -81,6 +88,7 @@ texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_xjh86")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_xjh86")
 text = "SALIR
 "
 script = ExtResource("3_ak55l")

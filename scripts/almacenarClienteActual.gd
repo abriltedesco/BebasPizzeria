@@ -4,6 +4,7 @@ var nombre
 var pizza
 var dificultad
 var listaOrden
+var respuesta
 
 var indice= 0
 func obtenerIngrediente()-> String:

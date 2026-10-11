@@ -34,6 +34,7 @@ func _on_pedido_resuelto(exito: bool) -> void:
 	pizzaEntregada = true
 	if exito:
 		entregaExitosa = true 
+	_mostrar_pedidos()
 	
 func on_tiempo_agotado() -> void:
 	timerPartida.stop()
