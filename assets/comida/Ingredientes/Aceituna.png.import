@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d03271shpyx0f"
-path="res://.godot/imported/queso.png-b26354833cfaeb767e88700a638633c0.ctex"
+uid="uid://bvf0kjedpoglt"
+path="res://.godot/imported/Aceituna.png-ea4e4b67951219767c2c5270265ad5e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/comida/queso.png"
-dest_files=["res://.godot/imported/queso.png-b26354833cfaeb767e88700a638633c0.ctex"]
+source_file="res://assets/comida/Ingredientes/Aceituna.png"
+dest_files=["res://.godot/imported/Aceituna.png-ea4e4b67951219767c2c5270265ad5e7.ctex"]
 
 [params]
 

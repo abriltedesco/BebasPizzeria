@@ -19,12 +19,8 @@ func set_item(nombre: String) -> void:
 		sprite.visible= true
 		sprite.scale= Vector2(1, 1)
 		match nombre:
-			"queso":
-				sprite.texture = load("res://assets/comida/queso.png")
-			"tomate":
-				sprite.texture = load("res://assets/comida/tomate.png")
-			"masa":
-				sprite.texture = load("res://assets/comida/masa.png")
+			"queso", "tomate", "masa", "cebolla", "jamon", "rucula", "huevo", "albahaca", "aceitunas", "papas", "cheddar", "roquefort", "parmesano", "aceite", "pepperoni":
+				sprite.texture = load(Ingredientes.TEXTURAS[nombre])
 			"plato":
 				sprite.texture= load("res://assets/comida/plato.png")
 				sprite.scale= Vector2(0.1, 0.1)

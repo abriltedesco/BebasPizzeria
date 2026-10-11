@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjbrxt3iya7hp"
-path="res://.godot/imported/masa.png-8d840a9d31843f84ea0193fe2d85899e.ctex"
+uid="uid://duuedvibfgype"
+path="res://.godot/imported/Panceta.png-88a3bbf11d59e71717b71c4f9a6fd0c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/comida/masa.png"
-dest_files=["res://.godot/imported/masa.png-8d840a9d31843f84ea0193fe2d85899e.ctex"]
+source_file="res://assets/comida/Ingredientes/Panceta.png"
+dest_files=["res://.godot/imported/Panceta.png-88a3bbf11d59e71717b71c4f9a6fd0c9.ctex"]
 
 [params]
 
