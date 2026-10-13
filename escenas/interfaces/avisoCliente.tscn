@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cqqi8p7cojj5k"]
 
+[ext_resource type="Script" uid="uid://sbr2wf1ihsp1" path="res://scripts/aviso_cliente.gd" id="1_r0phd"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kl61j"]
 bg_color = Color(0.35927752, 0.6775027, 0.5044106, 1)
 
@@ -10,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_r0phd")
 
 [node name="Label" type="Label" parent="." unique_id=680892152]
 layout_mode = 0

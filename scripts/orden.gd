@@ -20,10 +20,15 @@ func _ready():
 func _process(_delta):
 	if datos_propios.is_empty():
 		return
-	var restante = datos_propios["duracion"] - datos_propios["tiempo_transcurrido"]
+	var restante = maxf(datos_propios["duracion"] - datos_propios["tiempo_transcurrido"], 0.0)
 	barra.frame = int(datos_propios["tiempo_transcurrido"] / datos_propios["duracion"] * 10)
-	labelTiempo.text = str(ceil(restante)) + " s"
+	
+	var numOrden = datos_propios.get("numero_orden", 1)
+	var mins = int(restante) / 60
+	var segs = int(restante) % 60
 
+	labelTiempo.text = "(#%d - %02d:%02d)" % [numOrden, mins, segs]
+	
 func cambiar_desplegado():
 	datos_propios["desplegado"] = not datos_propios["desplegado"]
 	mostrar_u_ocultar()

@@ -2,11 +2,11 @@ extends Node2D
 
 @onready var orden = $Control
 @onready var rutaCliente = $RutaCliente
+const avisoCliente = preload("res://escenas/interfaces/avisoCliente.tscn")
 
 @export var tipo_pedido = "queso"
 
 var atendiendo = false
-
 const ClienteEscena = preload("res://escenas/cliente.tscn") 
 var clientes_en_fila = {} 
 
@@ -15,15 +15,18 @@ func _ready() -> void:
 	PedidoManager.pedido_resuelto.connect(_on_pedido_resuelto_global)
 	
 func _process(_delta: float) -> void:
-	if is_visible_in_tree() and PedidoManager.cliente_esperando and !atendiendo:
+	var condicion_spawner = is_visible_in_tree() or (!PedidoManager.secuencial and PedidoManager.cliente_esperando)
+	if condicion_spawner and PedidoManager.cliente_esperando and !atendiendo:
 		generar_pedido()
+
 
 func generar_pedido() -> void:
 	atendiendo = true
 	
-	if get_parent().has_method("mostrar_aviso_cliente"):
-		get_parent().mostrar_aviso_cliente()
-		
+	if avisoCliente:
+		var aviso = avisoCliente.instantiate()
+		get_tree().current_scene.add_child(aviso)
+
 	var nuevo_cliente = ClienteEscena.instantiate()
 	add_child(nuevo_cliente)
 	
@@ -59,6 +62,20 @@ func generar_pedido() -> void:
 		nuevo_cliente.queue_free() 
 		atendiendo = false
 		return
+
+	clientes_en_fila[clienteElegido["nombre"]] = nuevo_cliente
+	
+	if !PedidoManager.secuencial:
+		var pos_espera = Vector2(600 - (clientes_en_fila.size() * 90), 370)
+		var tween = create_tween()
+		tween.tween_property(nuevo_cliente, "position", pos_espera, 1.0)
+		atendiendo = false 
+		
+	while !is_visible_in_tree() and !PedidoManager.partida_finalizada:
+			await get_tree().process_frame
+		
+	if PedidoManager.partida_finalizada:
+		return
 		
 	var dialogo = load("res://dialogue/pedido_cliente.dialogue")
 	var escena_globo = load("res://addons/dialogue_manager/example_balloon/example_balloon.tscn").instantiate()
@@ -66,27 +83,26 @@ func generar_pedido() -> void:
 	escena_globo.start(dialogo, "start", [self])
 	await escena_globo.tree_exited
 	
-	PedidoManager.tomar_pedido(clienteElegido["nombre"], ordenElegida)
-	clientes_en_fila[clienteElegido["nombre"]] = nuevo_cliente
+	var datosTomados = PedidoManager.tomar_pedido(clienteElegido["nombre"], ordenElegida)
+	var numOrden = datosTomados.get("numero_orden", 1)
+	var duracion = datosTomados.get("duracion", 60.0)
 	
-	if PedidoManager.secuencial:
-		pass
-	else:
-		var sprite_cliente = nuevo_cliente.get_node("AnimatedSprite2D")
-		var pos_espera = Vector2(600 - (clientes_en_fila.size() * 90), 370)
-		
-		var tween = create_tween()
-		tween.tween_property(sprite_cliente, "position", pos_espera, 1.0)
-		
-		atendiendo = false
+	nuevo_cliente.activar_interfaz_orden(numOrden, duracion)
+	nuevo_cliente.entregar_presionado.connect(_on_cliente_entregar_presionado)
 
-func _on_pedido_resuelto_global(exito_pedido: bool, motivo_pedido: String, nombre_cliente: String) -> void:
+func _on_cliente_entregar_presionado(numOrden: int) -> void:
+	var idx = PedidoManager.buscar_indice_por_numero_orden(numOrden)
+	if idx != -1:
+		var exito = PedidoManager.validar_pizza_preparada(numOrden)
+		var motivo = "exito" if exito else "pizza_incorrecta"
+		PedidoManager.completar_pedido(idx, exito, motivo)
+
+func _on_pedido_resuelto_global(exito_pedido: bool, motivo_pedido: String, nombre_cliente: String, numero_orden: int) -> void:
 	if !clientes_en_fila.has(nombre_cliente):
 		return 
 		
 	var cliente_que_recibe = clientes_en_fila[nombre_cliente]
 	var clienteMov = cliente_que_recibe.get_node("movimientoCliente")
-	var sprite_cliente = cliente_que_recibe.get_node("AnimatedSprite2D")
 	
 	if !PedidoManager.secuencial:
 		while (atendiendo or !is_visible_in_tree()) and !PedidoManager.partida_finalizada:
@@ -94,7 +110,7 @@ func _on_pedido_resuelto_global(exito_pedido: bool, motivo_pedido: String, nombr
 		atendiendo = true
 		
 		var tween = create_tween()
-		tween.tween_property(sprite_cliente, "position", Vector2(600, 370), 0.5)
+		tween.tween_property(cliente_que_recibe, "position", Vector2(600, 370), 0.5)
 		await tween.finished
 	else:
 		while !is_visible_in_tree() and !PedidoManager.partida_finalizada:
@@ -114,5 +130,4 @@ func _on_pedido_resuelto_global(exito_pedido: bool, motivo_pedido: String, nombr
 	await clienteMov.salida_terminada
 	cliente_que_recibe.queue_free()
 	clientes_en_fila.erase(nombre_cliente)
-	
 	atendiendo = false
