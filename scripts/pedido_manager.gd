@@ -2,7 +2,7 @@ extends Node
 
 signal pedido_cambiado
 signal cliente_esperando_cambiado
-signal pedido_resuelto(exito: bool, motivo: String)
+signal pedido_resuelto(exito: bool, motivo: String, nombre_cliente: String)
 signal tiempo_agotado
 signal nivel_completado
 signal dia_terminado
@@ -69,20 +69,19 @@ func tomar_pedido(nombre_cliente: String, orden: Dictionary) -> bool:
 func completar_pedido(indice_pedido: int = 0, exito: bool = true, motivo: String = "") -> void:
 	if pedidos_activos.is_empty() or partida_finalizada:
 		return
-		
+	
+	var clienteAtendido = pedidos_activos[indice_pedido]["nombre"] 
 	pedidos_activos.remove_at(indice_pedido)
 	pedido_cambiado.emit()
-	pedido_resuelto.emit(exito, motivo)
+	pedido_resuelto.emit(exito, motivo, clienteAtendido) 
 	
 	if exito:
 		pedidos_correctos+= 1
-	
 	if clientes_generados >= max_clientes_nivel and pedidos_activos.is_empty():
 		nivel_completado.emit()
 	elif secuencial and clientes_generados < max_clientes_nivel:
 		esperar_nuevo_cliente()
 		
-# llamado por sectorOrdenes al terminar la animación de fin de día
 func continuar_despues_del_dia() -> void:
 	if partida_finalizada:
 		return
