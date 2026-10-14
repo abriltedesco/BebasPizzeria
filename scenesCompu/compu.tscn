@@ -19,16 +19,16 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="listaIngredientes" type="VBoxContainer" parent="Control/Panel" unique_id=915079943]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 24.0
-offset_top = -232.0
-offset_right = 592.0
-offset_bottom = -174.0
-grow_vertical = 2
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Panel" unique_id=999577412]
+layout_direction = 3
+layout_mode = 0
+offset_left = 266.0
+offset_right = 1150.0
+offset_bottom = 648.0
+
+[node name="listaIngredientes" type="VBoxContainer" parent="Control/Panel/ScrollContainer" unique_id=915079943]
+layout_direction = 2
+layout_mode = 2
 script = ExtResource("1_djw2i")
 
 [node name="comprar" type="Button" parent="Control/Panel" unique_id=36881155]
@@ -53,4 +53,4 @@ script = ExtResource("5_f6tkj")
 [node name="calcularPrecioCompra" type="Node" parent="." unique_id=44644054]
 script = ExtResource("7_djw2i")
 
-[connection signal="pressed" from="Control/Panel/comprar" to="Control/Panel/listaIngredientes" method="_on_comprar_pressed"]
+[connection signal="pressed" from="Control/Panel/comprar" to="Control/Panel/ScrollContainer/listaIngredientes" method="_on_comprar_pressed"]
