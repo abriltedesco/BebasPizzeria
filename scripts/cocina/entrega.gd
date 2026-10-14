@@ -38,16 +38,16 @@ func interactuar(jugador: CharacterBody2D) -> void:
 				break
 
 		if indice_cliente != -1:
-			pizzasEntregadas += 1
-			Puntaje.sumarPedidoCompletado(ClienteActual.dificultad)
-			print("Orden entregada correctamente.")
+			var dif = PedidoManager.pedidos_activos[indice_cliente].get("dificultad", "facil")
+			Puntaje.sumarPedidoCompletado(dif)
+			print("orden entregada correctamente")
 			pizza_entregada.emit(pizzasEntregadas)
 			pedido_resuelto.emit(true)
 			PedidoManager.completar_pedido(indice_cliente, true, "exito")
 		else:
 			pizzasFallidas += 1
 			Puntaje.sumarPedidoFallido()
-			print("Los ingredientes no coinciden con el pedido.")
+			print("ingredientes no coinciden con el pedido.")
 			pedido_resuelto.emit(false)
 			PedidoManager.completar_pedido(0, false, "ingredientes_incorrectos")
 	else:

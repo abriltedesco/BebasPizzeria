@@ -44,6 +44,9 @@ func mostrar_u_ocultar():
 		fondo.size.y = 64
 
 func actualizarOrden():
+	if !is_node_ready():
+		await ready
+
 	labelOrden.text = "Orden de: " + datos_propios["nombre"]
 	labelPizza.text = "PIZZA : " + datos_propios["pizza"]
 	

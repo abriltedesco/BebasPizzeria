@@ -47,6 +47,7 @@ func on_tiempo_agotado() -> void:
 		
 	if PedidoManager.pedidos_correctos >= PedidoManager.min_entregas_nivel:
 		Puntaje.sumarPropina(100)
+		PedidoManager.finalizar_partida()
 		transicion.visible = true
 		interfaz.visible = false 
 		var anim = transicion.get_node("animacion")
@@ -81,7 +82,12 @@ func _mostrar_cocina() -> void:
 	cocina.mostrar_instrucciones()
 	
 func mostrar_aviso_cliente() -> void:
-	avisoCliente.visible = true
-	var timer_cartel = get_tree().create_timer(3.0)
-	timer_cartel.timeout.connect(func(): avisoCliente.visible = false)
-	
+	if cocina.visible and is_instance_valid(avisoCliente):
+		avisoCliente.z_index = 100 # forzandolo a que aparezca por encima
+		avisoCliente.visible = true
+		var timer_cartel = get_tree().create_timer(3.0)
+		timer_cartel.timeout.connect(_ocultar_aviso)
+
+func _ocultar_aviso() -> void:
+	if is_instance_valid(avisoCliente):
+		avisoCliente.visible = false

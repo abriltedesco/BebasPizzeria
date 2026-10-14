@@ -2,37 +2,56 @@ extends Node2D
 
 @onready var orden = $Control
 @onready var rutaCliente = $RutaCliente
-const avisoCliente = preload("res://escenas/interfaces/avisoCliente.tscn")
 
-@export var tipo_pedido = "queso"
-
-var atendiendo = false
 const ClienteEscena = preload("res://escenas/cliente.tscn") 
-var clientes_en_fila = {} 
+
+var clientes_en_fila = [] 
+var atendiendo = false
+var timer_spawner = 2.0 
 
 func _ready() -> void:
 	orden.visible = false
 	PedidoManager.pedido_resuelto.connect(_on_pedido_resuelto_global)
 	
-func _process(_delta: float) -> void:
-	var condicion_spawner = is_visible_in_tree() or (!PedidoManager.secuencial and PedidoManager.cliente_esperando)
-	if condicion_spawner and PedidoManager.cliente_esperando and !atendiendo:
-		generar_pedido()
-
-
-func generar_pedido() -> void:
-	atendiendo = true
+func _process(delta: float) -> void:
+	if PedidoManager.partida_finalizada: return
 	
-	if avisoCliente:
-		var aviso = avisoCliente.instantiate()
-		get_tree().current_scene.add_child(aviso)
+	if clientes_en_fila.size() < PedidoManager.max_simultaneos:
+		timer_spawner -= delta
+		if timer_spawner <= 0:
+			timer_spawner = PedidoManager.tiempo_entre_clientes
+			_spawn_cliente()
+
+	for i in range(clientes_en_fila.size() - 1, -1, -1):
+		var cliente = clientes_en_fila[i]
+	
+		if !is_instance_valid(cliente):
+			clientes_en_fila.remove_at(i)
+			continue
+			
+		if cliente.en_posicion and !cliente.ordenTomada and !cliente.dialogando:
+			cliente.tiempoTranscurrido += delta
+			
+			if cliente.tiempoTranscurrido >= cliente.duracionTotal:
+				_cliente_se_va_enojado(cliente, i)
+				continue
+				
+	if is_visible_in_tree() and not atendiendo:
+		for cliente in clientes_en_fila:
+			if is_instance_valid(cliente) and !cliente.ordenTomada and cliente.en_posicion:
+				_atender_cliente(cliente)
+				break
+				
+func _spawn_cliente() -> void:
+	if get_tree().current_scene.has_method("mostrar_aviso_cliente"):
+		get_tree().current_scene.mostrar_aviso_cliente()
 
 	var nuevo_cliente = ClienteEscena.instantiate()
 	add_child(nuevo_cliente)
 	
 	var clienteMov = nuevo_cliente.get_node("movimientoCliente")
 	clienteMov.configurar_ruta(rutaCliente)
-		
+	
 	var clienteElegido = BaseDeDatos.listaClientes.pick_random()
 	var ordenesPermitidas = []
 	
@@ -42,7 +61,11 @@ func generar_pedido() -> void:
 				if orden_bd["tipo"] == "queso":
 					ordenesPermitidas.append(orden_bd)
 		2:
-			ordenesPermitidas = BaseDeDatos.ordenesConDificultad("facil")
+			# ordenesPermitidas = BaseDeDatos.ordenesConDificultad("facil")
+			# pongo de vuelta queso solo para probar q funcione el nivel 2 hasta q agreguemos otros ingredientes
+			for orden_bd in BaseDeDatos.listaOrdenes:
+				if orden_bd["tipo"] == "queso":
+					ordenesPermitidas.append(orden_bd)
 		3:
 			ordenesPermitidas = BaseDeDatos.ordenesConDificultad("media")
 		4:
@@ -52,82 +75,135 @@ func generar_pedido() -> void:
 			ordenesPermitidas.append(BaseDeDatos.ordenesConDificultad("dificil"))
 			
 	var ordenElegida = ordenesPermitidas.pick_random()
+	var tiempos_paciencia = [40.0, 60.0, 85.0]
+	nuevo_cliente.duracionTotal = tiempos_paciencia.pick_random()
 	
-	nuevo_cliente.inicializarDatos(clienteElegido, ordenElegida)
+	nuevo_cliente.tiempoTranscurrido = 0.0
+	nuevo_cliente.en_posicion = false
+	nuevo_cliente.dialogando = false
+	nuevo_cliente.ordenTomada = false
+	nuevo_cliente.nombre_cliente = clienteElegido["nombre"]
+	nuevo_cliente.orden_elegida = ordenElegida
+	nuevo_cliente.dificultad_cliente = ordenElegida.get("dificultad", "facil")
+	
+	clientes_en_fila.append(nuevo_cliente)
 	nuevo_cliente.visible = true
+	
+	PedidoManager.registrar_llegada()
+	
 	clienteMov.movimientoEntrar()
 	await clienteMov.movimiento_terminado
 	
-	if PedidoManager.partida_finalizada:
-		nuevo_cliente.queue_free() 
-		atendiendo = false
-		return
-
-	clientes_en_fila[clienteElegido["nombre"]] = nuevo_cliente
+	if is_instance_valid(nuevo_cliente):
+		nuevo_cliente.en_posicion = true 
 	
-	if !PedidoManager.secuencial:
-		var pos_espera = Vector2(600 - (clientes_en_fila.size() * 90), 370)
+	if !PedidoManager.secuencial and is_instance_valid(nuevo_cliente):
+		var index_en_fila = clientes_en_fila.find(nuevo_cliente)
+		var pos_x_final = 200 + (index_en_fila * 120)
 		var tween = create_tween()
-		tween.tween_property(nuevo_cliente, "position", pos_espera, 1.0)
-		atendiendo = false 
-		
-	while !is_visible_in_tree() and !PedidoManager.partida_finalizada:
-			await get_tree().process_frame
-		
-	if PedidoManager.partida_finalizada:
-		return
-		
+		tween.tween_property(nuevo_cliente, "position", Vector2(pos_x_final, 370), 0.8)
+
+func _atender_cliente(cliente_nodo) -> void:
+	atendiendo = true
+	cliente_nodo.dialogando = true 
+	
+	ClienteActual.nombre = cliente_nodo.nombre_cliente
+	ClienteActual.pizza = cliente_nodo.orden_elegida["tipo"]
+	ClienteActual.dificultad = cliente_nodo.dificultad_cliente
+	ClienteActual.listaOrden = cliente_nodo.orden_elegida["ingredientes"]
+	ClienteActual.reiniciarIndice()
+	
 	var dialogo = load("res://dialogue/pedido_cliente.dialogue")
 	var escena_globo = load("res://addons/dialogue_manager/example_balloon/example_balloon.tscn").instantiate()
 	add_child(escena_globo)
 	escena_globo.start(dialogo, "start", [self])
 	await escena_globo.tree_exited
 	
-	var datosTomados = PedidoManager.tomar_pedido(clienteElegido["nombre"], ordenElegida)
-	var numOrden = datosTomados.get("numero_orden", 1)
-	var duracion = datosTomados.get("duracion", 60.0)
+	if is_instance_valid(cliente_nodo):
+		cliente_nodo.dialogando = false
+		
+		var duracion_restante = cliente_nodo.duracionTotal 
+		
+		var datosTomados = PedidoManager.tomar_pedido(cliente_nodo.nombre_cliente, cliente_nodo.orden_elegida, duracion_restante)
+		var numOrden = datosTomados.get("numero_orden", 1)
+		
+		cliente_nodo.activar_interfaz_orden(numOrden, duracion_restante)
+		cliente_nodo.entregar_presionado.connect(_on_cliente_entregar_presionado)
+		cliente_nodo.ordenTomada = true
 	
-	nuevo_cliente.activar_interfaz_orden(numOrden, duracion)
-	nuevo_cliente.entregar_presionado.connect(_on_cliente_entregar_presionado)
+	atendiendo = false
+
+func _cliente_se_va_enojado(cliente_nodo, idx_fila: int) -> void:
+	cliente_nodo.set_meta("pedido_tomado", true) 
+	Puntaje.sumarPedidoFallido()
+	PedidoManager.cliente_ignorado_se_fue()
+	
+	var clienteMov = cliente_nodo.get_node("movimientoCliente")
+	clienteMov.irse()
+	
+	clientes_en_fila.remove_at(idx_fila)
+	_reordenar_fila()
+	
+	await clienteMov.salida_terminada
+	if is_instance_valid(cliente_nodo):
+		cliente_nodo.queue_free()
 
 func _on_cliente_entregar_presionado(numOrden: int) -> void:
+	if PedidoManager.pizza_preparada.is_empty():
+		print("no dejaste ninguna pizza en la estación de entrega")
+		return
 	var idx = PedidoManager.buscar_indice_por_numero_orden(numOrden)
+	
 	if idx != -1:
 		var exito = PedidoManager.validar_pizza_preparada(numOrden)
 		var motivo = "exito" if exito else "pizza_incorrecta"
 		PedidoManager.completar_pedido(idx, exito, motivo)
+		PedidoManager.pizza_preparada.clear()
 
 func _on_pedido_resuelto_global(exito_pedido: bool, motivo_pedido: String, nombre_cliente: String, numero_orden: int) -> void:
-	if !clientes_en_fila.has(nombre_cliente):
-		return 
-		
-	var cliente_que_recibe = clientes_en_fila[nombre_cliente]
-	var clienteMov = cliente_que_recibe.get_node("movimientoCliente")
+	var cliente_que_recibe = null
+	var idx_fila = -1
 	
-	if !PedidoManager.secuencial:
-		while (atendiendo or !is_visible_in_tree()) and !PedidoManager.partida_finalizada:
-			await get_tree().process_frame
-		atendiendo = true
+	for i in range(clientes_en_fila.size()):
+		if clientes_en_fila[i].nombre_cliente == nombre_cliente:
+			cliente_que_recibe = clientes_en_fila[i]
+			idx_fila = i
+			break
+			
+	if !cliente_que_recibe: return
 		
+	atendiendo = true 
+	if exito_pedido:
+		var dificultad_cliente = cliente_que_recibe.dificultad_cliente
+		Puntaje.sumarPedidoCompletado(dificultad_cliente)
+		
+	if !PedidoManager.secuencial:
 		var tween = create_tween()
 		tween.tween_property(cliente_que_recibe, "position", Vector2(600, 370), 0.5)
 		await tween.finished
-	else:
-		while !is_visible_in_tree() and !PedidoManager.partida_finalizada:
-			await get_tree().process_frame
-		
-	if !PedidoManager.partida_finalizada:
-		ClienteActual.respuesta = BaseDeDatos.obtenerRespuestaCliente(exito_pedido, motivo_pedido)
-		var titulo_respuesta = "respuesta_exito" if exito_pedido else "respuesta_fallo"
-		
-		var dialogo = load("res://dialogue/pedido_cliente.dialogue")
-		var escena_globo = load("res://addons/dialogue_manager/example_balloon/example_balloon.tscn").instantiate()
-		add_child(escena_globo)
-		escena_globo.start(dialogo, titulo_respuesta, [self])
-		await escena_globo.tree_exited
-		
+	
+	ClienteActual.respuesta = BaseDeDatos.obtenerRespuestaCliente(exito_pedido, motivo_pedido)
+	var titulo_respuesta = "respuesta_exito" if exito_pedido else "respuesta_fallo"
+	
+	var dialogo = load("res://dialogue/pedido_cliente.dialogue")
+	var escena_globo = load("res://addons/dialogue_manager/example_balloon/example_balloon.tscn").instantiate()
+	add_child(escena_globo)
+	escena_globo.start(dialogo, titulo_respuesta, [self])
+	await escena_globo.tree_exited
+	
+	var clienteMov = cliente_que_recibe.get_node("movimientoCliente")
 	clienteMov.irse()
 	await clienteMov.salida_terminada
+	
 	cliente_que_recibe.queue_free()
-	clientes_en_fila.erase(nombre_cliente)
+	clientes_en_fila.remove_at(idx_fila)
+	_reordenar_fila() 
 	atendiendo = false
+
+func _reordenar_fila() -> void:
+	if PedidoManager.secuencial: return
+	for i in range(clientes_en_fila.size()):
+		var cliente = clientes_en_fila[i]
+		var pos_x = 200 + (i * 120)
+		var tween = create_tween()
+		tween.tween_property(cliente, "position", Vector2(pos_x, 370), 0.5)

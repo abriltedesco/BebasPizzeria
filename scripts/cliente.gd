@@ -9,6 +9,11 @@ var numOrden: int = 0
 var duracionTotal: float = 60.0
 var tiempoTranscurrido: float = 0.0
 var ordenTomada: bool = false
+var en_posicion: bool = false
+var dialogando: bool = false
+var nombre_cliente: String = ""
+var orden_elegida: Dictionary = {}
+var dificultad_cliente: String = "facil"
 
 func _ready() -> void:
 	if btnEntregar:
