@@ -17,12 +17,12 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-BaseDeDatos="*uid://c5vdt0p7j2tbp"
 DialogueManager="*uid://c3rodes2l3gxb"
 ClienteActual="*uid://3e8jd3tpkvm3"
 Puntaje="*uid://1wh4glx0m4mn"
 PedidoManager="*res://scripts/pedido_manager.gd"
 ProgresoManager="*uid://cntaqlnrbmbfp"
+BaseDeDatosIngredientes="*uid://dohftegtcr4c7"
 
 [display]
 

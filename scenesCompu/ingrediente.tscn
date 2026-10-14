@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://07gh7hencdyt"]
+
+[ext_resource type="Script" uid="uid://bioyf8u5pvc0v" path="res://scriptsCompu/ingrediente.gd" id="1_mhf5p"]
+
+[node name="ingrediente" type="VBoxContainer" unique_id=1921329548]
+script = ExtResource("1_mhf5p")
+
+[node name="datosIngrediente" type="HBoxContainer" parent="." unique_id=461765086]
+layout_mode = 2
+
+[node name="nombreIngrediente" type="Label" parent="datosIngrediente" unique_id=964808232]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Nombre del ingrediente"
+
+[node name="VSeparator2" type="VSeparator" parent="datosIngrediente" unique_id=2139931442]
+layout_mode = 2
+
+[node name="cantidadIngrediente" type="Label" parent="datosIngrediente" unique_id=771442750]
+unique_name_in_owner = true
+layout_mode = 2
+text = "cantidad del ingrediente"
+
+[node name="VSeparator" type="VSeparator" parent="datosIngrediente" unique_id=1024087630]
+layout_mode = 2
+
+[node name="precioIngrediente" type="Label" parent="datosIngrediente" unique_id=255974789]
+unique_name_in_owner = true
+layout_mode = 2
+text = "precio del ingrediente"
+
+[node name="botonesUnidad" type="HBoxContainer" parent="." unique_id=67576906]
+layout_mode = 2
+
+[node name="restarUnidad" type="Button" parent="botonesUnidad" unique_id=933783878]
+unique_name_in_owner = true
+layout_mode = 2
+text = "-"
+
+[node name="sumarUnidad" type="Button" parent="botonesUnidad" unique_id=953241617]
+unique_name_in_owner = true
+layout_mode = 2
+text = "+"
