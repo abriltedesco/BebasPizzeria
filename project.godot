@@ -23,6 +23,7 @@ Puntaje="*uid://1wh4glx0m4mn"
 PedidoManager="*res://scripts/pedido_manager.gd"
 ProgresoManager="*uid://cntaqlnrbmbfp"
 BaseDeDatos="*uid://c5vdt0p7j2tbp"
+ValidadorPizza="*uid://dkr6rknolef0d"
 
 [display]
 

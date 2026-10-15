@@ -82,18 +82,7 @@ func validar_pizza_preparada(num_orden: int) -> bool:
 	var idx = buscar_indice_por_numero_orden(num_orden)
 	if idx == -1: return false
 	var pedido = pedidos_activos[idx]
-	
-	if pizza_preparada.get("tipo", "") != pedido.get("pizza", ""): return false
-		
-	var ing_req = pedido.get("listaOrden", []).duplicate()
-	var ing_prep = pizza_preparada.get("ingredientes", []).duplicate()	
-	if ing_prep.has("plato"):
-		ing_prep.erase("plato")
-	ing_req.sort()
-	ing_prep.sort()
-	
-	print("requerida: ", ing_req, " | preparada: ", ing_prep)
-	return ing_req == ing_prep
+	return ValidadorPizzas.validar(pedido, pizza_preparada)
 
 func buscar_indice_por_numero_orden(num_orden: int) -> int:
 	for i in range(pedidos_activos.size()):

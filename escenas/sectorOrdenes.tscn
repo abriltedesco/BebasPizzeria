@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://xbygkk6ckv1q" path="res://scripts/sectorOrdenes.gd" id="1_0uyns"]
 [ext_resource type="Texture2D" uid="uid://brytwlrtif2ej" path="res://assets/background.png" id="4_gs83u"]
+[ext_resource type="Script" uid="uid://drecqob1wfjco" path="res://scripts/manejar_fila.gd" id="4_ritnq"]
+[ext_resource type="Script" uid="uid://bwhqupnoyiu1x" path="res://scripts/manejar_dialogos.gd" id="5_2c7ub"]
 [ext_resource type="PackedScene" uid="uid://brpmjhh8585mf" path="res://escenas/interfaces/orden.tscn" id="5_v4w84"]
 
 [sub_resource type="Curve2D" id="Curve2D_ruta"]
@@ -33,3 +35,9 @@ offset_left = 886.0
 offset_top = 10.0
 offset_right = 886.0
 offset_bottom = 10.0
+
+[node name="ManejarFila" type="Node" parent="." unique_id=2023902003]
+script = ExtResource("4_ritnq")
+
+[node name="ManejarDialogo" type="Node" parent="." unique_id=1323101217]
+script = ExtResource("5_2c7ub")
