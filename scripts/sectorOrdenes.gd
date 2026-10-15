@@ -40,9 +40,6 @@ func _process(delta: float) -> void:
 				break
 				
 func _spawn_cliente() -> void:
-	if get_tree().current_scene.has_method("mostrar_aviso_cliente"):
-		get_tree().current_scene.mostrar_aviso_cliente()
-
 	var nuevo_cliente = ClienteEscena.instantiate()
 	add_child(nuevo_cliente)
 	nuevo_cliente.tiempo_agotado.connect(_on_cliente_tiempo_agotado)
@@ -93,7 +90,9 @@ func _spawn_cliente() -> void:
 	await clienteMov.movimiento_terminado
 	
 	if is_instance_valid(nuevo_cliente):
-		nuevo_cliente.en_posicion = true 
+		nuevo_cliente.en_posicion = true
+		if get_tree().current_scene.has_method("mostrar_aviso_cliente"):
+			get_tree().current_scene.mostrar_aviso_cliente()
 	
 	if !PedidoManager.secuencial and is_instance_valid(nuevo_cliente):
 		var index_en_fila = clientes_en_fila.find(nuevo_cliente)

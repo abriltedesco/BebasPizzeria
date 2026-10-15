@@ -83,7 +83,6 @@ func _mostrar_cocina() -> void:
 	
 func mostrar_aviso_cliente() -> void:
 	if cocina.visible and is_instance_valid(avisoCliente):
-		avisoCliente.z_index = 100 # forzandolo a que aparezca por encima
 		avisoCliente.visible = true
 		var timer_cartel = get_tree().create_timer(3.0)
 		timer_cartel.timeout.connect(_ocultar_aviso)

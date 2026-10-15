@@ -13,6 +13,7 @@ script = ExtResource("1_va15h")
 
 [node name="avisoCliente" parent="." unique_id=1387325305 instance=ExtResource("2_f3nfr")]
 layer = 110
+script = null
 
 [node name="TimerPartida" type="Timer" parent="." unique_id=1123291511]
 wait_time = 180.0
