@@ -21,20 +21,17 @@ func _process(delta: float) -> void:
 		if timer_spawner <= 0:
 			timer_spawner = PedidoManager.tiempo_entre_clientes
 			_spawn_cliente()
-
+			
+	for i in range(clientes_en_fila.size() - 1, -1, -1):
+		if !is_instance_valid(clientes_en_fila[i]):
+			clientes_en_fila.remove_at(i)
+			
 	for i in range(clientes_en_fila.size() - 1, -1, -1):
 		var cliente = clientes_en_fila[i]
 	
 		if !is_instance_valid(cliente):
 			clientes_en_fila.remove_at(i)
 			continue
-			
-		if cliente.en_posicion and !cliente.ordenTomada and !cliente.dialogando:
-			cliente.tiempoTranscurrido += delta
-			
-			if cliente.tiempoTranscurrido >= cliente.duracionTotal:
-				_cliente_se_va_enojado(cliente, i)
-				continue
 				
 	if is_visible_in_tree() and not atendiendo:
 		for cliente in clientes_en_fila:
@@ -48,6 +45,7 @@ func _spawn_cliente() -> void:
 
 	var nuevo_cliente = ClienteEscena.instantiate()
 	add_child(nuevo_cliente)
+	nuevo_cliente.tiempo_agotado.connect(_on_cliente_tiempo_agotado)
 	
 	var clienteMov = nuevo_cliente.get_node("movimientoCliente")
 	clienteMov.configurar_ruta(rutaCliente)
@@ -75,7 +73,7 @@ func _spawn_cliente() -> void:
 			ordenesPermitidas.append(BaseDeDatos.ordenesConDificultad("dificil"))
 			
 	var ordenElegida = ordenesPermitidas.pick_random()
-	var tiempos_paciencia = [40.0, 60.0, 85.0]
+	var tiempos_paciencia = [75.0, 95.0, 120.0] 
 	nuevo_cliente.duracionTotal = tiempos_paciencia.pick_random()
 	
 	nuevo_cliente.tiempoTranscurrido = 0.0
@@ -121,13 +119,10 @@ func _atender_cliente(cliente_nodo) -> void:
 	
 	if is_instance_valid(cliente_nodo):
 		cliente_nodo.dialogando = false
-		
-		var duracion_restante = cliente_nodo.duracionTotal 
-		
-		var datosTomados = PedidoManager.tomar_pedido(cliente_nodo.nombre_cliente, cliente_nodo.orden_elegida, duracion_restante)
+		var datosTomados = PedidoManager.tomar_pedido(cliente_nodo.nombre_cliente, cliente_nodo.orden_elegida, cliente_nodo.duracionTotal, cliente_nodo.tiempoTranscurrido)
 		var numOrden = datosTomados.get("numero_orden", 1)
 		
-		cliente_nodo.activar_interfaz_orden(numOrden, duracion_restante)
+		cliente_nodo.activar_interfaz_orden(numOrden)
 		cliente_nodo.entregar_presionado.connect(_on_cliente_entregar_presionado)
 		cliente_nodo.ordenTomada = true
 	
@@ -152,11 +147,20 @@ func _on_cliente_entregar_presionado(numOrden: int) -> void:
 	if PedidoManager.pizza_preparada.is_empty():
 		print("no dejaste ninguna pizza en la estación de entrega")
 		return
+		
 	var idx = PedidoManager.buscar_indice_por_numero_orden(numOrden)
 	
 	if idx != -1:
 		var exito = PedidoManager.validar_pizza_preparada(numOrden)
 		var motivo = "exito" if exito else "pizza_incorrecta"
+	
+		if exito:
+			var pedido = PedidoManager.pedidos_activos[idx]
+			var tiempo_restante = pedido["duracion"] - pedido["tiempo_transcurrido"]
+			if tiempo_restante <= 15.0:
+				exito = false
+				motivo = "tiempo"
+					
 		PedidoManager.completar_pedido(idx, exito, motivo)
 		PedidoManager.pizza_preparada.clear()
 
@@ -207,3 +211,14 @@ func _reordenar_fila() -> void:
 		var pos_x = 200 + (i * 120)
 		var tween = create_tween()
 		tween.tween_property(cliente, "position", Vector2(pos_x, 370), 0.5)
+		
+func _on_cliente_tiempo_agotado(cliente_nodo) -> void:
+	var idx = clientes_en_fila.find(cliente_nodo)
+	if idx != -1:
+		if cliente_nodo.ordenTomada:
+			var idx_pedido = PedidoManager.buscar_indice_por_numero_orden(cliente_nodo.numOrden)
+			if idx_pedido != -1:
+				PedidoManager.completar_pedido(idx_pedido, false, "tiempo")
+		else:
+			# Si te tardaste en atenderlo, se va ofendido de la fila sin globo de diálogo
+			_cliente_se_va_enojado(cliente_nodo, idx)

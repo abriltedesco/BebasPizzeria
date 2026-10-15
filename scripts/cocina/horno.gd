@@ -8,6 +8,7 @@ var horno_activo= false
 var tiempo_horno= 0.0
 var pizza_en_horno=""
 var tipo_en_horno=""
+var ingredientes_en_horno: Array = []
 
 const coccion= 4.0
 const quemada= 8.0
@@ -56,9 +57,13 @@ func _process(delta: float) -> void:
 
 func interactuar(jugador: CharacterBody2D) -> void:
 	if jugador.mano_item== "pizzacruda":
-		if not horno_activo and pizza_en_horno== "":
+		if !horno_activo and pizza_en_horno== "":
 			pizza_en_horno= jugador.mano_item
 			tipo_en_horno= jugador.mano_item_tipo
+			
+			if "mano_item_ingredientes" in jugador:
+				ingredientes_en_horno = jugador.mano_item_ingredientes.duplicate()
+				
 			horno_activo= true
 			tiempo_horno= 0.0
 			barra_node.visible= true
@@ -80,3 +85,7 @@ func interactuar(jugador: CharacterBody2D) -> void:
 			senial.visible= false
 			tiempo_horno= 0.0
 			jugador.agarrar_item(resultado, tipo_resultado)
+			
+			if "mano_item_ingredientes" in jugador:
+				jugador.mano_item_ingredientes = ingredientes_en_horno.duplicate()
+			ingredientes_en_horno.clear()

@@ -26,6 +26,7 @@ func interactuar(jugador: CharacterBody2D) -> void:
 			var tipo_tomado= tipos_en_mesa[lugar]
 			quitar_item_en_indice(lugar)
 			jugador.agarrar_item(item_tomado, tipo_tomado)
+			jugador.mano_item_ingredientes = ingredientes_de_tipo(tipo_tomado)
 
 func agregar_item(item_mano: String, tipo_mano: String, zona: CollisionShape2D) -> void:
 	items_en_mesa.append(item_mano)
@@ -135,3 +136,11 @@ func buscar_item_en_zona(item: String, zona: CollisionShape2D) -> int:
 		if items_en_mesa[lugar]== item and zonas_en_mesa[lugar] == zona:
 			return lugar
 	return -1
+	
+func ingredientes_de_tipo(tipo: String) -> Array:
+	var nombre = tipo
+	if ":" in nombre:
+		nombre = nombre.split(":")[1]
+	if nombre == "":
+		return []
+	return BaseDeDatos.obtenerOrdenPorTipo(nombre).get("ingredientes", []).duplicate()

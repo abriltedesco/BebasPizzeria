@@ -55,7 +55,7 @@ func cliente_ignorado_se_fue() -> void:
 	if clientes_generados >= max_clientes_nivel and pedidos_activos.is_empty():
 		nivel_completado.emit()
 
-func tomar_pedido(nombre_cliente: String, orden: Dictionary, duracion_restante: float = 60.0) -> Dictionary:
+func tomar_pedido(nombre_cliente: String, orden: Dictionary, duracion_total: float = 60.0, ya_transcurrido: float = 0.0) -> Dictionary:
 	if partida_finalizada:
 		return {}
 
@@ -66,8 +66,8 @@ func tomar_pedido(nombre_cliente: String, orden: Dictionary, duracion_restante: 
 		"pizza": orden["tipo"],
 		"listaOrden": orden["ingredientes"].duplicate(),
 		"dificultad": orden.get("dificultad", "facil"),
-		"tiempo_transcurrido": 0.0,
-		"duracion": duracion_restante,
+		"tiempo_transcurrido": ya_transcurrido,
+		"duracion": duracion_total,
 		"desplegado": false
 	}
 	
@@ -86,9 +86,13 @@ func validar_pizza_preparada(num_orden: int) -> bool:
 	if pizza_preparada.get("tipo", "") != pedido.get("pizza", ""): return false
 		
 	var ing_req = pedido.get("listaOrden", []).duplicate()
-	var ing_prep = pizza_preparada.get("ingredientes", []).duplicate()
+	var ing_prep = pizza_preparada.get("ingredientes", []).duplicate()	
+	if ing_prep.has("plato"):
+		ing_prep.erase("plato")
 	ing_req.sort()
 	ing_prep.sort()
+	
+	print("requerida: ", ing_req, " | preparada: ", ing_prep)
 	return ing_req == ing_prep
 
 func buscar_indice_por_numero_orden(num_orden: int) -> int:

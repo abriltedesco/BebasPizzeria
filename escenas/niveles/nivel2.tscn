@@ -11,11 +11,12 @@
 [node name="nivel2" type="Node" unique_id=550360825]
 script = ExtResource("1_va15h")
 
+[node name="avisoCliente" parent="." unique_id=1387325305 instance=ExtResource("2_f3nfr")]
+layer = 110
+
 [node name="TimerPartida" type="Timer" parent="." unique_id=1123291511]
 wait_time = 180.0
 one_shot = true
-
-[node name="avisoCliente" parent="." unique_id=1387325305 instance=ExtResource("2_f3nfr")]
 
 [node name="Pedidos" parent="." unique_id=1968411043 instance=ExtResource("2_va15h")]
 

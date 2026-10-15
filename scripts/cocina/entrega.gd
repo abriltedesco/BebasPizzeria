@@ -18,7 +18,7 @@ func interactuar(jugador: CharacterBody2D) -> void:
 	var tipo_entregado: String = jugador.mano_item_tipo
 	var ingredientes_pizzaplato: Array = []
 	if "mano_item_ingredientes" in jugador:
-		ingredientes_pizzaplato = jugador.mano_item_ingredientes
+		ingredientes_pizzaplato = jugador.mano_item_ingredientes.duplicate()
 	
 	jugador.soltar_item()
 	
@@ -26,7 +26,7 @@ func interactuar(jugador: CharacterBody2D) -> void:
 		if tipo_entregado.begins_with("quemada:") or tipo_entregado.begins_with("sincocinar:"):
 			pizzasFallidas += 1
 			Puntaje.sumarPedidoFallido()
-			print("Orden incorrecta: la pizza no estaba lista correctamente.")
+			print("orden incorrecta: la pizza no estaba lista correctamente.")
 			pedido_resuelto.emit(false)
 			PedidoManager.completar_pedido(0, false, "quemada")
 			return
@@ -57,4 +57,4 @@ func interactuar(jugador: CharacterBody2D) -> void:
 		}
 		
 		PedidoManager.guardar_pizza_preparada(datos_pizza)
-		print("Pizza lista en la estación. Ve a la sección de Órdenes y presiona 'Entregar orden #' sobre el cliente elegido.")
+		print("lista en estacion")
