@@ -101,7 +101,12 @@ func hornallaMasCercana(origen: Vector2) -> Hornalla:
 			menor = distancia
 			mejor = hornalla
 	return mejor
-
+	
+func hayPizzaCocinandose() -> bool:
+	for hornalla in hornallas:
+		if hornalla.activa: return true
+	return false
+	
 func vaciarHornalla(h: Hornalla) -> void:
 	h.activa = false
 	h.pizza = ""

@@ -1,49 +1,103 @@
 [gd_scene format=3 uid="uid://3wg55bjt1xhc"]
 
-[ext_resource type="FontFile" uid="uid://co4gjim8awrfd" path="res://assets/KGBlankSpaceSolid.ttf" id="1_84qc5"]
+[ext_resource type="FontFile" uid="uid://cj52h2tnkxruo" path="res://assets/pixely[1].ttf" id="1_7ad26"]
+[ext_resource type="Texture2D" uid="uid://bcx3yeyem2p2p" path="res://assets/cuadricula.jpeg" id="1_eykar"]
+[ext_resource type="FontFile" uid="uid://bxrixcbxf2rqt" path="res://assets/Pix32.ttf" id="2_mabfh"]
 [ext_resource type="Script" uid="uid://cbhnbakbdgiwt" path="res://scripts/botones/reintentar.gd" id="2_olqmb"]
 [ext_resource type="Script" uid="uid://bv2ht7q8yc1xg" path="res://scripts/botones/siguiente.gd" id="3_7ad26"]
 [ext_resource type="Script" uid="uid://br5f7ym5nbrjh" path="res://scripts/menú.gd" id="4_mabfh"]
+[ext_resource type="Texture2D" uid="uid://b2if2iyev7psk" path="res://assets/loading/pixil-frame-0.png" id="7_yxryj"]
+[ext_resource type="Texture2D" uid="uid://br6atsy41hust" path="res://assets/loading/pixil-frame-1.png" id="8_00wp8"]
+[ext_resource type="Texture2D" uid="uid://cx7cp4eqmh83d" path="res://assets/loading/pixil-frame-2.png" id="9_xba3h"]
+[ext_resource type="Texture2D" uid="uid://p07f8vjs4ghl" path="res://assets/loading/pixil-frame-3.png" id="10_2jxox"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cq4yk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_yxryj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_00wp8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xba3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2jxox")
+}],
+"loop": true,
+"name": &"loading",
+"speed": 3.0
+}]
 
 [node name="GameOver" type="Node2D" unique_id=1481331450]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1574166932]
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=854966091]
 offset_right = 1151.0
 offset_bottom = 663.0
-color = Color(0.72197855, 0.9418724, 0.58471394, 1)
+color = Color(0.47058824, 0, 0, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1948582639]
-offset_left = 278.0
-offset_top = 227.0
-offset_right = 865.0
-offset_bottom = 315.0
-theme_override_constants/separation = 15
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect2" unique_id=1919417373]
+modulate = Color(1, 1, 1, 0.16470589)
+position = Vector2(576.0626, 327.14072)
+rotation = 1.5707964
+scale = Vector2(0.8904981, 0.8810209)
+texture = ExtResource("1_eykar")
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=83270852]
-layout_mode = 2
+[node name="Label" type="Label" parent="." unique_id=83270852]
+offset_left = 225.0
+offset_top = 206.0
+offset_right = 936.0
+offset_bottom = 300.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 9
-theme_override_fonts/font = ExtResource("1_84qc5")
+theme_override_fonts/font = ExtResource("1_7ad26")
 theme_override_font_sizes/font_size = 60
 text = "¡Juego terminado!"
 
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1948582639]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 376.0
+offset_top = 200.0
+offset_right = 809.0
+offset_bottom = 456.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 2
+
 [node name="reintentar" type="Button" parent="VBoxContainer" unique_id=742793987]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mabfh")
 theme_override_font_sizes/font_size = 30
 text = "Reintentar nivel"
 script = ExtResource("2_olqmb")
 
 [node name="siguiente" type="Button" parent="VBoxContainer" unique_id=2030483682]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mabfh")
 theme_override_font_sizes/font_size = 30
 text = "Siguiente"
 script = ExtResource("3_7ad26")
 
 [node name="menú" type="Button" parent="VBoxContainer" unique_id=280604259]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mabfh")
 theme_override_font_sizes/font_size = 30
 text = "volver al menú"
 script = ExtResource("4_mabfh")
+
+[node name="pizzaload" type="AnimatedSprite2D" parent="." unique_id=1804417373]
+texture_filter = 1
+position = Vector2(592, 160.00003)
+scale = Vector2(2.6249988, 2.5249991)
+sprite_frames = SubResource("SpriteFrames_cq4yk")
+animation = &"loading"
 
 [connection signal="pressed" from="VBoxContainer/reintentar" to="VBoxContainer/reintentar" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/siguiente" to="VBoxContainer/siguiente" method="_on_pressed"]

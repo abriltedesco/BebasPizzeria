@@ -618,6 +618,9 @@ size = Vector2(36.86567, 33.804337)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4a3hp"]
 size = Vector2(69.402985, 49.864098)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikpwi"]
+size = Vector2(63.95533, 147.663)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wq60e"]
 size = Vector2(55.223892, 24.456512)
 
@@ -690,8 +693,9 @@ tile_set = SubResource("TileSet_4hppj")
 script = SubResource("GDScript_dkie8")
 
 [node name="lucia" parent="." unique_id=1491044463 instance=ExtResource("2_y27vd")]
-position = Vector2(675.37305, 157.06517)
+position = Vector2(675.37305, 157.06519)
 scale = Vector2(1.5, 1)
+collision_layer = 2
 
 [node name="Mesa" type="Area2D" parent="." unique_id=443437130]
 script = ExtResource("3_mesa")
@@ -775,11 +779,20 @@ offset_bottom = 144.0217
 texture = ExtResource("9_pqrfa")
 
 [node name="HornallaP3" type="TextureRect" parent="Horno" unique_id=1263481909]
+visible = false
 offset_left = 792.5373
 offset_top = 145.10864
 offset_right = 857.46265
 offset_bottom = 193.47818
 texture = ExtResource("9_pqrfa")
+
+[node name="Bloqueo" type="StaticBody2D" parent="Horno" unique_id=1385170046]
+collision_mask = 0
+constant_linear_velocity = Vector2(50, 50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Horno/Bloqueo" unique_id=1576453363]
+position = Vector2(826.23126, 119.10322)
+shape = SubResource("RectangleShape2D_ikpwi")
 
 [node name="Queso" type="Area2D" parent="." unique_id=4381041]
 script = ExtResource("7_queso")

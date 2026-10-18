@@ -1,7 +1,23 @@
 ~ start
--: Movete por la cocina (con las flechas o con WASD) para preparar la pizza que te pidieron! 
--: Deberás agarrar cada ingrediente e ir dejandolo en la mesa (interactuas siempre tocando la tecla "E")
--: Una vez que tengas la pizza llevala al horno pero CUIDADO! no la dejes más de 4 segundos
--: Primero deberás sacar la pizza y apoyarla en la mesa, luego agarrás el plato
--: Al terminarla dejala en el sector de entrega para que la reciba el cliente!
+Jefe: ¡Bienvenida a la cocina! Te muestro cómo funciona todo.
+
+do resaltar("Queso", "Acercate y apretá E para agarrar queso")
+Jefe: Los ingredientes salen de estos cajones. En este nivel el queso, el tomate y la masa son ilimitados.
+do esperarMano("queso")
+
+do resaltar("Mesa", "Apretá E para dejar el queso en la mesa")
+Jefe: Dejalo en la mesa y repetí esto con el tomate y la masa para que se arme la pizza.
+do esperarManoVacia()
+
+do resaltar("Horno", "Apretá E para dejarla")
+Jefe: Cuando esté armada, ponela en una de las hornallas. Tarda 4 segundos en hornearse, CUIDADO!! si se pasa se quema y eso no le gusta a los clientes...
+
+do resaltar("Plato", "Apretá E para agarrarlo")
+Jefe: Cuando la sacas del horno, apoyala en la mesa y agarrá un plato para poder entregarlo. Un buen tip: cuando se esté cocinando aprovechá a apoyar platos en la mesa y luego directamente colocá la pizza encima de alguno!! 
+
+do resaltar("Entrega")
+Jefe: Una vez lista, dejala acá para que la reciba el cliente :) SPOILER! a partir de los próximos niveles eligirás a quien entregarlo con un botón, en este entregas directo
+
+do resaltar("")
+Jefe: ¡Listo! A trabajar.
 => END
