@@ -14,6 +14,7 @@ var entregaExitosa = false
 var escenaSiguiente: String = "" 
 
 func _ready() -> void:
+	Puntaje.guardarInicioNivel()
 	transicion.visible = false
 	avisoCliente.visible = false
 	
@@ -28,17 +29,17 @@ func _ready() -> void:
 		print("no hay ninguna estación en el grupo entrega")
 		
 	timerPartida.start()
-	_mostrar_pedidos()
+	mostrar_pedidos()
 
 func _on_pedido_resuelto(exito: bool) -> void:
 	pizzaEntregada = true
 	if exito:
 		entregaExitosa = true 
-	_mostrar_pedidos()
+	mostrar_pedidos()
 	
 func on_tiempo_agotado() -> void:
 	timerPartida.stop()
-	_mostrar_pedidos()
+	mostrar_pedidos()
 	
 	if pedidos.has_node("ExampleBalloon"):
 		pedidos.get_node("ExampleBalloon").queue_free()
@@ -58,22 +59,23 @@ func on_tiempo_agotado() -> void:
 	else:
 		print("No se cumplió el mínimo de entregas")
 		PedidoManager.finalizar_partida()
+		Puntaje.restaurarInicioNivel()
 		get_tree().change_scene_to_file("res://escenas/interfaces/GameOver.tscn")
 		
 func _alternar_vista() -> void:
 	if cocina.visible:
-		_mostrar_pedidos()
+		mostrar_pedidos()
 	else:
-		_mostrar_cocina()
+		mostrar_cocina()
 		
-func _mostrar_pedidos() -> void:
+func mostrar_pedidos() -> void:
 	pedidos.visible = true
 	pedidos.process_mode = Node.PROCESS_MODE_INHERIT
 	cocina.visible = false
 	cocina.process_mode = Node.PROCESS_MODE_DISABLED
 	interfaz.set_vista_cocina(false)
 	
-func _mostrar_cocina() -> void:
+func mostrar_cocina() -> void:
 	pedidos.visible = false
 	pedidos.process_mode = Node.PROCESS_MODE_INHERIT 
 	cocina.visible = true
