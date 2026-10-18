@@ -1,6 +1,6 @@
 extends Estaciones
 class_name Ingredientes
-var controlador: Node = null
+
 const TEXTURAS := {
 	"queso": "res://assets/comida/Ingredientes/queso.png",
 	"tomate": "res://assets/comida/Ingredientes/tomate.png",
@@ -18,25 +18,44 @@ const TEXTURAS := {
 	"aceite": "res://assets/comida/Ingredientes/Aceite.png",
 	"pepperoni": "res://assets/comida/Ingredientes/Pepperoni.png",
 }
+
+const TAMSPRITE := 32.0
+const SHADER_GRIS := preload("res://assets/shaders/filtroGris.tres")
+var sprite: CanvasItem = null
+var estadoVisual: int = -1   # -1 = sin definir, 0 = inhabilitado, 1 = habilitado
+
 func _ready() -> void:
 	super._ready()
-	controlador = get_tree().get_first_node_in_group("controlador_ingredientes")
+	sprite = get_node_or_null("sprite")
 	visuales()
+
 func _process(_delta: float) -> void:
 	visuales()
+
 func esta_desbloqueado() -> bool:
-	if controlador==null:
-		return true 
-	return controlador.esta_desbloqueado(obtener_item())
+	var nombreIngrediente: String = obtener_item()
+	return ControlIngred.esta_desbloqueado(nombreIngrediente)
+
 func visuales() -> void:
-	if esta_desbloqueado():
-		modulate=Color(1, 1, 1, 1)
-	else:
-		modulate=Color(0.5, 0.5, 0.5, 1)
+	var habilitado: bool = esta_desbloqueado()
+	var nuevoEstado: int = 1 if habilitado else 0
+	if nuevoEstado == estadoVisual:
+		return
+	estadoVisual = nuevoEstado
+
+	# el filtro gris solo se ve cuando el ingrediente está inhabilitado
+	if sprite:
+		sprite.visible = not habilitado
+
+	for hijo in get_children():
+		if hijo is Label:
+			hijo.modulate = Color(1, 1, 1, 1) if habilitado else Color(1, 1, 1, 0.4)
+
 func interactuar(jugador: CharacterBody2D) -> void:
-	if jugador.mano_item==""and esta_desbloqueado():
-		var item= obtener_item()
-		if item!="":
+	if jugador.mano_item == "" and esta_desbloqueado():
+		var item = obtener_item()
+		if item != "":
 			jugador.agarrar_item(item)
+
 func obtener_item() -> String:
 	return ""

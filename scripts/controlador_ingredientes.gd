@@ -1,24 +1,38 @@
 extends Node
 class_name ControladorIngredientes
 
-var ingredientes_por_nivel: Dictionary = {
-	1: ["masa","tomate","queso","plato"],
-	2: ["masa","tomate","queso","plato","cebolla"],
-	3: ["masa","tomate","queso","plato","cebolla","jamon"],
+const ING_CONST := ["plato"]
+const ING_NUEVOS_POR_NIVEL := {
+	1: ["masa", "tomate", "queso"],
+	2: ["cebolla", "jamon"],
+	3: ["rucula", "albahaca", "morron", "aceite", "pepperoni"],
+	4: ["huevo", "cheddar", "papas", "panceta", "roquefort", "parmesano", "aceitunas"],
+	5: [],
 }
-var ingredientes_desbloqueados: Array[String] = []
 
-func _ready() -> void:
-	add_to_group("controlador_ingredientes")
-	var lista: Array = ingredientes_por_nivel.get(ProgresoManager.nivel_actual,[])
-	ingredientes_desbloqueados.assign(lista)
-	
-func esta_desbloqueado(ingrediente: String) -> bool:
-	return ingrediente in ingredientes_desbloqueados
-	
-func desbloquear(ingrediente: String) -> void:
-	if ingrediente not in ingredientes_desbloqueados:
-		ingredientes_desbloqueados.append(ingrediente)
-		
-func bloquear(ingrediente: String) -> void:
-	ingredientes_desbloqueados.erase(ingrediente)
+# sin depender de ningún nodo ni del orden de carga
+static var desbloqueados: Array = []
+static var nivel_cargado: int = -1
+
+static func sincronizar() -> void:
+	var nivel: int = ProgresoManager.nivel_actual
+	if nivel == nivel_cargado:
+		return
+	nivel_cargado = nivel
+	desbloqueados.clear()
+	desbloqueados.append_array(ING_CONST)
+	for n in range(1, nivel + 1):
+		desbloqueados.append_array(ING_NUEVOS_POR_NIVEL.get(n, []))
+
+static func esta_desbloqueado(ingrediente: String) -> bool:
+	sincronizar()
+	return ingrediente in desbloqueados
+
+static func desbloquear(ingrediente: String) -> void:
+	sincronizar()
+	if ingrediente not in desbloqueados:
+		desbloqueados.append(ingrediente)
+
+static func bloquear(ingrediente: String) -> void:
+	sincronizar()
+	desbloqueados.erase(ingrediente)

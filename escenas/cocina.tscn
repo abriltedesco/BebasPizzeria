@@ -14,6 +14,8 @@
 [ext_resource type="Script" uid="uid://buxpf8ibioyjq" path="res://scripts/cocina/plato.gd" id="10_plato"]
 [ext_resource type="Script" uid="uid://dhcl43k0skqpv" path="res://scripts/cocina/basura.gd" id="11_basura"]
 [ext_resource type="Script" uid="uid://u0hho8tqnomd" path="res://scripts/cocina/entrega.gd" id="12_entrega"]
+[ext_resource type="Shader" uid="uid://dt5h50vxjo1ju" path="res://assets/shaders/gris.gdshader" id="16_lsrsh"]
+[ext_resource type="Material" uid="uid://b3ywkadyon0o0" path="res://assets/shaders/filtroGris.tres" id="19_dypwv"]
 [ext_resource type="Script" uid="uid://bt15j1vosiul" path="res://scripts/cocina/aceite.gd" id="20_aceite"]
 [ext_resource type="Script" uid="uid://d1jrfunwacfhu" path="res://scripts/cocina/aceitunas.gd" id="20_aceitunas"]
 [ext_resource type="Script" uid="uid://csucsp5e6hv4g" path="res://scripts/cocina/albahaca.gd" id="20_albahaca"]
@@ -619,8 +621,14 @@ size = Vector2(56.119408, 22.282608)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qddnn"]
 size = Vector2(84.328354, 32.608673)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dypwv"]
+shader = ExtResource("16_lsrsh")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u34sk"]
 size = Vector2(35.59701, 20)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_svs2d"]
+shader = ExtResource("16_lsrsh")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jamon"]
 size = Vector2(40.298462, 47.673943)
@@ -837,6 +845,14 @@ horizontal_alignment = 1
 [node name="Cebolla" type="Area2D" parent="." unique_id=963689497]
 script = ExtResource("20_cebolla")
 
+[node name="sprite" type="ColorRect" parent="Cebolla" unique_id=679779012]
+material = SubResource("ShaderMaterial_dypwv")
+layout_direction = 4
+offset_left = -0.7462716
+offset_top = 271.73904
+offset_right = 64.17911
+offset_bottom = 320.10858
+
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Cebolla" unique_id=1367096463]
 position = Vector2(45.63432, 293.47815)
 shape = SubResource("RectangleShape2D_u34sk")
@@ -854,6 +870,14 @@ horizontal_alignment = 1
 
 [node name="Jamón" type="Area2D" parent="." unique_id=1514125608]
 script = ExtResource("20_jamon")
+
+[node name="sprite" type="ColorRect" parent="Jamón" unique_id=1794451963]
+material = SubResource("ShaderMaterial_svs2d")
+layout_direction = 4
+offset_left = 299.25372
+offset_top = 110.86954
+offset_right = 364.1791
+offset_bottom = 159.23907
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jamón" unique_id=1759264005]
 position = Vector2(331.34323, 134.16301)
@@ -873,6 +897,14 @@ horizontal_alignment = 1
 [node name="Rucula" type="Area2D" parent="." unique_id=1471481066]
 script = ExtResource("20_rucula")
 
+[node name="sprite" type="ColorRect" parent="Rucula" unique_id=343979642]
+material = ExtResource("19_dypwv")
+layout_direction = 4
+offset_left = 365.67166
+offset_top = 111.413
+offset_right = 430.59705
+offset_bottom = 159.78253
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rucula" unique_id=1893741514]
 position = Vector2(398.50745, 134.16302)
 shape = SubResource("RectangleShape2D_rucula")
@@ -890,6 +922,14 @@ horizontal_alignment = 1
 
 [node name="Huevo" type="Area2D" parent="." unique_id=507260274]
 script = ExtResource("20_huevo")
+
+[node name="sprite" type="ColorRect" parent="Huevo" unique_id=1124495615]
+material = ExtResource("19_dypwv")
+layout_direction = 4
+offset_left = 430.597
+offset_top = 110.86953
+offset_right = 495.52237
+offset_bottom = 159.23907
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Huevo" unique_id=474579083]
 position = Vector2(461.56714, 134.16302)
@@ -909,6 +949,14 @@ horizontal_alignment = 1
 [node name="Albahaca" type="Area2D" parent="." unique_id=771355475]
 script = ExtResource("20_albahaca")
 
+[node name="sprite" type="ColorRect" parent="Albahaca" unique_id=653411484]
+material = ExtResource("19_dypwv")
+layout_direction = 4
+offset_left = 495.5224
+offset_top = 110.869545
+offset_right = 560.44775
+offset_bottom = 159.23907
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Albahaca" unique_id=318606698]
 position = Vector2(525, 134.43475)
 shape = SubResource("RectangleShape2D_albahaca")
@@ -927,6 +975,14 @@ horizontal_alignment = 1
 [node name="Aceitunas" type="Area2D" parent="." unique_id=562068507]
 script = ExtResource("20_aceitunas")
 
+[node name="sprite" type="ColorRect" parent="Aceitunas" unique_id=46940281]
+material = ExtResource("19_dypwv")
+layout_direction = 4
+offset_left = 234.32834
+offset_top = 145.10864
+offset_right = 299.2537
+offset_bottom = 193.47818
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aceitunas" unique_id=1960006157]
 position = Vector2(266.16415, 168.74994)
 shape = SubResource("RectangleShape2D_aceitunas")
@@ -944,6 +1000,14 @@ horizontal_alignment = 1
 
 [node name="Papas" type="Area2D" parent="." unique_id=1179659913]
 script = ExtResource("20_papas")
+
+[node name="sprite" type="ColorRect" parent="Papas" unique_id=536505633]
+material = ExtResource("19_dypwv")
+layout_direction = 4
+offset_left = 235.82086
+offset_top = 192.39124
+offset_right = 300.74622
+offset_bottom = 240.76077
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Papas" unique_id=2107772479]
 position = Vector2(266.53726, 217.66296)
@@ -964,6 +1028,14 @@ horizontal_alignment = 1
 position = Vector2(202.98506, 92.93475)
 script = ExtResource("20_cheddar")
 
+[node name="sprite" type="ColorRect" parent="Cheddar" unique_id=961536273]
+material = ExtResource("19_dypwv")
+layout_direction = 4
+offset_left = 590.29846
+offset_top = 147.82605
+offset_right = 655.2238
+offset_bottom = 196.19559
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cheddar" unique_id=384165561]
 position = Vector2(616.04474, 170.10864)
 shape = SubResource("RectangleShape2D_cheddar")
@@ -983,6 +1055,14 @@ horizontal_alignment = 1
 position = Vector2(202.98506, 97.28258)
 script = ExtResource("20_roquefort")
 
+[node name="sprite" type="ColorRect" parent="Roquefort" unique_id=336258268]
+material = ExtResource("19_dypwv")
+layout_direction = 4
+offset_left = 589.55225
+offset_top = 191.30428
+offset_right = 654.4776
+offset_bottom = 239.67381
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roquefort" unique_id=278776242]
 position = Vector2(615.2985, 216.03252)
 shape = SubResource("RectangleShape2D_roquefort")
@@ -1000,6 +1080,14 @@ horizontal_alignment = 1
 
 [node name="Parmesano" type="Area2D" parent="." unique_id=1043597753]
 script = ExtResource("20_parmesano")
+
+[node name="sprite" type="ColorRect" parent="Parmesano" unique_id=1663756576]
+material = ExtResource("19_dypwv")
+layout_direction = 4
+offset_left = 300.74625
+offset_top = 222.826
+offset_right = 365.6716
+offset_bottom = 271.19556
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Parmesano" unique_id=1732910132]
 position = Vector2(332.8358, 248.32603)
@@ -1019,6 +1107,14 @@ horizontal_alignment = 1
 [node name="Aceite" type="Area2D" parent="." unique_id=44883823]
 script = ExtResource("20_aceite")
 
+[node name="sprite" type="ColorRect" parent="Aceite" unique_id=159450911]
+material = ExtResource("19_dypwv")
+layout_direction = 4
+offset_left = 365.67163
+offset_top = 223.36949
+offset_right = 430.597
+offset_bottom = 271.739
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aceite" unique_id=80759213]
 position = Vector2(396.26865, 248.59778)
 shape = SubResource("RectangleShape2D_aceite")
@@ -1036,6 +1132,14 @@ horizontal_alignment = 1
 
 [node name="Pepperoni" type="Area2D" parent="." unique_id=14651272]
 script = ExtResource("20_pepperoni")
+
+[node name="sprite" type="ColorRect" parent="Pepperoni" unique_id=834026441]
+material = ExtResource("19_dypwv")
+layout_direction = 4
+offset_left = 429.10446
+offset_top = 222.826
+offset_right = 494.02982
+offset_bottom = 271.19556
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pepperoni" unique_id=1060612184]
 position = Vector2(461.94028, 248.59778)
