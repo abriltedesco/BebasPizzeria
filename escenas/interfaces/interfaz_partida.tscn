@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c8gixx6toav56"]
 
 [ext_resource type="Script" uid="uid://xe3q0hxpfoho" path="res://scripts/interfaz_partida.gd" id="1_interfaz"]
+[ext_resource type="FontFile" uid="uid://bxrixcbxf2rqt" path="res://assets/Pix32.ttf" id="2_qs1a5"]
 [ext_resource type="Texture2D" uid="uid://de1v2ew301hjl" path="res://assets/señal.png" id="2_señal"]
 [ext_resource type="Script" uid="uid://c6qljumy4talo" path="res://scripts/actualizador_ui.gd" id="3_r4hgc"]
 [ext_resource type="Texture2D" uid="uid://b80bbtrg4opoo" path="res://assets/recetario/recetario.png" id="4_qw2mv"]
@@ -25,6 +26,13 @@
 layer = 20
 script = ExtResource("1_interfaz")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1649770737]
+offset_left = 7.0
+offset_top = 9.0
+offset_right = 144.0
+offset_bottom = 87.0
+color = Color(0.52156866, 0, 0.007843138, 0.54509807)
+
 [node name="LabelTiempo" type="Label" parent="." unique_id=2020518534]
 offset_left = 16.0
 offset_top = 12.0
@@ -33,7 +41,8 @@ offset_bottom = 54.0
 theme_override_colors/font_color = Color(1, 0.956863, 0.839216, 1)
 theme_override_colors/font_outline_color = Color(0.164706, 0.0901961, 0.0705882, 1)
 theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 26
+theme_override_fonts/font = ExtResource("2_qs1a5")
+theme_override_font_sizes/font_size = 37
 text = "05:00"
 
 [node name="LabelPropina" type="Label" parent="." unique_id=1760712657]
@@ -44,8 +53,9 @@ offset_bottom = 90.0
 theme_override_colors/font_color = Color(1, 0.956863, 0.839216, 1)
 theme_override_colors/font_outline_color = Color(0.164706, 0.0901961, 0.0705882, 1)
 theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_qs1a5")
 theme_override_font_sizes/font_size = 18
-text = "Propina: $0"
+text = "PROPINA: $0"
 
 [node name="BotonFlecha" type="TextureButton" parent="." unique_id=1882575722]
 anchors_preset = 6
