@@ -8,7 +8,7 @@ func _ready() -> void:
 	if sprite== null and has_node("Sprite2D"):
 		sprite= $Sprite2D
 
-func set_item(nombre: String) -> void:
+func set_item(nombre: String, tipo: String = "") -> void:
 	item= nombre
 	visible= nombre!= ""
 	if nombre== "":
@@ -19,8 +19,10 @@ func set_item(nombre: String) -> void:
 		sprite.visible= true
 		sprite.scale= Vector2(1, 1)
 		match nombre:
-			"queso", "tomate", "masa", "cebolla", "jamon", "rucula", "huevo", "albahaca", "aceitunas", "papas", "cheddar", "roquefort", "parmesano", "aceite", "pepperoni":
+			"queso", "tomate", "masa", "cebolla", "jamon", "rucula", "huevo", "albahaca", "aceitunas", "papas", "cheddar", "roquefort", "parmesano", "aceite", "pepperoni", "tomateCortado", "quesoCortado", "cebollaCortada", "jamonCortado":
 				sprite.texture = load(Ingredientes.TEXTURAS[nombre])
+				if nombre in Ingredientes.CORTADOS:
+					sprite.scale = Vector2.ONE * Ingredientes.escala_cortado(nombre)
 			"plato":
 				sprite.texture= load("res://assets/comida/plato.png")
 				sprite.scale= Vector2(0.1, 0.1)
@@ -29,7 +31,7 @@ func set_item(nombre: String) -> void:
 			"pizzacruda":
 				sprite.texture= load("res://assets/comida/pizzacruda.png")
 			"pizzahecha":
-				sprite.texture= load("res://assets/comida/pizzacocinada.png")
+				sprite.texture= load(BaseDeDatos.spritePizzaHecha(tipo))
 			"pizzaquemada":
 				sprite.texture= load("res://assets/comida/pizzaquemada.png")
 			_:

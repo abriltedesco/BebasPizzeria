@@ -67,7 +67,7 @@ func agarrar_item(item: String, tipo: String ="") -> void:
 	else:
 		plato_en_mano=false
 	if mano and mano.has_method("set_item"):
-		mano.set_item(item)
+		mano.set_item(item, tipo)
 
 func soltar_item() -> void:
 	mano_item=""

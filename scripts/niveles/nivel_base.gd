@@ -29,6 +29,7 @@ func _ready() -> void:
 		print("no hay ninguna estación en el grupo entrega")
 		
 	timerPartida.start()
+	get_tree().call_group("estaciones", "actualizar_dia")
 	mostrar_pedidos()
 
 func _on_pedido_resuelto(exito: bool) -> void:

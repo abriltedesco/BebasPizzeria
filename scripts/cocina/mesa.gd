@@ -16,8 +16,9 @@ func interactuar(jugador: CharacterBody2D) -> void:
 		var tipo_mano= jugador.mano_item_tipo
 		jugador.soltar_item()
 
-		agregar_item(item_mano, tipo_mano, zona)
-		intentar_armar_pizza(zona)
+		if not mejorar_pizza(item_mano, tipo_mano, zona):
+			agregar_item(item_mano, tipo_mano, zona)
+			intentar_armar_pizza(zona)
 		intentar_emplatar(zona)
 	else:
 		var lugar= zonas_en_mesa.rfind(zona)
@@ -41,10 +42,12 @@ func agregar_item(item_mano: String, tipo_mano: String, zona: CollisionShape2D) 
 		nuevo_sprite.scale= Vector2(0.15, 0.15)
 	elif Ingredientes.TEXTURAS.has(item_mano):
 		nuevo_sprite.texture= load(Ingredientes.TEXTURAS[item_mano])
+		if item_mano in Ingredientes.CORTADOS:
+			nuevo_sprite.scale= nuevo_sprite.scale * Ingredientes.escala_cortado(item_mano)
 	elif item_mano== "pizzacruda":
 		nuevo_sprite.texture= load("res://assets/comida/pizzacruda.png")
 	elif item_mano== "pizzahecha":
-		nuevo_sprite.texture= load("res://assets/comida/pizzacocinada.png")
+		nuevo_sprite.texture= load(BaseDeDatos.spritePizzaHecha(tipo_mano))
 	elif item_mano== "pizzaquemada":
 		nuevo_sprite.texture= load("res://assets/comida/pizzaquemada.png")
 	elif item_mano== "pizzaplato":
@@ -67,17 +70,49 @@ func intentar_armar_pizza(zona: CollisionShape2D) -> void:
 		if items_en_mesa[i]!= "plato" and tipos_en_mesa[i]== "":
 			ingredientes_crudos.append(items_en_mesa[i])
 
-	for receta in BaseDeDatos.listaOrdenes:
+	var exacta= receta_exacta(ingredientes_crudos)
+	if not exacta.is_empty():
+		quitar_ingredientes(exacta["ingredientes"])
+		agregar_item("pizzacruda", exacta["tipo"], zona)
+		return
+
+	for receta in BaseDeDatos.recetasDelDia():
 		if receta["tipo"]== ClienteActual.pizza and coincide_receta(ingredientes_crudos, receta["ingredientes"]):
 			quitar_ingredientes(receta["ingredientes"])
 			agregar_item("pizzacruda", receta["tipo"], zona)
 			return
 
-	for receta in BaseDeDatos.listaOrdenes:
+	for receta in BaseDeDatos.recetasDelDia():
 		if coincide_receta(ingredientes_crudos, receta["ingredientes"]):
 			quitar_ingredientes(receta["ingredientes"])
 			agregar_item("pizzacruda", receta["tipo"], zona)
 			return
+
+func mejorar_pizza(item: String, tipo: String, zona: CollisionShape2D) -> bool:
+	if tipo != "" or item == "plato":
+		return false
+	var lugar= buscar_item_en_zona("pizzacruda", zona)
+	if lugar == -1:
+		return false
+
+	var disponibles: Array[String]= []
+	for ingrediente in ingredientes_de_tipo(tipos_en_mesa[lugar]):
+		disponibles.append(ingrediente)
+	disponibles.append(item)
+
+	var receta= receta_exacta(disponibles)
+	if receta.is_empty():
+		return false
+
+	quitar_item_en_indice(lugar)
+	agregar_item("pizzacruda", receta["tipo"], zona)
+	return true
+
+func receta_exacta(disponibles: Array[String]) -> Dictionary:
+	for receta in BaseDeDatos.recetasDelDia():
+		if receta["ingredientes"].size() == disponibles.size() and coincide_receta(disponibles, receta["ingredientes"]):
+			return receta
+	return {}
 
 func coincide_receta(disponibles: Array[String], ingredientes_receta: Array) -> bool:
 	var restantes= disponibles.duplicate()

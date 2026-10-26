@@ -4,6 +4,7 @@ extends Node2D
 @onready var rutaCliente = $RutaCliente
 @onready var gestorFila = $ManejarFila  
 @onready var gestorDialogos = $ManejarDialogo
+@onready var timbre = $TimbreCliente
 
 const ClienteEscena = preload("res://escenas/cliente.tscn") 
 var atendiendo = false
@@ -45,6 +46,7 @@ func manejar_paciencia_fila(delta: float) -> void:
 func _spawn_cliente() -> void:
 	var nuevo_cliente = ClienteEscena.instantiate()
 	add_child(nuevo_cliente)
+	timbre.play()
 	nuevo_cliente.tiempo_agotado.connect(_on_cliente_tiempo_agotado)
 	
 	var clienteMov = nuevo_cliente.get_node("movimientoCliente")
@@ -54,14 +56,12 @@ func _spawn_cliente() -> void:
 
 	match ProgresoManager.nivel_actual:
 		1:
-			for orden_bd in BaseDeDatos.listaOrdenes:
+			for orden_bd in BaseDeDatos.recetasDelDia():
 				if orden_bd["tipo"] == "queso":
 					ordenesPermitidas.append(orden_bd)
 		2:
-			# ordenesPermitidas = BaseDeDatos.ordenesConDificultad("facil")
-			# pongo de vuelta queso solo para probar q funcione el nivel 2 hasta q agreguemos otros ingredientes
-			for orden_bd in BaseDeDatos.listaOrdenes:
-				if orden_bd["tipo"] == "queso":
+			for orden_bd in BaseDeDatos.recetasDelDia():
+				if orden_bd["tipo"] in ["queso", "pizzaCebolla", "pizzaJamon"]:
 					ordenesPermitidas.append(orden_bd)
 		3:
 			ordenesPermitidas = BaseDeDatos.ordenesConDificultad("media")

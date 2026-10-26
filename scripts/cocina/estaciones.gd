@@ -4,6 +4,9 @@ class_name Estaciones
 func _ready() -> void:
 	add_to_group("estaciones")
 
+func actualizar_dia() -> void:
+	pass
+
 func verMesas() -> Array[CollisionShape2D]:
 	var mesasActivas: Array[CollisionShape2D] = []
 	for mesa in get_children():

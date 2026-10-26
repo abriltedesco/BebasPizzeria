@@ -32,6 +32,7 @@
 [ext_resource type="Script" uid="uid://iyhhwwek0100" path="res://scripts/cocina/pepperoni.gd" id="20_pepperoni"]
 [ext_resource type="Script" uid="uid://cvf27jjojndkm" path="res://scripts/cocina/roquefort.gd" id="20_roquefort"]
 [ext_resource type="Script" uid="uid://bt3gamltvsgdu" path="res://scripts/cocina/rucula.gd" id="20_rucula"]
+[ext_resource type="Script" uid="uid://b3ce01iok7eer" path="res://scripts/cocina/cortar.gd" id="21_cortar"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sgv8t"]
 texture = ExtResource("1_1kxht")
@@ -642,6 +643,9 @@ size = Vector2(55.223892, 24.456512)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqaqw"]
 size = Vector2(54.850754, 25.543472)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cortar"]
+size = Vector2(54.850754, 28.532593)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfbpf"]
 size = Vector2(54.62687, 23.369547)
 
@@ -847,6 +851,14 @@ theme_override_fonts/font = ExtResource("8_hhbb7")
 theme_override_font_sizes/font_size = 10
 text = "TOMATE"
 horizontal_alignment = 1
+
+[node name="Cortar" type="Area2D" parent="." unique_id=1804290115]
+collision_layer = 8
+script = ExtResource("21_cortar")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cortar" unique_id=1804290116]
+position = Vector2(547.0149, 48.77716)
+shape = SubResource("RectangleShape2D_cortar")
 
 [node name="Masa" type="Area2D" parent="." unique_id=937247]
 collision_layer = 8

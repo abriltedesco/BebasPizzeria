@@ -9,7 +9,10 @@ var listaClientes = [
 ]
 
 var listaOrdenes = [
-	{"tipo": "queso","dificultad": "facil", "ingredientes": ["masa", "tomate", "queso"]}, # pizza exclusiva nivel 1
+	{"tipo": "queso","dificultad": "facil", "ingredientes": ["masa", "tomate", "queso"], "desde": 1, "hasta": 1}, # pizza exclusiva nivel 1
+	{"tipo": "queso","dificultad": "facil", "ingredientes": ["masa", "tomateCortado", "quesoCortado"], "desde": 2},
+	{"tipo": "pizzaCebolla","dificultad": "facil", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "cebollaCortada"], "desde": 2},
+	{"tipo": "pizzaJamon","dificultad": "facil", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "jamonCortado"], "desde": 2},
 	
 	#pizza nivel 2 (se habilita jamon y cebolla) + pizzas queso
 	{"tipo": "Fugazzetta", "dificultad": "facil", "ingredientes": ["masa", "queso", "cebolla"]},
@@ -53,18 +56,34 @@ var respuestasPedidoExitoso=["¡Muchas gracias!", "Que rico! muchisimas gracias!
 var respuestasPedidoTardo=["¡Me hiciste esperar demasiado!", "Podrías haberlo hecho un poco más rápido..."]
 var respuestasPedidoFallido=["Esto no es lo que esperaba...", "No pedí eso..", "Mmm... no es exactamente lo que te pedí"]
 
+func recetasDelDia() -> Array:
+	var dia: int = ProgresoManager.nivel_actual
+	var recetas := []
+	for orden in listaOrdenes:
+		if dia >= orden.get("desde", 1) and dia <= orden.get("hasta", 999):
+			recetas.append(orden)
+	return recetas
+
 func ordenesConDificultad(dificultad):
 	var ordenesFiltradas=[]
-	for orden in listaOrdenes:
+	for orden in recetasDelDia():
 		if orden["dificultad"]== dificultad:
 			ordenesFiltradas.append(orden)
 	return ordenesFiltradas
 
 func obtenerOrdenPorTipo(tipo: String)-> Dictionary:
-	for orden in listaOrdenes:
+	for orden in recetasDelDia():
 		if orden["tipo"].to_lower()== tipo.to_lower():
 			return orden
 	return {}
+
+func spritePizzaHecha(tipo: String) -> String:
+	match tipo:
+		"pizzaCebolla":
+			return "res://assets/comida/pizzas/pizzaCebolla.png"
+		"pizzaJamon":
+			return "res://assets/comida/pizzas/pizzaJamon.png"
+	return "res://assets/comida/pizzacocinada.png"
 
 func obtenerRespuestaCliente(exito: bool, motivo: String = "") -> String:
 	if !exito:

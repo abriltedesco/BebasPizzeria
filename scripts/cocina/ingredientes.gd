@@ -17,12 +17,22 @@ const TEXTURAS := {
 	"parmesano": "res://assets/comida/Ingredientes/Parmesano.png",
 	"aceite": "res://assets/comida/Ingredientes/Aceite.png",
 	"pepperoni": "res://assets/comida/Ingredientes/Pepperoni.png",
+	"tomateCortado": "res://assets/comida/cortados/tomateCortado.png",
+	"quesoCortado": "res://assets/comida/cortados/quesoCortado.png",
+	"cebollaCortada": "res://assets/comida/cortados/cebollaCortada.png",
+	"jamonCortado": "res://assets/comida/cortados/jamonCortado.png",
 }
 
 const TAMSPRITE := 32.0
+const LADO_CORTADO := 16.0
+const CORTADOS := ["tomateCortado", "quesoCortado", "cebollaCortada", "jamonCortado"]
 const SHADER_GRIS := preload("res://assets/shaders/filtroGris.tres")
 var sprite: CanvasItem = null
 var estadoVisual: int = -1   # -1 = sin definir, 0 = inhabilitado, 1 = habilitado
+
+static func escala_cortado(nombre: String) -> float:
+	var tex: Texture2D = load(TEXTURAS[nombre])
+	return LADO_CORTADO / maxf(tex.get_width(), tex.get_height())
 
 func _ready() -> void:
 	super._ready()
@@ -30,6 +40,9 @@ func _ready() -> void:
 	visuales()
 
 func _process(_delta: float) -> void:
+	visuales()
+
+func actualizar_dia() -> void:
 	visuales()
 
 func esta_desbloqueado() -> bool:
