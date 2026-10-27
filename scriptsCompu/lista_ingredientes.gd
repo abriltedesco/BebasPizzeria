@@ -5,7 +5,7 @@ extends VBoxContainer
 signal totalCambiado(total: int)
 
 func _ready() -> void:
-	for datos in BaseDeDatosIngredientes.listaIngredientes:
+	for datos in BaseDeDatos.listaIngredientes:
 		var ingrediente = escenaIngrediente.instantiate()
 		add_child(ingrediente)
 		ingrediente.configurar(datos)

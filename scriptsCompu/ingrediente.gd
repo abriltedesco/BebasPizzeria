@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func configurar(datosDiccionario: Dictionary) -> void:
 	datos = datosDiccionario
-	stock = datos["stock"]
+	#stock = datos["stock"]
 	nombreLabel.text = datos["nombre"]
 	precioLabel.text = "$" + str(datos["valor"])
 	actualizarDatos()
