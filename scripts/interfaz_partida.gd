@@ -5,7 +5,7 @@ signal cambiar_vista
 @onready var boton_flecha= $BotonFlecha
 var izquierda= preload("res://assets/izquierda.png")
 var derecha= preload("res://assets/derecha.png")
-const recetarioEsc= preload("res://escenas/recetario.tscn")
+const recetarioEsc= preload("res://escenas/interfaces/recetario.tscn")
 # @onready var aviso_cliente= $AvisoCliente
 
 var vista_cocina= false

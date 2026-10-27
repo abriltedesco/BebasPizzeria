@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://d26cob66mawgp"]
 
-[ext_resource type="Script" path="res://recetario.gd" id="1_yoo0k"]
+[ext_resource type="Script" uid="uid://oon357dofqp0" path="res://scripts/cocina/recetario.gd" id="1_mtglc"]
 [ext_resource type="Texture2D" uid="uid://0dt0avh282wy" path="res://assets/recetario/queso.png" id="2_bgrq1"]
 [ext_resource type="FontFile" uid="uid://bxrixcbxf2rqt" path="res://assets/fonts/Pix32.ttf" id="3_5oaxe"]
+[ext_resource type="Texture2D" uid="uid://dbyphjk6abs18" path="res://assets/izquierda.png" id="4_xc1ui"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2sief"]
 
@@ -13,7 +14,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5oaxe"]
 
 [node name="recetario" type="Node2D" unique_id=1395224980]
-script = ExtResource("1_yoo0k")
+script = ExtResource("1_mtglc")
 
 [node name="spriteActual" type="Sprite2D" parent="." unique_id=739134500]
 texture_filter = 1
@@ -41,4 +42,18 @@ text = "
 QUESO"
 autowrap_trim_flags = 0
 
+[node name="volver" type="Button" parent="." unique_id=1678588048]
+offset_left = 103.0
+offset_top = 185.0
+offset_right = 172.0
+offset_bottom = 271.0
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_icons/icon = ExtResource("4_xc1ui")
+icon = ExtResource("4_xc1ui")
+expand_icon = true
+
 [connection signal="pressed" from="queso" to="." method="_on_queso_pressed"]
+[connection signal="pressed" from="volver" to="." method="_on_volver_pressed"]
