@@ -1,72 +1,31 @@
 extends Control
 
-@onready var labelOrden= $ordenDe
-@onready var labelPizza= $pizza
-@onready var labelItems= $items
+@onready var label_orden = $orden
 @onready var barra = $BarraTiempo
-@onready var labelTiempo = $Tiempo
-@onready var boton = $Desplegar
 @onready var fondo = $TextureRect
 
-signal textoListo
 var datos_propios = {}
 
 func _ready():
 	if datos_propios.is_empty():
 		return
-	boton.pressed.connect(cambiar_desplegado)
-	mostrar_u_ocultar()
 
 func _process(_delta):
 	if datos_propios.is_empty():
 		return
-	var restante = maxf(datos_propios["duracion"] - datos_propios["tiempo_transcurrido"], 0.0)
-	barra.frame = int(datos_propios["tiempo_transcurrido"] / datos_propios["duracion"] * 10)
-	
+
 	var numOrden = datos_propios.get("numero_orden", 1)
-	var mins = int(restante) / 60
-	var segs = int(restante) % 60
-
-	labelTiempo.text = "(#%d - %02d:%02d)" % [numOrden, mins, segs]
+	var nombrePizza = datos_propios.get("pizza", "")
 	
-func cambiar_desplegado():
-	datos_propios["desplegado"] = not datos_propios["desplegado"]
-	mostrar_u_ocultar()
-
-func mostrar_u_ocultar():
-	var abierto = datos_propios["desplegado"]
-	labelOrden.visible = abierto
-	labelPizza.visible = abierto
-	labelItems.visible = abierto
-	if abierto:
-		fondo.size.y = 438
-	else:
-		fondo.size.y = 64
-
-func actualizarOrden():
-	if !is_node_ready():
-		await ready
-
-	labelOrden.text = "Orden de: " + datos_propios["nombre"]
-	labelPizza.text = "PIZZA : " + datos_propios["pizza"]
+	label_orden.text = "#" + str(numOrden) + " - " + nombrePizza
+	var tiempo_actual = datos_propios.get("tiempo_transcurrido", 0.0)
+	var duracion_total = datos_propios.get("duracion", 60.0)
 	
-	var textoIngredientes = ""
-	
-	for ingrediente in datos_propios["listaOrden"]:
-		textoIngredientes += "- " + ingrediente + "\n"
-	labelItems.text = textoIngredientes
+	if duracion_total > 0:
+		var porcentaje = tiempo_actual / duracion_total
 		
-	labelOrden.visible_characters = 0
-	labelPizza.visible_characters = 0
-	labelItems.visible_characters = 0
-
-	
-	var tween = create_tween()
-	tween.tween_property(labelOrden, "visible_characters", labelOrden.text.length(), labelOrden.text.length() * 0.05)
-	tween.tween_interval(0.2)
-	tween.tween_property(labelPizza, "visible_characters", labelPizza.text.length(), labelPizza.text.length() * 0.05)
-	tween.tween_interval(0.2)
-	tween.tween_property(labelItems, "visible_characters", labelItems.text.length(), labelItems.text.length() * 0.05)
-	
-	await tween.finished
-	textoListo.emit()
+		if barra is AnimatedSprite2D:
+			var total_frames = barra.sprite_frames.get_frame_count(barra.animation)
+			var frame_actual = int(porcentaje * total_frames)
+			barra.frame = clamp(frame_actual, 0, total_frames - 1)
+			

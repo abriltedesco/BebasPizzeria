@@ -20,61 +20,18 @@ offset_bottom = 64.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Desplegar" type="Button" parent="." unique_id=787972595]
-layout_mode = 0
-offset_right = 264.0
-offset_bottom = 64.0
-tooltip_text = "Abrir pedido"
-mouse_default_cursor_shape = 2
-flat = true
-
 [node name="BarraTiempo" parent="." unique_id=704580781 instance=ExtResource("2_barra")]
 texture_filter = 1
 position = Vector2(132, 18)
 frame = 0
 frame_progress = 0.0
 
-[node name="Tiempo" type="Label" parent="." unique_id=1326281821]
+[node name="orden" type="Label" parent="." unique_id=1326281821]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 32.0
 offset_right = 248.0
-offset_bottom = 60.0
+offset_bottom = 66.0
 theme_override_font_sizes/font_size = 24
-text = "01:00"
+text = "#1 - Jamon"
 horizontal_alignment = 1
-
-[node name="pizza" type="Label" parent="." unique_id=1152892299]
-visible = false
-layout_mode = 0
-offset_left = 21.0
-offset_top = 88.0
-offset_right = 248.0
-offset_bottom = 127.0
-theme_override_colors/font_color = Color(0.7058824, 0.8666667, 0.07450981, 1)
-theme_override_constants/outline_size = 0
-theme_override_font_sizes/font_size = 21
-text = "PIZZA : "
-autowrap_mode = 2
-
-[node name="items" type="Label" parent="." unique_id=1733429394]
-visible = false
-layout_mode = 0
-offset_left = 25.0
-offset_top = 137.0
-offset_right = 231.0
-offset_bottom = 374.0
-theme_override_font_sizes/font_size = 22
-text = "- item"
-autowrap_mode = 2
-
-[node name="ordenDe" type="Label" parent="." unique_id=1327739379]
-visible = false
-layout_mode = 0
-offset_left = 22.0
-offset_top = 396.0
-offset_right = 248.0
-offset_bottom = 436.0
-theme_override_font_sizes/font_size = 16
-text = "Orden de:"
-autowrap_mode = 2

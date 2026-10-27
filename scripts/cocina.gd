@@ -8,7 +8,7 @@ func _ready() -> void:
 	visibility_changed.connect(_on_visibility_changed)
 
 func mostrar_instrucciones() -> void:
-	if ProgresoManager.nivel_actual != 1:   # el tutorial es solo del nivel 1
+	if ProgresoManager.nivel_actual != 1:   # el tutorial ACTUAL es solo del nivel 1
 		return
 	if instMostradas:return
 	instMostradas = true

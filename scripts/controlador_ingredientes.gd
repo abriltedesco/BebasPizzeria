@@ -4,8 +4,8 @@ class_name ControladorIngredientes
 const ING_CONST := ["plato"]
 const ING_NUEVOS_POR_NIVEL := {
 	1: ["masa", "tomate", "queso"],
-	2: ["cebolla", "jamon"],
-	3: ["rucula", "albahaca", "morron", "aceite", "pepperoni"],
+	2: ["cebolla", "jamon", "cortar"],
+	3: ["rucula", "albahaca", "morron", "aceite", "pepperoni", "compu"],
 	4: ["huevo", "cheddar", "papas", "panceta", "roquefort", "parmesano", "aceitunas"],
 	5: [],
 }

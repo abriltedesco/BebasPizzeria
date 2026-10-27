@@ -1,6 +1,11 @@
 extends Estaciones
 class_name cortar
 
+
+@onready var sprite = $sprite
+@onready var colision = $CollisionShape2D
+
+
 const CORTADOS := {
 	"tomate": "tomateCortado",
 	"queso": "quesoCortado",
@@ -8,6 +13,13 @@ const CORTADOS := {
 	"jamon": "jamonCortado",
 }
 
+func _ready() -> void:
+	if ControladorIngredientes.esta_desbloqueado("compu"):
+		sprite.material = null 
+		colision.set_deferred("disabled", false)
+	else:
+		colision.set_deferred("disabled", true)
+		
 func actualizar_dia() -> void:
 	var activa: bool = ProgresoManager.nivel_actual >= 2
 	visible = activa
