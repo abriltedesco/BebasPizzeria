@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://d26cob66mawgp"]
 
-[ext_resource type="Script" uid="uid://c1dc04jw3edxg" path="res://recetario.gd" id="1_yoo0k"]
+[ext_resource type="Script" path="res://recetario.gd" id="1_yoo0k"]
 [ext_resource type="Texture2D" uid="uid://0dt0avh282wy" path="res://assets/recetario/queso.png" id="2_bgrq1"]
-[ext_resource type="FontFile" uid="uid://bxrixcbxf2rqt" path="res://assets/Pix32.ttf" id="3_5oaxe"]
+[ext_resource type="FontFile" uid="uid://bxrixcbxf2rqt" path="res://assets/fonts/Pix32.ttf" id="3_5oaxe"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2sief"]
 

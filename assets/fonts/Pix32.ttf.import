@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://co4gjim8awrfd"
-path="res://.godot/imported/KGBlankSpaceSolid.ttf-7dcda2e0ac117af62291936fdd0eea19.fontdata"
+uid="uid://bxrixcbxf2rqt"
+path="res://.godot/imported/Pix32.ttf-15cfe9a480f2ac8a0b6f83de514009a1.fontdata"
 
 [deps]
 
-source_file="res://assets/KGBlankSpaceSolid.ttf"
-dest_files=["res://.godot/imported/KGBlankSpaceSolid.ttf-7dcda2e0ac117af62291936fdd0eea19.fontdata"]
+source_file="res://assets/fonts/Pix32.ttf"
+dest_files=["res://.godot/imported/Pix32.ttf-15cfe9a480f2ac8a0b6f83de514009a1.fontdata"]
 
 [params]
 

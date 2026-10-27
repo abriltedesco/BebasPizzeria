@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6c3dnd3xd0sp"
-path="res://.godot/imported/platosss (3).png-8531770e6d8f7c4a8bcfe8d63aa0e6ad.ctex"
+uid="uid://67tjkacyl5a8"
+path="res://.godot/imported/queso.png-2138cd3e301152071d7c3bd67c2f0451.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ingscocina/platosss (3).png"
-dest_files=["res://.godot/imported/platosss (3).png-8531770e6d8f7c4a8bcfe8d63aa0e6ad.ctex"]
+source_file="res://assets/ingscocina/queso.png"
+dest_files=["res://.godot/imported/queso.png-2138cd3e301152071d7c3bd67c2f0451.ctex"]
 
 [params]
 

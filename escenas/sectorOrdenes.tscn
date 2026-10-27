@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://drecqob1wfjco" path="res://scripts/manejar_fila.gd" id="4_ritnq"]
 [ext_resource type="Script" uid="uid://bwhqupnoyiu1x" path="res://scripts/manejar_dialogos.gd" id="5_2c7ub"]
 [ext_resource type="PackedScene" uid="uid://brpmjhh8585mf" path="res://escenas/interfaces/orden.tscn" id="5_v4w84"]
-[ext_resource type="AudioStream" uid="uid://b8igfihwr4vml" path="res://assets/timbre.mp3" id="6_timbre"]
+[ext_resource type="AudioStream" uid="uid://b8igfihwr4vml" path="res://assets/sonidos/timbre.mp3" id="6_timbre"]
 
 [sub_resource type="Curve2D" id="Curve2D_ruta"]
 _data = {

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbv320p3l0em"
-path="res://.godot/imported/pRMESANO.png-c18f6782ae93ce32895c66ba214e5e83.ctex"
+uid="uid://cybjnkkymlkpd"
+path="res://.godot/imported/papas.png-4030861592ffde0264d7df0e1ce53262.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ingscocina/pRMESANO.png"
-dest_files=["res://.godot/imported/pRMESANO.png-c18f6782ae93ce32895c66ba214e5e83.ctex"]
+source_file="res://assets/ingscocina/papas.png"
+dest_files=["res://.godot/imported/papas.png-4030861592ffde0264d7df0e1ce53262.ctex"]
 
 [params]
 

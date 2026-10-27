@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mj3lq03po0kb"
-path="res://.godot/imported/quesote.png-d5815347b38619964944fd1759546b7c.ctex"
+uid="uid://cvujeh3nqt2x7"
+path="res://.godot/imported/rucula.png-7e68255c29eefd3229a685f817c4d5ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ingscocina/quesote.png"
-dest_files=["res://.godot/imported/quesote.png-d5815347b38619964944fd1759546b7c.ctex"]
+source_file="res://assets/ingscocina/rucula.png"
+dest_files=["res://.godot/imported/rucula.png-7e68255c29eefd3229a685f817c4d5ec.ctex"]
 
 [params]
 

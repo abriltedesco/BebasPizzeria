@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c080wgk2yrx38"
-path="res://.godot/imported/papota.png-99596c7bef909d18f407d01b177f31bd.ctex"
+uid="uid://cw5kecvguwdjo"
+path="res://.godot/imported/plato.png-f89d4ecef1c0bb2f12e4c0ea651ea925.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ingscocina/papota.png"
-dest_files=["res://.godot/imported/papota.png-99596c7bef909d18f407d01b177f31bd.ctex"]
+source_file="res://assets/ingscocina/plato.png"
+dest_files=["res://.godot/imported/plato.png-f89d4ecef1c0bb2f12e4c0ea651ea925.ctex"]
 
 [params]
 

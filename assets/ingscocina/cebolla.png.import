@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7ilvtweisdvd"
-path="res://.godot/imported/masita.png-877a935e089968b2aada4c05fb79591d.ctex"
+uid="uid://d10gjpo1e77tl"
+path="res://.godot/imported/cebolla.png-16753e8882892ee6e816dbb72a93692b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ingscocina/masita.png"
-dest_files=["res://.godot/imported/masita.png-877a935e089968b2aada4c05fb79591d.ctex"]
+source_file="res://assets/ingscocina/cebolla.png"
+dest_files=["res://.godot/imported/cebolla.png-16753e8882892ee6e816dbb72a93692b.ctex"]
 
 [params]
 

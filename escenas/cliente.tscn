@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://drolhtfxomdt3" path="res://scripts/cliente.gd" id="1_rj75k"]
 [ext_resource type="Texture2D" uid="uid://ca2rpvwmh4t6" path="res://assets/personajes/cliente2.png" id="3_0ck5c"]
 [ext_resource type="Script" uid="uid://c8wbiexth2o0p" path="res://scripts/movimiento_cliente.gd" id="3_0rqpr"]
-[ext_resource type="FontFile" uid="uid://bxrixcbxf2rqt" path="res://assets/Pix32.ttf" id="3_tuspt"]
+[ext_resource type="FontFile" uid="uid://bxrixcbxf2rqt" path="res://assets/fonts/Pix32.ttf" id="3_tuspt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4agm"]
 bg_color = Color(0, 0, 0, 0.15686275)

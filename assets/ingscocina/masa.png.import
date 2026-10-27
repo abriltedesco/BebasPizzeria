@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djf5tdtimtgvl"
-path="res://.godot/imported/huevodibuhuevo.png-e04829f5407828e8680bb5bc1f4da5b1.ctex"
+uid="uid://db76hlb5e8b4n"
+path="res://.godot/imported/masa.png-3cff4ebe92d4ad8c74382b93da7ebe76.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ingscocina/huevodibuhuevo.png"
-dest_files=["res://.godot/imported/huevodibuhuevo.png-e04829f5407828e8680bb5bc1f4da5b1.ctex"]
+source_file="res://assets/ingscocina/masa.png"
+dest_files=["res://.godot/imported/masa.png-3cff4ebe92d4ad8c74382b93da7ebe76.ctex"]
 
 [params]
 

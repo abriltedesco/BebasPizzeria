@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcivqj6yksrn2"
-path="res://.godot/imported/cebollas.png-3b51695d4003f57b463b96aab4827921.ctex"
+uid="uid://cxm5xi4aqkl4k"
+path="res://.godot/imported/huevo.png-7db84a57bbf4ffc3cc61729895443352.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ingscocina/cebollas.png"
-dest_files=["res://.godot/imported/cebollas.png-3b51695d4003f57b463b96aab4827921.ctex"]
+source_file="res://assets/ingscocina/huevo.png"
+dest_files=["res://.godot/imported/huevo.png-7db84a57bbf4ffc3cc61729895443352.ctex"]
 
 [params]
 

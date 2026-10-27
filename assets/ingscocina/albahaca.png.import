@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxjxwdrmeoqiv"
-path="res://.godot/imported/serrano.png-515da093625c42878869012bd5817c79.ctex"
+uid="uid://hcxgiht1pom0"
+path="res://.godot/imported/albahaca.png-82f7d19d92acbf1c8e05bb194e6cc1d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ingscocina/serrano.png"
-dest_files=["res://.godot/imported/serrano.png-515da093625c42878869012bd5817c79.ctex"]
+source_file="res://assets/ingscocina/albahaca.png"
+dest_files=["res://.godot/imported/albahaca.png-82f7d19d92acbf1c8e05bb194e6cc1d9.ctex"]
 
 [params]
 

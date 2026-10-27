@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwh332ci20o8u"
-path="res://.godot/imported/albaka.png-ac30ba9a28924b2920d83310907a7c29.ctex"
+uid="uid://enkrqp2ek1nw"
+path="res://.godot/imported/parmesano.png-171b5468c6dd3ad34433adfc02ee7fdb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ingscocina/albaka.png"
-dest_files=["res://.godot/imported/albaka.png-ac30ba9a28924b2920d83310907a7c29.ctex"]
+source_file="res://assets/ingscocina/parmesano.png"
+dest_files=["res://.godot/imported/parmesano.png-171b5468c6dd3ad34433adfc02ee7fdb.ctex"]
 
 [params]
 

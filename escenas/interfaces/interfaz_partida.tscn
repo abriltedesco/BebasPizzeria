@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c8gixx6toav56"]
 
 [ext_resource type="Script" uid="uid://xe3q0hxpfoho" path="res://scripts/interfaz_partida.gd" id="1_interfaz"]
-[ext_resource type="FontFile" uid="uid://bxrixcbxf2rqt" path="res://assets/Pix32.ttf" id="2_qs1a5"]
+[ext_resource type="FontFile" uid="uid://bxrixcbxf2rqt" path="res://assets/fonts/Pix32.ttf" id="2_qs1a5"]
 [ext_resource type="Texture2D" uid="uid://de1v2ew301hjl" path="res://assets/señal.png" id="2_señal"]
 [ext_resource type="Script" uid="uid://c6qljumy4talo" path="res://scripts/actualizador_ui.gd" id="3_r4hgc"]
 [ext_resource type="Texture2D" uid="uid://b80bbtrg4opoo" path="res://assets/recetario/recetario.png" id="4_qw2mv"]

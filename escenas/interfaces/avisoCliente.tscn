@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cqqi8p7cojj5k"]
 
 [ext_resource type="Script" uid="uid://sbr2wf1ihsp1" path="res://scripts/aviso_cliente.gd" id="1_r0phd"]
-[ext_resource type="FontFile" uid="uid://bxrixcbxf2rqt" path="res://assets/Pix32.ttf" id="2_bxtxt"]
+[ext_resource type="FontFile" uid="uid://bxrixcbxf2rqt" path="res://assets/fonts/Pix32.ttf" id="2_bxtxt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kl61j"]
 bg_color = Color(0.42318404, 2.761502e-06, 1.4920532e-06, 1)
