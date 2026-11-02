@@ -11,21 +11,18 @@ var listaClientes = [
 var listaOrdenes = [
 	{"tipo": "queso","dificultad": "facil", "ingredientes": ["masa", "tomate", "queso"], "desde": 1, "hasta": 1},
 	{"tipo": "queso","dificultad": "facil", "ingredientes": ["masa", "tomateCortado", "quesoCortado"], "desde": 2},
-	{"tipo": "pizzaCebolla","dificultad": "facil", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "cebollaCortada"], "desde": 2},
-	{"tipo": "pizzaJamon","dificultad": "facil", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "jamonCortado"], "desde": 2},
 	
-	{"tipo": "Fugazzetta", "dificultad": "facil", "ingredientes": ["masa", "queso", "cebolla"]},
-	{"tipo": "Jamon", "dificultad": "facil", "ingredientes": ["masa", "tomate", "queso", "jamon"]},
-	{"tipo": "Napolitana", "dificultad": "facil", "ingredientes": ["masa", "tomate", "queso", "tomate"]},
+	{"tipo": "Fugazzeta","dificultad": "facil", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "cebollaCortada"], "desde": 2},
+	{"tipo": "Jamon","dificultad": "facil", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "jamonCortado"], "desde": 2},
 	
-	{"tipo": "Jamon y Morrón", "dificultad": "media", "ingredientes": ["harina", "agua", "tomate", "queso", "jamon", "morron"]},
-	{"tipo": "Rucula y crudo", "dificultad": "media", "ingredientes": ["harina", "agua", "tomate", "queso", "rucula", "jamon"]},
-	{"tipo": "Pepperoni", "dificultad": "media", "ingredientes": ["harina", "agua", "tomate", "queso", "tomate", "pepperoni"]},
-	{"tipo": "Margarita", "dificultad": "media", "ingredientes": ["harina", "agua", "tomate", "queso", "albahaca", "aceite"]},
+	{"tipo": "Jamon y Morrón", "dificultad": "media", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "jamonCortado", "morronCortado"], "desde": 3},
+	{"tipo": "Rucula y crudo", "dificultad": "media", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "jamonCortado", "ruculaCortada"], "desde": 3},
+	{"tipo": "Pepperoni", "dificultad": "media", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "pepperoniCortado"], "desde": 3},
+	{"tipo": "Margarita", "dificultad": "media", "ingredientes": ["masa", "tomateCortado", "quesoCortad", "albahacaCortada", "aceite"], "desde": 3},
 	
-	{"tipo": "Cuatro Quesos", "dificultad": "dificil", "ingredientes": ["harina", "agua", "tomate", "queso", "roquefort", "parmesano", "provolone"]},
-	{"tipo": "Super Completa", "dificultad": "dificil", "ingredientes": ["harina", "agua", "tomate", "queso", "jamon", "morron", "huevo", "aceitunas"]},
-	{"tipo": "Bomba Frita", "dificultad": "dificil", "ingredientes": ["harina", "agua", "tomate", "queso", "papas", "cheddar", "panceta"]}
+	{"tipo": "Cuatro Quesos", "dificultad": "dificil", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "roquefortCortado", "parmesanoCortado", "provoloneCortado"], "desde": 4},
+	{"tipo": "Super Completa", "dificultad": "dificil", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "jamonCortado", "morronCortado", "huevoCortado", "aceitunaCortada"], "desde": 4},
+	{"tipo": "Bomba Frita", "dificultad": "dificil", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "papas", "cheddarCortado", "pancetaCortada"], "desde": 4}
 	
 ]
 
