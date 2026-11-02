@@ -97,7 +97,9 @@ func confDatos_nuevoCliente(cliente: Node, datos_cliente: Dictionary, orden: Dic
 	cliente.en_posicion = false
 	cliente.dialogando = false
 	cliente.ordenTomada = false
-	cliente.nombre_cliente = datos_cliente["nombre"]
+	cliente.nombre_cliente = datos_cliente["nombre"] 
+	if cliente.has_method("cambiarAsset"):
+		cliente.cambiarAsset(datos_cliente["asset"])
 	cliente.orden_elegida = orden
 	cliente.dificultad_cliente = orden.get("dificultad", "facil")
 	cliente.set_meta("tiempo_espera", 0.0)

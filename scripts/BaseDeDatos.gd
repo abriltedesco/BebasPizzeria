@@ -1,11 +1,11 @@
 extends Node
 
 var listaClientes = [
-	{"nombre": "Ana", "asset": "res://assets/"},
-	{"nombre": "María", "asset": "res://assets/"},
-	{"nombre": "Helena", "asset": "res://assets/"},
-	{"nombre": "Daniel", "asset": "res://assets/"},
-	{"nombre": "Thiago", "asset": "res://assets/"}
+	{"nombre": "Ana", "asset": "res://assets/personajes/cliente2.png"},
+	{"nombre": "María", "asset": "res://assets/personajes/cliente3.png"},
+	{"nombre": "Helena", "asset": "res://assets/personajes/cliente4.png"}
+	#{"nombre": "Daniel", "asset": "res://assets/"},
+	#{"nombre": "Thiago", "asset": "res://assets/"}
 ]
 
 var listaOrdenes = [
@@ -30,23 +30,23 @@ var listaOrdenes = [
 ]
 
 var listaIngredientes = [
-	{"nombre": "harina", "valor": 1},
-	{"nombre": "agua", "valor": 1},
-	{"nombre": "cebolla", "valor": 2},
-	{"nombre": "jamon", "valor": 2},
-	{"nombre": "rucula", "valor": 2},
-	{"nombre": "tomate", "valor": 1},
-	{"nombre": "queso", "valor": 1},
-	{"nombre": "huevo", "valor": 2},
-	{"nombre": "panceta", "valor": 4},
-	{"nombre": "albahaca", "valor": 4},
-	{"nombre": "aceitunas", "valor": 4},
-	{"nombre": "papas", "valor": 5},
-	{"nombre": "cheddar", "valor": 3},
-	{"nombre": "roquefort", "valor": 5},
-	{"nombre": "parmesano", "valor": 5},
-	{"nombre": "aceite", "valor": 4},
-	{"nombre": "pepperoni", "valor": 3},
+	{"nombre": "harina", "valor": 1, "stock":0},
+	{"nombre": "agua", "valor": 1, "stock":0},
+	{"nombre": "cebolla", "valor": 2, "stock":0},
+	{"nombre": "jamon", "valor": 2, "stock":0},
+	{"nombre": "rucula", "valor": 2, "stock":0},
+	{"nombre": "tomate", "valor": 1, "stock":0},
+	{"nombre": "queso", "valor": 1, "stock":0},
+	{"nombre": "huevo", "valor": 2, "stock":0},
+	{"nombre": "panceta", "valor": 4, "stock":0},
+	{"nombre": "albahaca", "valor": 4, "stock":0},
+	{"nombre": "aceitunas", "valor": 4, "stock":0},
+	{"nombre": "papas", "valor": 5, "stock":0},
+	{"nombre": "cheddar", "valor": 3, "stock":0},
+	{"nombre": "roquefort", "valor": 5, "stock":0},
+	{"nombre": "parmesano", "valor": 5, "stock":0},
+	{"nombre": "aceite", "valor": 4, "stock":0},
+	{"nombre": "pepperoni", "valor": 3, "stock":0},
 ]
 var respuestasPedidoExitoso=["¡Muchas gracias!", "Que rico! muchisimas gracias!!"]
 var respuestasPedidoTardo=["¡Me hiciste esperar demasiado!", "Podrías haberlo hecho un poco más rápido..."]

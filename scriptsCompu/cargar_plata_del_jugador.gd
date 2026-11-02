@@ -1,9 +1,11 @@
 extends Node
+
 @onready var labelDineroJugador = $"../Control/Panel/dineroJugador"
-@export var dineroJugador: float = 1000.0 
 
-func _ready() -> void:
-	pass
+func _ready() -> void:	
+	Puntaje.cambio_puntaje.connect(_on_cambio_puntaje)
+	labelDineroJugador.text = "$" + str(Puntaje.dinero)
 
-func _process(delta: float) -> void:
-		labelDineroJugador.text = str(dineroJugador)
+func _on_cambio_puntaje(dinero_actual: int, _completados: int, _fallidos: int) -> void:
+	if labelDineroJugador:
+		labelDineroJugador.text = "$" + str(dinero_actual)

@@ -905,38 +905,65 @@ texture = ExtResource("17_w2ksu")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cfqnj"]
 texture = ExtResource("18_ulga5")
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qtdrx"]
 texture = ExtResource("19_21n3o")
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xxxqb"]
 texture = ExtResource("20_0joks")
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lm0wd"]
 texture = ExtResource("5_q1gkf")
@@ -1132,7 +1159,7 @@ func _process(delta: float) -> void:
 size = Vector2(41.04477, 35.869553)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8uc1"]
-size = Vector2(44.776123, 36.41303)
+size = Vector2(30.597015, 36.41303)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qwn2f"]
 size = Vector2(37.83574, 34.23912)
@@ -1168,7 +1195,7 @@ size = Vector2(62.686592, 53.804337)
 size = Vector2(63.43284, 39.673904)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cortar"]
-size = Vector2(54.850754, 28.532593)
+size = Vector2(88.80595, 84.78258)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfbpf"]
 size = Vector2(59.850754, 30.97825)
@@ -1225,13 +1252,13 @@ size = Vector2(52.985046, 29.978165)
 size = Vector2(57.462685, 31.065132)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ulga5"]
-size = Vector2(50.2985, 37.880424)
+size = Vector2(66.41796, 66.8478)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21n3o"]
 size = Vector2(52.537308, 50.652145)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0joks"]
-size = Vector2(55.52238, 42.499985)
+size = Vector2(64.17912, 64.13042)
 
 [node name="Node2D" type="Node2D" unique_id=453564565]
 position = Vector2(1.0000038, 0)
@@ -1247,6 +1274,7 @@ script = SubResource("GDScript_dkie8")
 [node name="lucia" parent="." unique_id=1491044463 instance=ExtResource("2_y27vd")]
 position = Vector2(675.37305, 157.06519)
 scale = Vector2(1.5, 1)
+distancia = 100
 
 [node name="Mesa" type="Area2D" parent="." unique_id=443437130]
 collision_layer = 0
@@ -1257,11 +1285,11 @@ position = Vector2(100.37313, 30.978249)
 shape = SubResource("RectangleShape2D_ajnhd")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Mesa" unique_id=87794404]
-position = Vector2(480.597, 31.249989)
+position = Vector2(476.86563, 30.434772)
 shape = SubResource("RectangleShape2D_x8uc1")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Mesa" unique_id=1627469225]
-position = Vector2(611.9403, 33.4239)
+position = Vector2(623.88055, 33.69564)
 shape = SubResource("RectangleShape2D_qwn2f")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Mesa" unique_id=31996046]
@@ -1386,21 +1414,22 @@ theme_override_font_sizes/font_size = 8
 text = "TOMATE"
 horizontal_alignment = 1
 
-[node name="Cortar" type="Area2D" parent="." unique_id=1804290115]
+[node name="cortar" type="Area2D" parent="." unique_id=1804290115]
 collision_layer = 8
+priority = 2
 script = ExtResource("21_cortar")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cortar" unique_id=1804290116]
-position = Vector2(547.0149, 48.77716)
-shape = SubResource("RectangleShape2D_cortar")
-
-[node name="sprite" type="ColorRect" parent="Cortar" unique_id=297860453]
+[node name="sprite" type="ColorRect" parent="cortar" unique_id=297860453]
 material = ExtResource("19_dypwv")
 layout_direction = 4
 offset_left = 509.7015
 offset_top = -42.934765
 offset_right = 582.0896
 offset_bottom = 48.369526
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cortar" unique_id=1804290116]
+position = Vector2(544.7761, 37.499985)
+shape = SubResource("RectangleShape2D_cortar")
 
 [node name="Masa" type="Area2D" parent="." unique_id=937247]
 collision_layer = 8
@@ -1811,7 +1840,7 @@ offset_right = 450.7463
 offset_bottom = 53.260853
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="amasar" unique_id=1641386300]
-position = Vector2(419.40295, 32.690205)
+position = Vector2(416.791, 30.706509)
 shape = SubResource("RectangleShape2D_ulga5")
 
 [node name="harina" type="Area2D" parent="." unique_id=1144883695]
@@ -1821,7 +1850,7 @@ script = ExtResource("55_harina")
 material = ExtResource("19_dypwv")
 layout_direction = 4
 offset_left = 557.46265
-offset_top = 108.15214
+offset_top = 111.95648
 offset_right = 622.388
 offset_bottom = 160.32605
 
@@ -1841,11 +1870,19 @@ offset_right = 257.46265
 offset_bottom = 52.717373
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="canilla" unique_id=1036893281]
-position = Vector2(225.37312, 30.923903)
+position = Vector2(225.37312, 33.15216)
 shape = SubResource("RectangleShape2D_0joks")
 
 [node name="compu" type="Area2D" parent="." unique_id=1131653377]
 script = ExtResource("53_hipnb")
+
+[node name="sprite" type="ColorRect" parent="compu" unique_id=1661795124]
+material = ExtResource("19_dypwv")
+layout_direction = 4
+offset_left = 558.2089
+offset_top = 204.34775
+offset_right = 623.1343
+offset_bottom = 256.52164
 
 [node name="Label2" type="Label" parent="compu" unique_id=67327692]
 offset_left = 570.8955
@@ -1863,3 +1900,4 @@ position = Vector2(594.02985, 234.51079)
 shape = SubResource("RectangleShape2D_wq60e")
 
 [node name="PantallaCompu" parent="compu" unique_id=747453861 instance=ExtResource("54_dkpwb")]
+visible = false

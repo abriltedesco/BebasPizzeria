@@ -16,7 +16,7 @@ layer = 110
 script = null
 
 [node name="TimerPartida" type="Timer" parent="." unique_id=1123291511]
-wait_time = 180.0
+wait_time = 240.0
 one_shot = true
 
 [node name="Pedidos" parent="." unique_id=1968411043 instance=ExtResource("2_va15h")]
