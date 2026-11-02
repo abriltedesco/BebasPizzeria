@@ -17,6 +17,8 @@ const TEXTURAS := {
 	"parmesano": "res://assets/comida/Ingredientes/Parmesano.png",
 	"aceite": "res://assets/comida/Ingredientes/Aceite.png",
 	"pepperoni": "res://assets/comida/Ingredientes/Pepperoni.png",
+	"harina": "res://assets/comida/Ingredientes/harina.png",
+	"agua": "res://assets/comida/Ingredientes/agua.png",
 	"tomateCortado": "res://assets/comida/cortados/tomateCortado.png",
 	"quesoCortado": "res://assets/comida/cortados/quesoCortado.png",
 	"cebollaCortada": "res://assets/comida/cortados/cebollaCortada.png",
@@ -25,14 +27,14 @@ const TEXTURAS := {
 
 const TAMSPRITE := 32.0
 const LADO_CORTADO := 16.0
-const CORTADOS := ["tomateCortado", "quesoCortado", "cebollaCortada", "jamonCortado"]
 const SHADER_GRIS := preload("res://assets/shaders/filtroGris.tres")
 var sprite: CanvasItem = null
-var estadoVisual: int = -1   # -1 = sin definir, 0 = inhabilitado, 1 = habilitado
+var estadoVisual: int = -1
 
-static func escala_cortado(nombre: String) -> float:
-	var tex: Texture2D = load(TEXTURAS[nombre])
-	return LADO_CORTADO / maxf(tex.get_width(), tex.get_height())
+static func escala(nombre: String) -> float:
+	var tam: Vector2 = load(TEXTURAS[nombre]).get_size()
+	var lado: float = tam[tam.max_axis_index()]
+	return LADO_CORTADO / lado if lado > TAMSPRITE else 1.0
 
 func _ready() -> void:
 	super._ready()
@@ -56,7 +58,6 @@ func visuales() -> void:
 		return
 	estadoVisual = nuevoEstado
 
-	# el filtro gris solo se ve cuando el ingrediente está inhabilitado
 	if sprite:
 		sprite.visible = not habilitado
 

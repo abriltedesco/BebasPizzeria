@@ -74,7 +74,6 @@ func _process(delta: float) -> void:
 			else:
 				hornalla.senial.visible = false
 
-# distancia al borde de la forma (0 si el jugador está adentro)
 func distanciaAForma(forma: CollisionShape2D, origen: Vector2) -> float:
 	var rect = forma.shape as RectangleShape2D
 	if rect == null:
@@ -85,7 +84,6 @@ func distanciaAForma(forma: CollisionShape2D, origen: Vector2) -> float:
 	var dy := maxf(absf(local.y) - mitad.y, 0.0)
 	return Vector2(dx, dy).length()
 
-# el jugador usa esta función para decidir con qué estación interactúa
 func distancia_a(origen: Vector2) -> float:
 	var menor = INF
 	for hornalla in hornallas:

@@ -12,7 +12,7 @@ var activo := false
 var tween: Tween
 
 func _ready() -> void:
-	layer = 90   # por encima del globo q usa 100
+	layer = 90
 	visible = false
 
 	fondo = ColorRect.new()
@@ -46,7 +46,7 @@ func resaltar(rect: Rect2, texto: String = "") -> void:
 
 	var inicio := rectActual
 	if veniaOculto or rectActual.size == Vector2.ZERO:
-		inicio = Rect2(rect.get_center(), Vector2.ZERO)   # el hueco "crece" desde el centro
+		inicio = Rect2(rect.get_center(), Vector2.ZERO)
 	rectActual = rect
 
 	if tween:

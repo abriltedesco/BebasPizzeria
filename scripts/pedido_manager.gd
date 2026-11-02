@@ -50,7 +50,6 @@ func configurar_nivel(esSecuencial: bool, cantLimite: int, totalClientes: int, m
 func registrar_llegada() -> void:
 	clientes_generados += 1
 
-# el cliente se va enojado de la fila antes de hablar
 func cliente_ignorado_se_fue() -> void:
 	if clientes_generados >= max_clientes_nivel and pedidos_activos.is_empty():
 		nivel_completado.emit()

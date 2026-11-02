@@ -11,7 +11,6 @@ func _ready() -> void:
 		ingrediente.configurar(datos)
 		ingrediente.cantidadCambiada.connect(_on_cantidad_cambiada)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 

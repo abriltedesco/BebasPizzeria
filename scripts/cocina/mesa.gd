@@ -42,8 +42,7 @@ func agregar_item(item_mano: String, tipo_mano: String, zona: CollisionShape2D) 
 		nuevo_sprite.scale= Vector2(0.15, 0.15)
 	elif Ingredientes.TEXTURAS.has(item_mano):
 		nuevo_sprite.texture= load(Ingredientes.TEXTURAS[item_mano])
-		if item_mano in Ingredientes.CORTADOS:
-			nuevo_sprite.scale= nuevo_sprite.scale * Ingredientes.escala_cortado(item_mano)
+		nuevo_sprite.scale= nuevo_sprite.scale * Ingredientes.escala(item_mano)
 	elif item_mano== "pizzacruda":
 		nuevo_sprite.texture= load("res://assets/comida/pizzacruda.png")
 	elif item_mano== "pizzahecha":

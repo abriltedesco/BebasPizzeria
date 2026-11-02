@@ -18,11 +18,11 @@ func set_item(nombre: String, tipo: String = "") -> void:
 	if sprite:
 		sprite.visible= true
 		sprite.scale= Vector2(1, 1)
+		if Ingredientes.TEXTURAS.has(nombre):
+			sprite.texture= load(Ingredientes.TEXTURAS[nombre])
+			sprite.scale= Vector2.ONE * Ingredientes.escala(nombre)
+			return
 		match nombre:
-			"queso", "tomate", "masa", "cebolla", "jamon", "rucula", "huevo", "albahaca", "aceitunas", "papas", "cheddar", "roquefort", "parmesano", "aceite", "pepperoni", "tomateCortado", "quesoCortado", "cebollaCortada", "jamonCortado":
-				sprite.texture = load(Ingredientes.TEXTURAS[nombre])
-				if nombre in Ingredientes.CORTADOS:
-					sprite.scale = Vector2.ONE * Ingredientes.escala_cortado(nombre)
 			"plato":
 				sprite.texture= load("res://assets/comida/plato.png")
 				sprite.scale= Vector2(0.1, 0.1)

@@ -6,7 +6,6 @@ signal cambiar_vista
 var izquierda= preload("res://assets/izquierda.png")
 var derecha= preload("res://assets/derecha.png")
 const recetarioEsc= preload("res://escenas/interfaces/recetario.tscn")
-# @onready var aviso_cliente= $AvisoCliente
 
 var vista_cocina= false
 var timer_partida
@@ -34,8 +33,7 @@ func configurar_timer(nuevo_timer) -> void:
 	timer_partida= nuevo_timer
 	ultimo_segundo_mostrado= ceili(timer_partida.wait_time)
 	actualizador.actualizar_tiempo(ultimo_segundo_mostrado)
-	
-	
+
 func _on_boton_flecha_pressed() -> void:
 	cambiar_vista.emit()
 	
@@ -49,7 +47,6 @@ func _on_cambio_puntaje(dinero, completados, fallidos):
 	
 func _on_pedido_cambiado():
 	actualizador.actualizar_lista_pedidos(PedidoManager.pedidos_activos)
-
 
 func _on_recetario_pressed() -> void:
 	var recetario= recetarioEsc.instantiate()
