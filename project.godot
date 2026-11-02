@@ -25,6 +25,7 @@ ProgresoManager="*uid://cntaqlnrbmbfp"
 BaseDeDatos="*uid://c5vdt0p7j2tbp"
 ValidadorPizza="*uid://dkr6rknolef0d"
 ControlIngred="*uid://dk34obytrvvka"
+StockManager="*uid://dhqtx3gsiw88k"
 
 [display]
 

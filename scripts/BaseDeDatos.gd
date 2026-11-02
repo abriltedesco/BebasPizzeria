@@ -27,6 +27,7 @@ var listaOrdenes = [
 ]
 
 var listaIngredientes = [
+	{"nombre": "masa", "valor": 0, "stock":0},
 	{"nombre": "harina", "valor": 1, "stock":0},
 	{"nombre": "agua", "valor": 1, "stock":0},
 	{"nombre": "cebolla", "valor": 2, "stock":0},

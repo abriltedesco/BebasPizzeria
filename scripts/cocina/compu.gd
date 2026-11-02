@@ -3,8 +3,8 @@ class_name compu
 
 @onready var sprite = $sprite
 @onready var colision = $CollisionShape2D
-@onready var pantallaCompu = $PantallaCompu
-@onready var botonVolver = $PantallaCompu/Control/Panel/volver
+@onready var pantallaCompu = $pantallaCompu
+@onready var botonVolver = $pantallaCompu/Control/Panel/volver
 
 func _ready() -> void:
 	super._ready()

@@ -5,6 +5,7 @@ var escena = null
 var overlay: TutorialOverlay = null
 
 func _ready() -> void:
+	StockManager.inicializar_stock()
 	visibility_changed.connect(_on_visibility_changed)
 
 func mostrar_instrucciones() -> void:

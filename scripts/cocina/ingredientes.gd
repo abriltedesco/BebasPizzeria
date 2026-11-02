@@ -64,12 +64,21 @@ func visuales() -> void:
 	for hijo in get_children():
 		if hijo is Label:
 			hijo.modulate = Color(1, 1, 1, 1) if habilitado else Color(1, 1, 1, 0.4)
-
+			
 func interactuar(jugador: CharacterBody2D) -> void:
 	if jugador.mano_item == "" and esta_desbloqueado():
-		var item = obtener_item()
-		if item != "":
-			jugador.agarrar_item(item)
+		var nombre_ing = obtener_item()
+		
+		if nombre_ing != "":
+			if StockManager.requiere_stock(nombre_ing):
+				if StockManager.obtener_stock(nombre_ing) <= 0:
+					var reproductor = get_tree().get_first_node_in_group("sonidoError")
+					if reproductor:
+						reproductor.play()
+					return
+				StockManager.consumir_stock(nombre_ing)
+			
+			jugador.agarrar_item(nombre_ing)
 
 func obtener_item() -> String:
 	return ""

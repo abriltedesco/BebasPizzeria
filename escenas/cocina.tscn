@@ -56,10 +56,11 @@
 [ext_resource type="Script" uid="uid://b3ce01iok7eer" path="res://scripts/cocina/cortar.gd" id="21_cortar"]
 [ext_resource type="Texture2D" uid="uid://b8qhs0hjgmwja" path="res://assets/ingscocina/cheddar.png" id="21_qtdrx"]
 [ext_resource type="Script" uid="uid://ck8l4fmn6nhed" path="res://scripts/cocina/compu.gd" id="53_hipnb"]
-[ext_resource type="PackedScene" uid="uid://d2vr10hmpgblt" path="res://scenesCompu/compu.tscn" id="54_dkpwb"]
 [ext_resource type="Script" uid="uid://4d110ax01vbm" path="res://scripts/cocina/harina.gd" id="55_harina"]
 [ext_resource type="Script" uid="uid://hv5l2nfoobeh" path="res://scripts/cocina/canilla.gd" id="56_canilla"]
 [ext_resource type="Script" uid="uid://0gjbefye66i8" path="res://scripts/cocina/amasar.gd" id="57_amasar"]
+[ext_resource type="PackedScene" uid="uid://d2vr10hmpgblt" path="res://escenas/compu/compu.tscn" id="60_qtdrx"]
+[ext_resource type="AudioStream" uid="uid://dbnx1xb6jwqhi" path="res://assets/sonidos/error.mp3" id="61_qtdrx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sgv8t"]
 texture = ExtResource("1_1kxht")
@@ -1198,7 +1199,7 @@ size = Vector2(63.43284, 39.673904)
 size = Vector2(88.80595, 84.78258)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfbpf"]
-size = Vector2(59.850754, 30.97825)
+size = Vector2(69.40298, 43.47825)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01m7b"]
 size = Vector2(44.029823, 42.771725)
@@ -1281,7 +1282,7 @@ collision_layer = 0
 script = ExtResource("3_mesa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mesa" unique_id=1744532947]
-position = Vector2(100.37313, 30.978249)
+position = Vector2(106.716415, 33.69564)
 shape = SubResource("RectangleShape2D_ajnhd")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Mesa" unique_id=87794404]
@@ -1436,7 +1437,7 @@ collision_layer = 8
 script = ExtResource("9_masa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Masa" unique_id=282803208]
-position = Vector2(40.22387, 169.29343)
+position = Vector2(35.447754, 168.4782)
 shape = SubResource("RectangleShape2D_nfbpf")
 
 [node name="Label" type="Label" parent="Masa" unique_id=115569510]
@@ -1899,5 +1900,8 @@ horizontal_alignment = 1
 position = Vector2(594.02985, 234.51079)
 shape = SubResource("RectangleShape2D_wq60e")
 
-[node name="PantallaCompu" parent="compu" unique_id=747453861 instance=ExtResource("54_dkpwb")]
+[node name="pantallaCompu" parent="compu" unique_id=747453861 instance=ExtResource("60_qtdrx")]
 visible = false
+
+[node name="sonidoError" type="AudioStreamPlayer2D" parent="." unique_id=2107164057]
+stream = ExtResource("61_qtdrx")
