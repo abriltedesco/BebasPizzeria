@@ -57,5 +57,10 @@ func _process(delta: float) -> void:
 		if tiempoTranscurrido >= duracionTotal:
 			tiempo_agotado.emit(self)
 			en_posicion = false
+			
 func _on_boton_entregar_pressed() -> void:
 	entregar_presionado.emit(numOrden)
+	
+func cambiarAsset(ruta_asset: String) -> void:
+	if $Sprite2D:
+		$Sprite2D.texture = load(ruta_asset)
