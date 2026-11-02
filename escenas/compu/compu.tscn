@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://d2vr10hmpgblt"]
 
 [ext_resource type="Script" uid="uid://cf0tqoepl6kou" path="res://scripts/compu/lista_ing.gd" id="1_dgjwq"]
-[ext_resource type="Script" path="res://scriptsCompu/cargar_plata_del_jugador.gd" id="2_5m6pe"]
-[ext_resource type="Script" path="res://scriptsCompu/calcular_precio_compra.gd" id="3_uuffo"]
+[ext_resource type="Script" uid="uid://dho076jugrajt" path="res://scripts/compu/cargar_plata_del_jugador.gd" id="2_dgjwq"]
+[ext_resource type="Script" uid="uid://b7qgoxpo1q4ed" path="res://scripts/compu/calcular_precio_compra.gd" id="3_5m6pe"]
 
 [node name="Compu" type="CanvasLayer" unique_id=747453861]
 process_mode = 3
@@ -59,9 +59,9 @@ offset_bottom = 120.0
 text = "$ XXX.XX"
 
 [node name="cargarPlataDelJugador" type="Node" parent="." unique_id=2012018393]
-script = ExtResource("2_5m6pe")
+script = ExtResource("2_dgjwq")
 
 [node name="calcularPrecioCompra" type="Node" parent="." unique_id=44644054]
-script = ExtResource("3_uuffo")
+script = ExtResource("3_5m6pe")
 
 [connection signal="pressed" from="Control/Panel/comprar" to="Control/Panel/ScrollContainer/listaIngredientes" method="_on_comprar_pressed"]

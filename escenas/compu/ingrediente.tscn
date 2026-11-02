@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://07gh7hencdyt"]
 
-[ext_resource type="Script" path="res://scriptsCompu/ingrediente.gd" id="1_ru64y"]
+[ext_resource type="Script" uid="uid://bioyf8u5pvc0v" path="res://scripts/compu/ingrediente.gd" id="1_ru64y"]
+[ext_resource type="FontFile" uid="uid://cj52h2tnkxruo" path="res://assets/fonts/pixely[1].ttf" id="2_8510j"]
+[ext_resource type="FontFile" uid="uid://bxrixcbxf2rqt" path="res://assets/fonts/Pix32.ttf" id="3_adj8k"]
 
-[node name="ingrediente" type="VBoxContainer" unique_id=1921329548]
+[node name="ingrediente" type="HBoxContainer" unique_id=419772705]
+offset_right = 316.0
+offset_bottom = 32.0
+theme_override_constants/separation = 40
 script = ExtResource("1_ru64y")
 
 [node name="datosIngrediente" type="HBoxContainer" parent="." unique_id=461765086]
@@ -11,6 +16,7 @@ layout_mode = 2
 [node name="nombreIngrediente" type="Label" parent="datosIngrediente" unique_id=964808232]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8510j")
 text = "Nombre "
 
 [node name="VSeparator2" type="VSeparator" parent="datosIngrediente" unique_id=2139931442]
@@ -19,6 +25,7 @@ layout_mode = 2
 [node name="cantidadIngrediente" type="Label" parent="datosIngrediente" unique_id=771442750]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8510j")
 text = "cantidad"
 
 [node name="VSeparator" type="VSeparator" parent="datosIngrediente" unique_id=1024087630]
@@ -27,6 +34,7 @@ layout_mode = 2
 [node name="precioIngrediente" type="Label" parent="datosIngrediente" unique_id=255974789]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8510j")
 text = "precio"
 
 [node name="botonesUnidad" type="HBoxContainer" parent="." unique_id=67576906]
@@ -35,9 +43,12 @@ layout_mode = 2
 [node name="restarUnidad" type="Button" parent="botonesUnidad" unique_id=933783878]
 unique_name_in_owner = true
 layout_mode = 2
-text = "-"
+theme_override_constants/h_separation = 8
+theme_override_fonts/font = ExtResource("3_adj8k")
+text = " - "
 
 [node name="sumarUnidad" type="Button" parent="botonesUnidad" unique_id=953241617]
 unique_name_in_owner = true
 layout_mode = 2
-text = "+"
+theme_override_fonts/font = ExtResource("3_adj8k")
+text = " + "

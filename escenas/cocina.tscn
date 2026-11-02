@@ -1426,7 +1426,7 @@ layout_direction = 4
 offset_left = 509.7015
 offset_top = -42.934765
 offset_right = 582.0896
-offset_bottom = 48.369526
+offset_bottom = 45.652157
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cortar" unique_id=1804290116]
 position = Vector2(544.7761, 37.499985)
@@ -1838,7 +1838,7 @@ layout_direction = 4
 offset_left = 385.82095
 offset_top = 1.0869598
 offset_right = 450.7463
-offset_bottom = 53.260853
+offset_bottom = 45.10868
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="amasar" unique_id=1641386300]
 position = Vector2(416.791, 30.706509)
@@ -1866,9 +1866,9 @@ script = ExtResource("56_canilla")
 material = ExtResource("19_dypwv")
 layout_direction = 4
 offset_left = 192.5373
-offset_top = 0.5434723
+offset_top = 8.695649
 offset_right = 257.46265
-offset_bottom = 52.717373
+offset_bottom = 39.13042
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="canilla" unique_id=1036893281]
 position = Vector2(225.37312, 33.15216)

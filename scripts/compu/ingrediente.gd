@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends HBoxContainer
 
 signal cantidadCambiada
 
@@ -19,6 +19,7 @@ func configurar(datosDiccionario: Dictionary) -> void:
 	datos = datosDiccionario
 	nombreLabel.text = datos["nombre"]
 	precioLabel.text = "$" + str(datos["valor"])
+	stock = int(datos.get("stock", 0))
 	actualizarDatos()
 
 func sumarStock() -> void:
@@ -37,7 +38,10 @@ func calcularCosto() -> int:
 	return unidadesAcomprar() * datos["valor"]
 
 func confirmarStock() -> void:
-	datos["stock"] =stock
+	var cantidad_comprada = unidadesAcomprar()
+	datos["stock"] = stock
+	if cantidad_comprada > 0:
+		StockManager.agregar_stock(datos["nombre"], cantidad_comprada)
 	actualizarDatos()
 
 func actualizarDatos() -> void:
