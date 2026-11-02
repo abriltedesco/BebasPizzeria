@@ -60,9 +60,7 @@ func _spawn_cliente() -> void:
 				if orden_bd["tipo"] == "queso":
 					ordenesPermitidas.append(orden_bd)
 		2:
-			for orden_bd in BaseDeDatos.recetasDelDia():
-				if orden_bd["tipo"] in ["queso", "pizzaCebolla", "pizzaJamon"]:
-					ordenesPermitidas.append(orden_bd)
+			ordenesPermitidas = BaseDeDatos.ordenesConDificultad("facil")
 		3:
 			ordenesPermitidas = BaseDeDatos.ordenesConDificultad("media")
 		4:

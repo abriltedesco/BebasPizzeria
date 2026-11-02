@@ -13,7 +13,7 @@ class Hornalla:
 	var ingredientes: Array = []
 
 const CANTHORNALLAS := 3
-const coccion := 4.0
+const coccion := 8.0
 const quemada := 8.0
 @export var offsetBarra = Vector2(0, -32)
 @export var offsetSenial = Vector2(0, -56)
