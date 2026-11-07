@@ -4,12 +4,13 @@ var instMostradas = false
 var escena = null
 var overlay: TutorialOverlay = null
 
+
 func _ready() -> void:
 	StockManager.inicializar_stock()
 	visibility_changed.connect(_on_visibility_changed)
 
 func mostrar_instrucciones() -> void:
-	if ProgresoManager.nivel_actual != 1:
+	if ProgresoManager.nivel_actual >= 4:
 		return
 	if instMostradas:return
 	instMostradas = true
@@ -17,7 +18,8 @@ func mostrar_instrucciones() -> void:
 	var dialogo = load("res://dialogue/instrucciones.dialogue")
 	escena = load("res://addons/dialogue_manager/example_balloon/example_balloon.tscn").instantiate()
 	add_child(escena)
-	escena.start(dialogo, "start", [self])
+	var niveltuto = "nivel_" + str(ProgresoManager.nivel_actual)
+	escena.start(dialogo, niveltuto, [self])
 	await escena.tree_exited
 	resaltar("")
 

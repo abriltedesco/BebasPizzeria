@@ -1,4 +1,4 @@
-~ start
+~ nivel_1
 Jefe: ¡Bienvenida a la cocina! Te muestro cómo funciona todo.
 
 do resaltar("Queso", "Acercate y apretá E para agarrar queso")
@@ -20,4 +20,38 @@ Jefe: Una vez lista, dejala acá para que la reciba el cliente :) SPOILER! a par
 
 do resaltar("")
 Jefe: ¡Listo! A trabajar.
+=> END
+
+~ nivel_2
+Jefe: ¡Subimos de nivel! Ahora tenemos nuevos ingredientes como la cebolla y el jamón.
+
+do resaltar("Cebolla", "Acercate y apretá E para agarrar la cebolla")
+Jefe: Pero atención: a partir de ahora TODOS los ingredientes para la cubierta deberán cortarse primero para poder armar la pizza.
+do esperarMano("cebolla")
+
+do resaltar("cortar", "Acercate a la tabla de picar y apretá E para dejarla")
+Jefe: Llevá el ingrediente a la sección de cortar. Sin procesarlos antes, no vas a poder usarlos en tus pizzas.
+do esperarMano("cebollaCortada")
+
+do resaltar("")
+Jefe: ¡Excelente! Acordate de procesar siempre los ingredientes. ¡A seguir cocinando!
+=> END
+
+~ nivel_3
+Jefe: ¡Las cosas se ponen serias! El negocio crece y los ingredientes ya no son ilimitados.
+
+do resaltar("compu", "Esta es tu nueva herramienta de compras")
+Jefe: Se habilitó la compu. Empezás el turno con algunos ingredientes en stock, pero cuando te quedes sin, deberás venir acá a comprar más para reponer. 
+
+do resaltar("harina")
+Jefe: Otra novedad: la masa ya no viene hecha, se retiró de la cocina. Ahora vas a tener que comprar harina cuando te quedes sin stock...
+
+do resaltar("canilla")
+Jefe: ...y combinarla con el agua de la canilla, que por suerte es gratis y no se compra.
+
+do resaltar("amasar", "Acá prepararás la base de tus pizzas")
+Jefe: Usando el agua y la harina en este sector de amasar, vas a generar la masa fresca para la pizza.
+
+do resaltar("")
+Jefe: Controlá el stock, comprá con inteligencia y ¡a amasar se ha dicho!
 => END
