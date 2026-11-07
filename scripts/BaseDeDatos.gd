@@ -18,7 +18,7 @@ var listaOrdenes = [
 	{"tipo": "Jamon y Morrón", "dificultad": "media", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "jamonCortado", "morronCortado"], "desde": 3},
 	{"tipo": "Rucula y crudo", "dificultad": "media", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "jamonCortado", "ruculaCortada"], "desde": 3},
 	{"tipo": "Pepperoni", "dificultad": "media", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "pepperoniCortado"], "desde": 3},
-	{"tipo": "Margarita", "dificultad": "media", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "albahacaCortada", "aceite"], "desde": 3},
+	{"tipo": "Margarita", "dificultad": "media", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "aceite"], "desde": 3},
 	
 	{"tipo": "Cuatro Quesos", "dificultad": "dificil", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "roquefortCortado", "parmesanoCortado", "provoloneCortado"], "desde": 4},
 	{"tipo": "Super Completa", "dificultad": "dificil", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "jamonCortado", "morronCortado", "huevoCortado", "aceitunaCortada"], "desde": 4},

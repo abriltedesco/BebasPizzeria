@@ -42,7 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://c6ejg65wyq858" path="res://assets/pixil-frame-0 (4).png" id="20_0joks"]
 [ext_resource type="Script" uid="uid://bt15j1vosiul" path="res://scripts/cocina/aceite.gd" id="20_aceite"]
 [ext_resource type="Script" uid="uid://d1jrfunwacfhu" path="res://scripts/cocina/aceitunas.gd" id="20_aceitunas"]
-[ext_resource type="Script" uid="uid://csucsp5e6hv4g" path="res://scripts/cocina/albahaca.gd" id="20_albahaca"]
+[ext_resource type="Script" uid="uid://csucsp5e6hv4g" path="res://scripts/cocina/morron.gd" id="20_albahaca"]
 [ext_resource type="Script" uid="uid://cunj7xhx0ij51" path="res://scripts/cocina/cebolla.gd" id="20_cebolla"]
 [ext_resource type="Texture2D" uid="uid://d10gjpo1e77tl" path="res://assets/ingscocina/cebolla.png" id="20_cfqnj"]
 [ext_resource type="Script" uid="uid://g47f8h8ytnc4" path="res://scripts/cocina/cheddar.gd" id="20_cheddar"]
@@ -1619,10 +1619,10 @@ theme_override_font_sizes/font_size = 8
 text = "HUEVO"
 horizontal_alignment = 1
 
-[node name="Albahaca" type="Area2D" parent="." unique_id=771355475]
+[node name="morron" type="Area2D" parent="." unique_id=771355475]
 script = ExtResource("20_albahaca")
 
-[node name="sprite" type="ColorRect" parent="Albahaca" unique_id=653411484]
+[node name="sprite" type="ColorRect" parent="morron" unique_id=653411484]
 material = ExtResource("19_dypwv")
 layout_direction = 4
 offset_left = 495.5224
@@ -1630,11 +1630,11 @@ offset_top = 110.869545
 offset_right = 560.44775
 offset_bottom = 159.23907
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Albahaca" unique_id=318606698]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="morron" unique_id=318606698]
 position = Vector2(525, 134.43475)
 shape = SubResource("RectangleShape2D_albahaca")
 
-[node name="Label" type="Label" parent="Albahaca" unique_id=2002973135]
+[node name="Label" type="Label" parent="morron" unique_id=2002973135]
 offset_left = 492.5373
 offset_top = 147.82603
 offset_right = 556.5373
@@ -1642,7 +1642,7 @@ offset_bottom = 170.82603
 theme_override_colors/font_color = Color(0.8217887, 0.82178867, 0.82178867, 1)
 theme_override_fonts/font = ExtResource("8_hhbb7")
 theme_override_font_sizes/font_size = 8
-text = "ALBAHACA"
+text = "MORRÓN"
 horizontal_alignment = 1
 
 [node name="Aceitunas" type="Area2D" parent="." unique_id=562068507]

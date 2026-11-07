@@ -14,13 +14,20 @@ func mostrar_instrucciones() -> void:
 		return
 	if instMostradas:return
 	instMostradas = true
-
+	
+	get_parent().timerPartida.paused = true
+	get_parent().pedidos.process_mode = Node.PROCESS_MODE_DISABLED
+	
 	var dialogo = load("res://dialogue/instrucciones.dialogue")
 	escena = load("res://addons/dialogue_manager/example_balloon/example_balloon.tscn").instantiate()
 	add_child(escena)
 	var niveltuto = "nivel_" + str(ProgresoManager.nivel_actual)
 	escena.start(dialogo, niveltuto, [self])
 	await escena.tree_exited
+	
+	get_parent().timerPartida.paused = false
+	get_parent().pedidos.process_mode = Node.PROCESS_MODE_INHERIT
+	
 	resaltar("")
 
 func _on_visibility_changed() -> void:

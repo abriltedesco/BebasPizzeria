@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmr6tbtnbhu57"
-path="res://.godot/imported/Albahaca.png-ce3a70a61102c66a9258a92c36135a55.ctex"
+uid="uid://dlf0s3qdke6e2"
+path="res://.godot/imported/huevoCortado.png-c0b6ac65b9e37dd6c13b343b814e7221.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/comida/Ingredientes/Albahaca.png"
-dest_files=["res://.godot/imported/Albahaca.png-ce3a70a61102c66a9258a92c36135a55.ctex"]
+source_file="res://assets/comida/cortados/huevoCortado.png"
+dest_files=["res://.godot/imported/huevoCortado.png-c0b6ac65b9e37dd6c13b343b814e7221.ctex"]
 
 [params]
 

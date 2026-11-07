@@ -9,7 +9,7 @@ const TEXTURAS := {
 	"jamon": "res://assets/comida/Ingredientes/Jamon.png",
 	"rucula": "res://assets/comida/Ingredientes/Rucula.png",
 	"huevo": "res://assets/comida/Ingredientes/Huevo.png",
-	"albahaca": "res://assets/comida/Ingredientes/Albahaca.png",
+	"morron": "res://assets/comida/Ingredientes/morron.png",
 	"aceitunas": "res://assets/comida/Ingredientes/Aceituna.png",
 	"papas": "res://assets/comida/Ingredientes/Papa.png",
 	"cheddar": "res://assets/comida/Ingredientes/Cheddar.png",
@@ -23,6 +23,10 @@ const TEXTURAS := {
 	"quesoCortado": "res://assets/comida/cortados/quesoCortado.png",
 	"cebollaCortada": "res://assets/comida/cortados/cebollaCortada.png",
 	"jamonCortado": "res://assets/comida/cortados/jamonCortado.png",
+	"morronCortado": "res://assets/comida/cortados/morronCortado.png",
+	"pepperoniCortado": "res://assets/comida/cortados/pepperoniCortado.png",
+	"huevoCortado": "res://assets/comida/cortados/huevoCortado.png",
+	"aceitunaCortada":"res://assets/comida/cortados/aceitunaCortada.png"
 }
 
 const TAMSPRITE := 32.0

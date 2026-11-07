@@ -148,9 +148,18 @@ func _on_cliente_entregar_presionado(numOrden: int) -> void:
 		if exito:
 			var pedido = PedidoManager.pedidos_activos[idx]
 			var tiempo_restante = pedido["duracion"] - pedido["tiempo_transcurrido"]
-			if tiempo_restante <= 15.0:
-				exito = false
-				motivo = "tiempo"
+			
+			var propina = 0
+			if tiempo_restante <= 10.0:
+				propina = 1
+			elif tiempo_restante <= 30.0:
+				propina = 10
+			elif tiempo_restante <= 40.0:
+				propina = 15
+			else:
+				propina = 20
+				
+			Puntaje.sumarPropina(propina)
 					
 		PedidoManager.completar_pedido(idx, exito, motivo)
 		PedidoManager.pizza_preparada.clear()
