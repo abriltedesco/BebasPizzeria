@@ -1,6 +1,9 @@
 # Bebas Pizzeria 🍕
 llegaron las pipshasss
 
+https://bebas-pizzeria.itch.io/bebas-pizzeria
+link del itch.io
+
 **Bebas Pizzeria** es un juego de gestión de tiempo y recursos cuyo objetivo es atender a la mayor cantidad de clientes y preparar sus pizzas antes de que se acabe el tiempo global del día. Está inspirado en **Overcooked** y **Papa's Pizzeria**
 Preparate para 5 días en nuestro local trabajando a full ! :)
 
