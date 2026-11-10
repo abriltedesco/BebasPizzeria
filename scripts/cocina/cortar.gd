@@ -9,6 +9,9 @@ const CORTADOS := {
 	"queso": "quesoCortado",
 	"cebolla": "cebollaCortada",
 	"jamon": "jamonCortado",
+	"rucula": "ruculaCortada",
+	"morron": "morronCortado",
+	"pepperoni": "pepperoniCortado",
 }
 
 func _ready() -> void:

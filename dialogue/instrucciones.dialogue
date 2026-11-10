@@ -51,6 +51,7 @@ Jefe: ...y combinarla con el agua de la canilla, que por suerte es gratis y no s
 
 do resaltar("amasar", "Acá prepararás la base de tus pizzas")
 Jefe: Usando el agua y la harina en este sector de amasar, vas a generar la masa fresca para la pizza.
+Jefe: La rúcula, el morrón y el pepperoni también se cortan en la tabla antes de usarlos. El aceite es la excepción: se agrega directamente, sin preparación.
 
 do resaltar("")
 Jefe: Controlá el stock, comprá con inteligencia y ¡a amasar se ha dicho!

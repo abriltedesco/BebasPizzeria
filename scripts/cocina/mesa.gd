@@ -66,24 +66,24 @@ func quitar_item_en_indice(lugar: int) -> void:
 func intentar_armar_pizza(zona: CollisionShape2D) -> void:
 	var ingredientes_crudos: Array[String]= []
 	for i in range(items_en_mesa.size()):
-		if items_en_mesa[i]!= "plato" and tipos_en_mesa[i]== "":
+		if zonas_en_mesa[i] == zona and items_en_mesa[i]!= "plato" and tipos_en_mesa[i]== "":
 			ingredientes_crudos.append(items_en_mesa[i])
 
 	var exacta= receta_exacta(ingredientes_crudos)
 	if not exacta.is_empty():
-		quitar_ingredientes(exacta["ingredientes"])
+		quitar_ingredientes(exacta["ingredientes"], zona)
 		agregar_item("pizzacruda", exacta["tipo"], zona)
 		return
 
 	for receta in BaseDeDatos.recetasDelDia():
 		if receta["tipo"]== ClienteActual.pizza and coincide_receta(ingredientes_crudos, receta["ingredientes"]):
-			quitar_ingredientes(receta["ingredientes"])
+			quitar_ingredientes(receta["ingredientes"], zona)
 			agregar_item("pizzacruda", receta["tipo"], zona)
 			return
 
 	for receta in BaseDeDatos.recetasDelDia():
 		if coincide_receta(ingredientes_crudos, receta["ingredientes"]):
-			quitar_ingredientes(receta["ingredientes"])
+			quitar_ingredientes(receta["ingredientes"], zona)
 			agregar_item("pizzacruda", receta["tipo"], zona)
 			return
 
@@ -122,9 +122,9 @@ func coincide_receta(disponibles: Array[String], ingredientes_receta: Array) -> 
 			return false
 	return true
 
-func quitar_ingredientes(ingredientes_receta: Array) -> void:
+func quitar_ingredientes(ingredientes_receta: Array, zona: CollisionShape2D) -> void:
 	for ingrediente in ingredientes_receta:
-		var idx= items_en_mesa.rfind(ingrediente)
+		var idx= buscar_item_en_zona(ingrediente, zona)
 		if idx!= -1:
 			quitar_item_en_indice(idx)
 

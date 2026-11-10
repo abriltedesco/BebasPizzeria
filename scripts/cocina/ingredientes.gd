@@ -24,7 +24,8 @@ const TEXTURAS := {
 	"cebollaCortada": "res://assets/comida/cortados/cebollaCortada.png",
 	"jamonCortado": "res://assets/comida/cortados/jamonCortado.png",
 	"morronCortado": "res://assets/comida/cortados/morronCortado.png",
-	"pepperoniCortado": "res://assets/comida/cortados/pepperoniCortado.png",
+	"ruculaCortada": "res://assets/comida/cortados/ruculaCortada.png",
+	"pepperoniCortado": "res://assets/comida/cortados/pepperonniCortado.png",
 	"huevoCortado": "res://assets/comida/cortados/huevoCortado.png",
 	"aceitunaCortada":"res://assets/comida/cortados/aceitunaCortada.png"
 }

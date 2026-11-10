@@ -1196,7 +1196,7 @@ size = Vector2(62.686592, 53.804337)
 size = Vector2(63.43284, 39.673904)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cortar"]
-size = Vector2(88.80595, 84.78258)
+size = Vector2(72.3881, 88.58692)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfbpf"]
 size = Vector2(69.40298, 43.47825)
@@ -1229,7 +1229,7 @@ size = Vector2(50.000046, 47.67395)
 size = Vector2(49.253746, 47.673946)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_albahaca"]
-size = Vector2(33.582123, 47.130463)
+size = Vector2(47.014915, 49.304367)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aceitunas"]
 size = Vector2(63.6716, 44.70106)
@@ -1256,7 +1256,7 @@ size = Vector2(57.462685, 31.065132)
 size = Vector2(66.41796, 66.8478)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21n3o"]
-size = Vector2(52.537308, 50.652145)
+size = Vector2(52.537308, 52.17388)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0joks"]
 size = Vector2(64.17912, 64.13042)
@@ -1429,7 +1429,7 @@ offset_right = 582.0896
 offset_bottom = 45.652157
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cortar" unique_id=1804290116]
-position = Vector2(544.7761, 37.499985)
+position = Vector2(545.89557, 1.358696)
 shape = SubResource("RectangleShape2D_cortar")
 
 [node name="Masa" type="Area2D" parent="." unique_id=937247]
@@ -1631,7 +1631,7 @@ offset_right = 560.44775
 offset_bottom = 159.23907
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="morron" unique_id=318606698]
-position = Vector2(525, 134.43475)
+position = Vector2(522.0149, 133.3478)
 shape = SubResource("RectangleShape2D_albahaca")
 
 [node name="Label" type="Label" parent="morron" unique_id=2002973135]
@@ -1856,7 +1856,7 @@ offset_right = 622.388
 offset_bottom = 160.32605
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="harina" unique_id=1588822183]
-position = Vector2(591.7911, 134.45647)
+position = Vector2(591.7911, 133.6956)
 shape = SubResource("RectangleShape2D_21n3o")
 
 [node name="canilla" type="Area2D" parent="." unique_id=422109745]
