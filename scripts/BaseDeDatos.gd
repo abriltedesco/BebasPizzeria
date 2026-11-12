@@ -16,13 +16,14 @@ var listaOrdenes = [
 	{"tipo": "Jamon","dificultad": "facil", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "jamonCortado"], "desde": 2},
 	
 	{"tipo": "Jamon y Morrón", "dificultad": "media", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "jamonCortado", "morronCortado"], "desde": 3},
-	{"tipo": "Rucula y crudo", "dificultad": "media", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "jamonCortado", "ruculaCortada"], "desde": 3},
+	{"tipo": "Rucula y crudo", "dificultad": "media", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "jamonCrudoCortado", "ruculaCortada"], "desde": 3},
 	{"tipo": "Pepperoni", "dificultad": "media", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "pepperoniCortado"], "desde": 3},
 	{"tipo": "Margarita", "dificultad": "media", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "aceite"], "desde": 3},
 	
 	{"tipo": "Cuatro Quesos", "dificultad": "dificil", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "roquefortCortado", "parmesanoCortado", "provoloneCortado"], "desde": 4},
 	{"tipo": "Super Completa", "dificultad": "dificil", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "jamonCortado", "morronCortado", "huevoCortado", "aceitunaCortada"], "desde": 4},
-	{"tipo": "Bomba Frita", "dificultad": "dificil", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "papas", "cheddarCortado", "pancetaCortada"], "desde": 4}
+	{"tipo": "Bomba Frita", "dificultad": "dificil", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "papas", "cheddarCortado", "pancetaCortada"], "desde": 4},
+	{"tipo": "Albahaca y queso", "dificultad": "dificil", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "albahaca", "aceite"], "desde": 4}
 	
 ]
 
@@ -32,6 +33,7 @@ var listaIngredientes = [
 	{"nombre": "agua", "valor": 1, "stock":0},
 	{"nombre": "cebolla", "valor": 2, "stock":0},
 	{"nombre": "jamon", "valor": 2, "stock":0},
+	{"nombre": "jamonCrudo", "valor": 2, "stock":0},
 	{"nombre": "rucula", "valor": 2, "stock":0},
 	{"nombre": "tomate", "valor": 1, "stock":0},
 	{"nombre": "queso", "valor": 1, "stock":0},
