@@ -1901,6 +1901,7 @@ position = Vector2(594.02985, 234.51079)
 shape = SubResource("RectangleShape2D_wq60e")
 
 [node name="pantallaCompu" parent="compu" unique_id=747453861 instance=ExtResource("60_qtdrx")]
+layer = 50
 visible = false
 
 [node name="sonidoError" type="AudioStreamPlayer2D" parent="." unique_id=2107164057]

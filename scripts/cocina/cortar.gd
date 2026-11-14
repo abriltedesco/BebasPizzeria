@@ -19,7 +19,7 @@ func _ready() -> void:
 	actualizar_dia()
 
 func _process(_delta: float) -> void:
-	var activa: bool = ControladorIngredientes.esta_desbloqueado("cortar")
+	var activa= ControlIngred.esta_desbloqueado("cortar")
 	if sprite.visible == activa:
 		sprite.visible = !activa
 		
@@ -27,7 +27,7 @@ func _process(_delta: float) -> void:
 		colision.set_deferred("disabled", !activa)
 
 func actualizar_dia() -> void:
-	var activa: bool = ControladorIngredientes.esta_desbloqueado("cortar")
+	var activa= ControlIngred.esta_desbloqueado("cortar")
 	sprite.visible = !activa
 	colision.set_deferred("disabled", !activa)
 

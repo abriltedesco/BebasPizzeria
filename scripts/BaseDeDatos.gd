@@ -73,10 +73,22 @@ func obtenerOrdenPorTipo(tipo: String)-> Dictionary:
 
 func spritePizzaHecha(tipo: String) -> String:
 	match tipo:
-		"pizzaCebolla":
+		"Fugazzeta":
 			return "res://assets/comida/pizzas/pizzaCebolla.png"
-		"pizzaJamon":
+		"Jamon":
 			return "res://assets/comida/pizzas/pizzaJamon.png"
+		"Pepperoni":
+			return "res://assets/comida/pizzas/pizzaPepperoni.png"
+		"Jamon y Morrón":
+			return "res://assets/comida/pizzas/pizzaJamMorron.png"
+		"Super Completa":
+			return "res://assets/comida/pizzas/pizzaHuevo.png"
+		"Cuatro Quesos":
+			return "res://assets/comida/pizzas/pizzaCheddar.png"
+		"Rucula y crudo":
+			return "res://assets/comida/pizzas/pizzaRucula.png"
+		"Margarita":
+			return "res://assets/comida/pizzas/PizzaTomate.png"
 	return "res://assets/comida/pizzacocinada.png"
 
 func obtenerRespuestaCliente(exito: bool, motivo: String = "") -> String:

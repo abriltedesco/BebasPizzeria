@@ -3,17 +3,18 @@ extends Node2D
 var instMostradas = false
 var escena = null
 var overlay: TutorialOverlay = null
-
+var en_tutorial = false
 
 func _ready() -> void:
 	StockManager.inicializar_stock()
 	visibility_changed.connect(_on_visibility_changed)
 
 func mostrar_instrucciones() -> void:
-	if ProgresoManager.nivel_actual >= 4:
+	if ProgresoManager.nivel_actual >= 5:
 		return
 	if instMostradas:return
 	instMostradas = true
+	en_tutorial = true
 	
 	get_parent().timerPartida.paused = true
 	get_parent().pedidos.process_mode = Node.PROCESS_MODE_DISABLED
@@ -25,6 +26,7 @@ func mostrar_instrucciones() -> void:
 	escena.start(dialogo, niveltuto, [self])
 	await escena.tree_exited
 	
+	en_tutorial = false
 	get_parent().timerPartida.paused = false
 	get_parent().pedidos.process_mode = Node.PROCESS_MODE_INHERIT
 	
