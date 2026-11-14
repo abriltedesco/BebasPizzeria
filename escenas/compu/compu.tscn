@@ -1,8 +1,28 @@
 [gd_scene format=3 uid="uid://d2vr10hmpgblt"]
 
 [ext_resource type="Script" uid="uid://cf0tqoepl6kou" path="res://scripts/compu/lista_ing.gd" id="1_dgjwq"]
+[ext_resource type="Texture2D" uid="uid://bcx3yeyem2p2p" path="res://assets/cuadricula.jpeg" id="2_5m6pe"]
 [ext_resource type="Script" uid="uid://dho076jugrajt" path="res://scripts/compu/cargar_plata_del_jugador.gd" id="2_dgjwq"]
 [ext_resource type="Script" uid="uid://b7qgoxpo1q4ed" path="res://scripts/compu/calcular_precio_compra.gd" id="3_5m6pe"]
+[ext_resource type="FontFile" uid="uid://bxrixcbxf2rqt" path="res://assets/fonts/Pix32.ttf" id="3_uuffo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_it06w"]
+bg_color = Color(0.92941177, 0.83137256, 0.44705883, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojfsy"]
+bg_color = Color(0.972549, 0.91764706, 0.70980394, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sx1j1"]
+bg_color = Color(0.9607843, 0.8862745, 0.6039216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5m6pe"]
+bg_color = Color(0.92941177, 0.83137256, 0.44705883, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ke7wg"]
+bg_color = Color(0.9727482, 0.9179545, 0.7093039, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uuffo"]
+bg_color = Color(0.9603568, 0.8855051, 0.6034724, 1)
 
 [node name="Compu" type="CanvasLayer" unique_id=747453861]
 process_mode = 3
@@ -20,6 +40,19 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
+
+[node name="ColorRect" type="ColorRect" parent="Control/Panel" unique_id=1590879412]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 663.0
+color = Color(0.47058824, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Panel/ColorRect" unique_id=757421301]
+modulate = Color(1, 1, 1, 0.16470589)
+position = Vector2(576.0626, 327.14072)
+rotation = 1.5707964
+scale = Vector2(0.8904981, 0.8810209)
+texture = ExtResource("2_5m6pe")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control/Panel" unique_id=999577412]
 layout_direction = 3
@@ -40,6 +73,14 @@ offset_left = 965.0
 offset_top = 563.0
 offset_right = 1127.7742
 offset_bottom = 621.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.15294118, 0.15294118, 0.15294118, 1)
+theme_override_colors/font_hover_color = Color(0.15294118, 0.15294118, 0.15294118, 1)
+theme_override_fonts/font = ExtResource("3_uuffo")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_it06w")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ojfsy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sx1j1")
 text = "COMPRAR"
 
 [node name="volver" type="Button" parent="Control/Panel" unique_id=1273527243]
@@ -48,14 +89,24 @@ offset_left = 971.0
 offset_top = 222.0
 offset_right = 1123.0
 offset_bottom = 274.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.15294118, 0.15294118, 0.15294118, 1)
+theme_override_colors/font_hover_color = Color(0.15487581, 0.15487596, 0.15487641, 1)
+theme_override_fonts/font = ExtResource("3_uuffo")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_5m6pe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ke7wg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uuffo")
 text = "VOLVER"
 
 [node name="dineroJugador" type="Label" parent="Control/Panel" unique_id=2114601768]
 layout_mode = 0
-offset_left = 1001.0
+offset_left = 947.0
 offset_top = 96.0
-offset_right = 1072.0
-offset_bottom = 120.0
+offset_right = 1123.0
+offset_bottom = 144.0
+theme_override_fonts/font = ExtResource("3_uuffo")
+theme_override_font_sizes/font_size = 48
 text = "$ XXX.XX"
 
 [node name="cargarPlataDelJugador" type="Node" parent="." unique_id=2012018393]
