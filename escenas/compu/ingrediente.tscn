@@ -1,54 +1,97 @@
 [gd_scene format=3 uid="uid://07gh7hencdyt"]
 
 [ext_resource type="Script" uid="uid://bioyf8u5pvc0v" path="res://scripts/compu/ingrediente.gd" id="1_ru64y"]
-[ext_resource type="FontFile" uid="uid://cj52h2tnkxruo" path="res://assets/fonts/pixely[1].ttf" id="2_8510j"]
 [ext_resource type="FontFile" uid="uid://bxrixcbxf2rqt" path="res://assets/fonts/Pix32.ttf" id="3_adj8k"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3eede"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3eede"]
+bg_color = Color(0.92941177, 0.83137256, 0.44705883, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_adj8k"]
+bg_color = Color(0.972549, 0.91764706, 0.70980394, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jg6sx"]
+bg_color = Color(0.9607843, 0.8862745, 0.6039216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8510j"]
+bg_color = Color(0.92941177, 0.83137256, 0.44705883, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ce1xw"]
+bg_color = Color(0.972549, 0.91764706, 0.70980394, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgtly"]
+bg_color = Color(0.9607843, 0.8862745, 0.6039216, 1)
+
 [node name="ingrediente" type="HBoxContainer" unique_id=419772705]
-offset_right = 316.0
-offset_bottom = 32.0
+offset_right = 443.0
+offset_bottom = 129.0
 theme_override_constants/separation = 40
 script = ExtResource("1_ru64y")
 
-[node name="datosIngrediente" type="HBoxContainer" parent="." unique_id=461765086]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1669494591]
 layout_mode = 2
 
-[node name="nombreIngrediente" type="Label" parent="datosIngrediente" unique_id=964808232]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=1473316050]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_3eede")
+
+[node name="datosIngrediente" type="HBoxContainer" parent="VBoxContainer" unique_id=461765086]
+layout_mode = 2
+
+[node name="nombreIngrediente" type="Label" parent="VBoxContainer/datosIngrediente" unique_id=964808232]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_8510j")
+theme_override_fonts/font = ExtResource("3_adj8k")
+theme_override_font_sizes/font_size = 38
 text = "Nombre "
 
-[node name="VSeparator2" type="VSeparator" parent="datosIngrediente" unique_id=2139931442]
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/datosIngrediente" unique_id=2139931442]
 layout_mode = 2
 
-[node name="cantidadIngrediente" type="Label" parent="datosIngrediente" unique_id=771442750]
+[node name="cantidadIngrediente" type="Label" parent="VBoxContainer/datosIngrediente" unique_id=771442750]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_8510j")
+theme_override_fonts/font = ExtResource("3_adj8k")
+theme_override_font_sizes/font_size = 38
 text = "cantidad"
 
-[node name="VSeparator" type="VSeparator" parent="datosIngrediente" unique_id=1024087630]
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/datosIngrediente" unique_id=1024087630]
 layout_mode = 2
 
-[node name="precioIngrediente" type="Label" parent="datosIngrediente" unique_id=255974789]
+[node name="precioIngrediente" type="Label" parent="VBoxContainer/datosIngrediente" unique_id=255974789]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_8510j")
+theme_override_fonts/font = ExtResource("3_adj8k")
+theme_override_font_sizes/font_size = 38
 text = "precio"
 
-[node name="botonesUnidad" type="HBoxContainer" parent="." unique_id=67576906]
+[node name="botonesUnidad" type="HBoxContainer" parent="VBoxContainer" unique_id=67576906]
 layout_mode = 2
 
-[node name="restarUnidad" type="Button" parent="botonesUnidad" unique_id=933783878]
+[node name="restarUnidad" type="Button" parent="VBoxContainer/botonesUnidad" unique_id=933783878]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.15294118, 0.15294118, 0.15294118, 1)
+theme_override_colors/font_hover_color = Color(0.15294118, 0.15294118, 0.15294118, 1)
 theme_override_constants/h_separation = 8
 theme_override_fonts/font = ExtResource("3_adj8k")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_3eede")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_adj8k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jg6sx")
 text = " - "
 
-[node name="sumarUnidad" type="Button" parent="botonesUnidad" unique_id=953241617]
+[node name="sumarUnidad" type="Button" parent="VBoxContainer/botonesUnidad" unique_id=953241617]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.15294118, 0.15294118, 0.15294118, 1)
+theme_override_colors/font_hover_color = Color(0.15294118, 0.15294118, 0.15294118, 1)
 theme_override_fonts/font = ExtResource("3_adj8k")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_8510j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ce1xw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rgtly")
 text = " + "

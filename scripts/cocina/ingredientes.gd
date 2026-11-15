@@ -71,6 +71,7 @@ func visuales() -> void:
 			hijo.modulate = Color(1, 1, 1, 1) if habilitado else Color(1, 1, 1, 0.4)
 			
 func interactuar(jugador: CharacterBody2D) -> void:
+	print("Intentando agarrar: ", obtener_item(), " | Desbloqueado: ", esta_desbloqueado(), " | Mano: ", jugador.mano_item)
 	if jugador.mano_item == "" and esta_desbloqueado():
 		var nombre_ing = obtener_item()
 		

@@ -38,21 +38,28 @@ Jefe: ¡Excelente! Acordate de procesar siempre los ingredientes. ¡A seguir coc
 => END
 
 ~ nivel_3
-Jefe: ¡Las cosas se ponen serias! El negocio crece y los ingredientes ya no son ilimitados.
-
-do resaltar("compu", "Esta es tu nueva herramienta de compras")
-Jefe: Se habilitó la compu. Empezás el turno con algunos ingredientes en stock, pero cuando te quedes sin, deberás venir acá a comprar más para reponer. 
+Jefe: ¡Las cosas se ponen serias! El negocio crece y tenemos nuevos desafíos.
 
 do resaltar("harina")
-Jefe: Otra novedad: la masa ya no viene hecha, se retiró de la cocina. Ahora vas a tener que comprar harina cuando te quedes sin stock...
+Jefe: La masa ya no viene prehecha, se retiró de la cocina. Ahora vas a tener que usar la harina...
 
 do resaltar("canilla")
-Jefe: ...y combinarla con el agua de la canilla, que por suerte es gratis y no se compra.
+Jefe: ...y combinarla con el agua de la canilla.
 
 do resaltar("amasar", "Acá prepararás la base de tus pizzas")
 Jefe: Usando el agua y la harina en este sector de amasar, vas a generar la masa fresca para la pizza.
-Jefe: La rúcula, el morrón y el pepperoni también se cortan en la tabla antes de usarlos. El aceite es la excepción: se agrega directamente, sin preparación.
+Jefe: Además sumamos nuevos ingredientes: rúcula, albahaca, morrón, aceite y pepperoni. Acordate que la mayoría se cortan en la tabla antes de usarlos, ¡el aceite se usa directo!
 
 do resaltar("")
-Jefe: Controlá el stock, comprá con inteligencia y ¡a amasar se ha dicho!
+Jefe: ¡A amasar se ha dicho!
+=> END
+
+~ nivel_4
+Jefe: ¡Atención! El negocio creció un montón y ahora los ingredientes ya no son ilimitados.
+
+do resaltar("compu", "Esta es tu nueva herramienta de compras")
+Jefe: Se habilitó la compu. Empezás el turno con algunos ingredientes en stock, pero cuando te quedes sin, deberás venir acá a comprar más para reponer.
+
+do resaltar("")
+Jefe: Controlá el stock, comprá con inteligencia y ¡a trabajar!
 => END

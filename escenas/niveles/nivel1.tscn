@@ -14,7 +14,7 @@ script = ExtResource("1_fs5jn")
 [node name="finNivel" parent="." unique_id=683502859 instance=ExtResource("6_vj1vb")]
 
 [node name="TimerPartida" type="Timer" parent="." unique_id=1123291511]
-wait_time = 180.0
+wait_time = 50.0
 one_shot = true
 
 [node name="avisoCliente" parent="." unique_id=1387325305 instance=ExtResource("2_cob6x")]

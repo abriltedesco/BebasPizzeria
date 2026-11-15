@@ -64,6 +64,8 @@ func on_tiempo_agotado() -> void:
 		get_tree().change_scene_to_file("res://escenas/interfaces/GameOver.tscn")
 		
 func _alternar_vista() -> void:
+	if cocina.en_tutorial:
+		return
 	if cocina.visible:
 		mostrar_pedidos()
 	else:

@@ -13,12 +13,12 @@ func _ready() -> void:
 	actualizar_dia()
 
 func actualizar_dia() -> void:
-	var desbloqueada: bool = ControladorIngredientes.esta_desbloqueado("amasar")
+	var desbloqueada= ControlIngred.esta_desbloqueado("amasar")
 	sprite.visible = not desbloqueada
 	colision.set_deferred("disabled", not desbloqueada)
 
 func interactuar(jugador: CharacterBody2D) -> void:
-	if not ControladorIngredientes.esta_desbloqueado("amasar"):
+	if !ControlIngred.esta_desbloqueado("amasar"):
 		return
 	var item: String = jugador.mano_item
 	if item not in INGREDIENTES_MEZCLA:

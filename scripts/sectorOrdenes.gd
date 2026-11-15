@@ -66,8 +66,7 @@ func _spawn_cliente() -> void:
 		4:
 			ordenesPermitidas = BaseDeDatos.ordenesConDificultad("dificil")
 		5:
-			ordenesPermitidas = BaseDeDatos.ordenesConDificultad("media")
-			ordenesPermitidas.append(BaseDeDatos.ordenesConDificultad("dificil"))
+			ordenesPermitidas = BaseDeDatos.recetasDelDia()
 			
 	var ordenElegida = ordenesPermitidas.pick_random()
 	confDatos_nuevoCliente(nuevo_cliente, clienteElegido, ordenElegida)	
@@ -90,6 +89,8 @@ func _spawn_cliente() -> void:
 	
 func confDatos_nuevoCliente(cliente: Node, datos_cliente: Dictionary, orden: Dictionary) -> void:
 	var tiempos_paciencia = [75.0, 95.0, 120.0] 
+	if ProgresoManager.nivel_actual == 5:
+		tiempos_paciencia = [55.0, 65.0, 75.0]
 	cliente.duracionTotal = tiempos_paciencia.pick_random()
 	cliente.tiempoTranscurrido = 0.0
 	cliente.en_posicion = false
@@ -152,9 +153,9 @@ func _on_cliente_entregar_presionado(numOrden: int) -> void:
 			var propina = 0
 			if tiempo_restante <= 10.0:
 				propina = 1
-			elif tiempo_restante <= 30.0:
+			elif tiempo_restante <= 30.0 && tiempo_restante > 10.0:
 				propina = 10
-			elif tiempo_restante <= 40.0:
+			elif tiempo_restante <= 40.0 && tiempo_restante > 30.0:
 				propina = 15
 			else:
 				propina = 20
