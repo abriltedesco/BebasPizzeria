@@ -1,6 +1,7 @@
 extends Control
 
 @onready var label_orden = $orden
+@onready var label_coccion = $coccion
 @onready var barra = $BarraTiempo
 @onready var fondo = $TextureRect
 
@@ -16,8 +17,10 @@ func _process(_delta):
 
 	var numOrden = datos_propios.get("numero_orden", 1)
 	var nombrePizza = datos_propios.get("pizza", "")
+	var coccion = datos_propios.get("coccion", "")
 	
 	label_orden.text = "#" + str(numOrden) + " - " + nombrePizza
+	label_coccion.text = "%s (%s)" % [coccion, ValidadorPizzas.rango_coccion_texto(coccion)] if coccion != "" else ""
 	var tiempo_actual = datos_propios.get("tiempo_transcurrido", 0.0)
 	var duracion_total = datos_propios.get("duracion", 60.0)
 	

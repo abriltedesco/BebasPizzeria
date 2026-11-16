@@ -51,6 +51,7 @@ var listaIngredientes = [
 var respuestasPedidoExitoso=["¡Muchas gracias!", "Que rico! muchisimas gracias!!"]
 var respuestasPedidoTardo=["¡Me hiciste esperar demasiado!", "Podrías haberlo hecho un poco más rápido..."]
 var respuestasPedidoFallido=["Esto no es lo que esperaba...", "No pedí eso..", "Mmm... no es exactamente lo que te pedí"]
+var respuestasPedidoCoccion=["Esta pizza no está en el punto de cocción que te pedí...", "Mmm... la cocción no es la que pedí."]
 
 func recetasDelDia() -> Array:
 	var dia: int = ProgresoManager.nivel_actual
@@ -97,6 +98,8 @@ func obtenerRespuestaCliente(exito: bool, motivo: String = "") -> String:
 	if !exito:
 		if motivo == "tiempo":
 			return respuestasPedidoTardo.pick_random()
+		elif motivo == "coccion_incorrecta":
+			return respuestasPedidoCoccion.pick_random()
 		else:
 			return respuestasPedidoFallido.pick_random()
 	return respuestasPedidoExitoso.pick_random()

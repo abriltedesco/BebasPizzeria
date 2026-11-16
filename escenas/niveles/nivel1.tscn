@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c8gixx6toav56" path="res://escenas/interfaces/interfaz_partida.tscn" id="4_interfaz"]
 [ext_resource type="Script" uid="uid://dk34obytrvvka" path="res://scripts/controlador_ingredientes.gd" id="5_j7bus"]
 [ext_resource type="PackedScene" uid="uid://cx10hu03n6lk8" path="res://escenas/interfaces/fin_nivel.tscn" id="6_vj1vb"]
+[ext_resource type="AudioStream" uid="uid://n0apluaa0dwe" path="res://assets/sonidos/ost/Title Screen - Cooking Mama 4 Kitchen Magic Music - Capriel OST.mp3" id="8_cob6x"]
 
 [node name="nivel1" type="Node" unique_id=550360825]
 script = ExtResource("1_fs5jn")
@@ -14,7 +15,7 @@ script = ExtResource("1_fs5jn")
 [node name="finNivel" parent="." unique_id=683502859 instance=ExtResource("6_vj1vb")]
 
 [node name="TimerPartida" type="Timer" parent="." unique_id=1123291511]
-wait_time = 50.0
+wait_time = 180.0
 one_shot = true
 
 [node name="avisoCliente" parent="." unique_id=1387325305 instance=ExtResource("2_cob6x")]
@@ -27,3 +28,9 @@ one_shot = true
 
 [node name="ControladorIngredientes" type="Node" parent="." unique_id=740779704]
 script = ExtResource("5_j7bus")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2131755391]
+stream = ExtResource("8_cob6x")
+volume_db = -16.524
+autoplay = true
+parameters/looping = true

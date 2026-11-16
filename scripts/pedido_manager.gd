@@ -65,6 +65,7 @@ func tomar_pedido(nombre_cliente: String, orden: Dictionary, duracion_total: flo
 		"pizza": orden["tipo"],
 		"listaOrden": orden["ingredientes"].duplicate(),
 		"dificultad": orden.get("dificultad", "facil"),
+		"coccion": orden.get("coccion", ""),
 		"tiempo_transcurrido": ya_transcurrido,
 		"duracion": duracion_total,
 		"desplegado": false

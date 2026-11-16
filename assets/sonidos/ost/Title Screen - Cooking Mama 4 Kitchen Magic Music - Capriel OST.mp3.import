@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://n0apluaa0dwe"
+path="res://.godot/imported/Title Screen - Cooking Mama 4 Kitchen Magic Music - Capriel OST.mp3-cfb76b7d34fb701108048978adde142e.mp3str"
+
+[deps]
+
+source_file="res://assets/sonidos/ost/Title Screen - Cooking Mama 4 Kitchen Magic Music - Capriel OST.mp3"
+dest_files=["res://.godot/imported/Title Screen - Cooking Mama 4 Kitchen Magic Music - Capriel OST.mp3-cfb76b7d34fb701108048978adde142e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

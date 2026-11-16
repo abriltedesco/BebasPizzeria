@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var cuerpo= $CollisionShape2D
 @export var distancia= 70
 var mano_item_ingredientes: Array = []
+var mano_item_coccion: float = 0.0
 
 const SPEED= 300
 
@@ -76,3 +77,4 @@ func soltar_item() -> void:
 	if mano and mano.has_method("clear"):
 		mano.clear()
 	mano_item_ingredientes = []
+	mano_item_coccion = 0.0

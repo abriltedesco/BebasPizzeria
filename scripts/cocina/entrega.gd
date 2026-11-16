@@ -16,6 +16,7 @@ func interactuar(jugador: CharacterBody2D) -> void:
 		return
 		
 	var tipo_entregado: String = jugador.mano_item_tipo
+	var coccion_entregada: float = jugador.mano_item_coccion
 	var ingredientes_pizzaplato: Array = []
 	if "mano_item_ingredientes" in jugador:
 		ingredientes_pizzaplato = jugador.mano_item_ingredientes.duplicate()
@@ -32,10 +33,16 @@ func interactuar(jugador: CharacterBody2D) -> void:
 			return
 			
 		var indice_cliente = -1
+		var indice_coccion_incorrecta = -1
 		for i in range(PedidoManager.pedidos_activos.size()):
-			if tipo_entregado == PedidoManager.pedidos_activos[i]["pizza"]:
+			var pedido = PedidoManager.pedidos_activos[i]
+			if tipo_entregado != pedido["pizza"]:
+				continue
+			if ValidadorPizzas.coccion_correcta(pedido.get("coccion", ""), coccion_entregada):
 				indice_cliente = i
 				break
+			if indice_coccion_incorrecta == -1:
+				indice_coccion_incorrecta = i
 
 		if indice_cliente != -1:
 			var dif = PedidoManager.pedidos_activos[indice_cliente].get("dificultad", "facil")
@@ -44,6 +51,12 @@ func interactuar(jugador: CharacterBody2D) -> void:
 			pizza_entregada.emit(pizzasEntregadas)
 			pedido_resuelto.emit(true)
 			PedidoManager.completar_pedido(indice_cliente, true, "exito")
+		elif indice_coccion_incorrecta != -1:
+			pizzasFallidas += 1
+			Puntaje.sumarPedidoFallido()
+			print("la cocción no coincide con lo pedido: ", int(coccion_entregada), " s")
+			pedido_resuelto.emit(false)
+			PedidoManager.completar_pedido(indice_coccion_incorrecta, false, "coccion_incorrecta")
 		else:
 			pizzasFallidas += 1
 			Puntaje.sumarPedidoFallido()
@@ -53,7 +66,8 @@ func interactuar(jugador: CharacterBody2D) -> void:
 	else:
 		var datos_pizza = {
 			"tipo": tipo_entregado,
-			"ingredientes": ingredientes_pizzaplato
+			"ingredientes": ingredientes_pizzaplato,
+			"coccion": coccion_entregada
 		}
 		
 		PedidoManager.guardar_pizza_preparada(datos_pizza)

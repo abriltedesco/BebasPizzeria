@@ -99,7 +99,8 @@ func confDatos_nuevoCliente(cliente: Node, datos_cliente: Dictionary, orden: Dic
 	cliente.nombre_cliente = datos_cliente["nombre"] 
 	if cliente.has_method("cambiarAsset"):
 		cliente.cambiarAsset(datos_cliente["asset"])
-	cliente.orden_elegida = orden
+	cliente.orden_elegida = orden.duplicate()
+	cliente.orden_elegida["coccion"] = ValidadorPizzas.coccion_aleatoria()
 	cliente.dificultad_cliente = orden.get("dificultad", "facil")
 	cliente.set_meta("tiempo_espera", 0.0)
 	

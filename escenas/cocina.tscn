@@ -1323,7 +1323,6 @@ script = ExtResource("4_horno")
 
 [node name="Barra" parent="Horno" unique_id=220539765 instance=ExtResource("5_barra")]
 visible = false
-texture_filter = 1
 position = Vector2(0, -10)
 
 [node name="Señal" type="Sprite2D" parent="Horno" unique_id=507583823]

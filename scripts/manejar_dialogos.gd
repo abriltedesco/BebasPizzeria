@@ -15,4 +15,6 @@ func configurar_cliente_actual(cliente_nodo: Node) -> void:
 	ClienteActual.pizza = cliente_nodo.orden_elegida["tipo"]
 	ClienteActual.dificultad = cliente_nodo.dificultad_cliente
 	ClienteActual.listaOrden = cliente_nodo.orden_elegida["ingredientes"]
+	ClienteActual.coccion = cliente_nodo.orden_elegida.get("coccion", "")
+	ClienteActual.rango_coccion = ValidadorPizzas.rango_coccion_texto(ClienteActual.coccion)
 	ClienteActual.reiniciarIndice()

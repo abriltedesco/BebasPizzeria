@@ -6,6 +6,7 @@ class Hornalla:
 	var spriteP: TextureRect
 	var barra: AnimatedSprite2D
 	var senial: Sprite2D
+	var etiqueta: Label
 	var activa := false
 	var tiempo := 0.0
 	var pizza := ""
@@ -13,9 +14,10 @@ class Hornalla:
 	var ingredientes: Array = []
 
 const CANTHORNALLAS := 3
-const coccion := 8.0
-const quemada := 8.0
+const cruda := 2.0
+const quemada := 16.0
 @export var offsetBarra = Vector2(0, -32)
+@export var offsetTiempo = Vector2(-45, -30)
 @export var offsetSenial = Vector2(0, -56)
 var barraScene = preload("res://escenas/barra.tscn")
 var hornallas: Array[Hornalla] = []
@@ -52,20 +54,35 @@ func _ready() -> void:
 			add_child(hornalla.barra)
 			hornalla.senial = senialBase.duplicate()
 			add_child(hornalla.senial)
+		hornalla.etiqueta = crearEtiquetaTiempo()
 		hornalla.barra.position = hornalla.forma.position + offsetBarra
 		hornalla.senial.position = hornalla.forma.position + offsetSenial
+		hornalla.etiqueta.position = hornalla.barra.position + offsetTiempo
 		hornalla.barra.visible = false
 		hornalla.senial.visible = false
 		if hornalla.spriteP:
 			hornalla.spriteP.visible = false
 		hornallas.append(hornalla)
 
+func crearEtiquetaTiempo() -> Label:
+	var etiqueta := Label.new()
+	etiqueta.size = Vector2(90, 20)
+	etiqueta.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	etiqueta.add_theme_font_size_override("font_size", 16)
+	etiqueta.add_theme_color_override("font_outline_color", Color.BLACK)
+	etiqueta.add_theme_constant_override("outline_size", 4)
+	etiqueta.visible = false
+	add_child(etiqueta)
+	return etiqueta
+
 func _process(delta: float) -> void:
 	for hornalla in hornallas:
 		if hornalla.activa:
 			hornalla.tiempo += delta
 			hornalla.barra.visible = true
-			var progreso = minf(hornalla.tiempo / coccion, 1.0)
+			hornalla.etiqueta.visible = true
+			hornalla.etiqueta.text = "%d s" % int(hornalla.tiempo)
+			var progreso = minf(hornalla.tiempo / quemada, 1.0)
 			hornalla.barra.frame = int(progreso * 10)
 			
 			if hornalla.tiempo >= quemada:
@@ -113,6 +130,7 @@ func vaciarHornalla(h: Hornalla) -> void:
 	h.ingredientes.clear()
 	h.barra.visible = false
 	h.senial.visible = false
+	h.etiqueta.visible = false
 	if h.spriteP:
 		h.spriteP.visible = false
 
@@ -133,6 +151,8 @@ func interactuar(jugador: CharacterBody2D) -> void:
 			hornalla.tiempo = 0.0
 			hornalla.barra.visible = true
 			hornalla.barra.frame = 0
+			hornalla.etiqueta.text = "0 s"
+			hornalla.etiqueta.visible = true
 			hornalla.senial.visible = false
 			if hornalla.spriteP:
 				hornalla.spriteP.visible = true
@@ -143,11 +163,15 @@ func interactuar(jugador: CharacterBody2D) -> void:
 			var resultado := "pizzahecha"
 			if hornalla.tiempo >= quemada:
 				resultado = "pizzaquemada"
+			elif hornalla.tiempo < cruda:
+				resultado = "pizzacruda"
 
 			var tipoResultado = hornalla.tipo
 			var ingredientesResultado = hornalla.ingredientes.duplicate()
+			var tiempoCoccion = hornalla.tiempo
 			vaciarHornalla(hornalla)
 			jugador.agarrar_item(resultado, tipoResultado)
+			jugador.mano_item_coccion = tiempoCoccion
 
 			if "mano_item_ingredientes" in jugador:
 				jugador.mano_item_ingredientes = ingredientesResultado

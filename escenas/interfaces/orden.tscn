@@ -16,7 +16,7 @@ script = ExtResource("1_dcv5c")
 [node name="TextureRect" type="ColorRect" parent="." unique_id=807662768]
 layout_mode = 0
 offset_right = 264.0
-offset_bottom = 64.0
+offset_bottom = 90.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
@@ -34,4 +34,14 @@ offset_right = 248.0
 offset_bottom = 66.0
 theme_override_font_sizes/font_size = 24
 text = "#1 - Jamon"
+horizontal_alignment = 1
+
+[node name="coccion" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 64.0
+offset_right = 260.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 18
+text = "poco cocida (3-6 segundos)"
 horizontal_alignment = 1

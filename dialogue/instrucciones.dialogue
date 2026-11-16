@@ -10,7 +10,7 @@ Jefe: Dejalo en la mesa y repetí esto con el tomate y la masa para que se arme 
 do esperarManoVacia()
 
 do resaltar("Horno", "Apretá E para dejarla")
-Jefe: Cuando esté armada, ponela en una de las hornallas. Tarda 4 segundos en hornearse, CUIDADO!! si se pasa se quema y eso no le gusta a los clientes...
+Jefe: Cuando esté armada, ponela en una de las hornallas. Cada cliente pide un punto de cocción: poco cocida (3-6 segundos), medio cocida (7-11) o muy cocida (12-15). Mirá el contador sobre la barra del horno para saber cuándo sacarla. Si la sacás antes de los 2 segundos sale cruda, ¡y si pasa de los 15 se quema!
 
 do resaltar("Plato", "Apretá E para agarrarlo")
 Jefe: Cuando la sacas del horno, apoyala en la mesa y agarrá un plato para poder entregarlo. Un buen tip: cuando se esté cocinando aprovechá a apoyar platos en la mesa y luego directamente colocá la pizza encima de alguno!! 

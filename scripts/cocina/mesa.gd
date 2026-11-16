@@ -3,6 +3,7 @@ class_name mesa
 
 var items_en_mesa: Array[String]= []
 var tipos_en_mesa: Array[String]= []
+var cocciones_en_mesa: Array[float]= []
 var sprites_items: Array[Sprite2D]= []
 var zonas_en_mesa: Array[CollisionShape2D]= []
 
@@ -14,10 +15,11 @@ func interactuar(jugador: CharacterBody2D) -> void:
 	if jugador.mano_item!= "":
 		var item_mano= jugador.mano_item
 		var tipo_mano= jugador.mano_item_tipo
+		var coccion_mano: float= jugador.mano_item_coccion
 		jugador.soltar_item()
 
 		if not mejorar_pizza(item_mano, tipo_mano, zona):
-			agregar_item(item_mano, tipo_mano, zona)
+			agregar_item(item_mano, tipo_mano, zona, coccion_mano)
 			intentar_armar_pizza(zona)
 		intentar_emplatar(zona)
 	else:
@@ -25,13 +27,16 @@ func interactuar(jugador: CharacterBody2D) -> void:
 		if lugar!= -1:
 			var item_tomado= items_en_mesa[lugar]
 			var tipo_tomado= tipos_en_mesa[lugar]
+			var coccion_tomada= cocciones_en_mesa[lugar]
 			quitar_item_en_indice(lugar)
 			jugador.agarrar_item(item_tomado, tipo_tomado)
 			jugador.mano_item_ingredientes = ingredientes_de_tipo(tipo_tomado)
+			jugador.mano_item_coccion = coccion_tomada
 
-func agregar_item(item_mano: String, tipo_mano: String, zona: CollisionShape2D) -> void:
+func agregar_item(item_mano: String, tipo_mano: String, zona: CollisionShape2D, coccion: float = 0.0) -> void:
 	items_en_mesa.append(item_mano)
 	tipos_en_mesa.append(tipo_mano)
+	cocciones_en_mesa.append(coccion)
 	zonas_en_mesa.append(zona)
 
 	var nuevo_sprite= Sprite2D.new()
@@ -59,6 +64,7 @@ func agregar_item(item_mano: String, tipo_mano: String, zona: CollisionShape2D) 
 func quitar_item_en_indice(lugar: int) -> void:
 	items_en_mesa.remove_at(lugar)
 	tipos_en_mesa.remove_at(lugar)
+	cocciones_en_mesa.remove_at(lugar)
 	zonas_en_mesa.remove_at(lugar)
 	sprites_items[lugar].queue_free()
 	sprites_items.remove_at(lugar)
@@ -149,6 +155,7 @@ func intentar_emplatar(zona: CollisionShape2D) -> void:
 		return
 
 	var tipo_pizza= tipos_en_mesa[lugar_pizza]
+	var coccion_pizza= cocciones_en_mesa[lugar_pizza]
 	
 	if lugar_pizza > lugar_plato:
 		quitar_item_en_indice(lugar_pizza)
@@ -163,7 +170,7 @@ func intentar_emplatar(zona: CollisionShape2D) -> void:
 	elif cruda:
 		tipo_pizzaplato = "sincocinar:" + tipo_pizza
 
-	agregar_item("pizzaplato", tipo_pizzaplato, zona)
+	agregar_item("pizzaplato", tipo_pizzaplato, zona, coccion_pizza)
 
 func buscar_item_en_zona(item: String, zona: CollisionShape2D) -> int:
 	for lugar in range(items_en_mesa.size() - 1, -1, -1):
