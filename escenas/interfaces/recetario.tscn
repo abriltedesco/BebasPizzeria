@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://d26cob66mawgp"]
 
 [ext_resource type="Script" uid="uid://oon357dofqp0" path="res://scripts/cocina/recetario.gd" id="1_mtglc"]
-[ext_resource type="Texture2D" uid="uid://0dt0avh282wy" path="res://assets/recetario/queso.png" id="2_bgrq1"]
+[ext_resource type="Texture2D" uid="uid://cysfu4jlnjxx7" path="res://assets/recetario/idle.png" id="2_xc1ui"]
 [ext_resource type="FontFile" uid="uid://bxrixcbxf2rqt" path="res://assets/fonts/Pix32.ttf" id="3_5oaxe"]
 [ext_resource type="Texture2D" uid="uid://dbyphjk6abs18" path="res://assets/izquierda.png" id="4_xc1ui"]
+[ext_resource type="Texture2D" uid="uid://cywouclas5fmo" path="res://assets/recetario/volver.png" id="5_u4qys"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2sief"]
 
@@ -13,6 +14,18 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5oaxe"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u4qys"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y7rrd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m3n02"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_by63r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bjywv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uacvg"]
+
 [node name="recetario" type="Node2D" unique_id=1395224980]
 script = ExtResource("1_mtglc")
 
@@ -20,7 +33,7 @@ script = ExtResource("1_mtglc")
 texture_filter = 1
 position = Vector2(596, 322)
 scale = Vector2(4.91, 4.313333)
-texture = ExtResource("2_bgrq1")
+texture = ExtResource("2_xc1ui")
 
 [node name="queso" type="Button" parent="." unique_id=1552903735]
 offset_left = 175.0
@@ -42,7 +55,207 @@ text = "
 QUESO"
 autowrap_trim_flags = 0
 
-[node name="volver" type="Button" parent="." unique_id=1678588048]
+[node name="fugazzeta" type="Button" parent="." unique_id=370956664]
+offset_left = 311.0
+offset_top = 116.0
+offset_right = 430.0
+offset_bottom = 234.0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_5oaxe")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2sief")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yoo0k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bgrq1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5oaxe")
+text = "
+
+
+
+
+FUGAZZETA"
+autowrap_trim_flags = 0
+
+[node name="jamon" type="Button" parent="." unique_id=317852934]
+offset_left = 439.0
+offset_top = 116.0
+offset_right = 558.0
+offset_bottom = 234.0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_5oaxe")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2sief")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yoo0k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bgrq1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5oaxe")
+text = "
+
+
+
+
+JAMÓN"
+autowrap_trim_flags = 0
+
+[node name="supercompleta" type="Button" parent="." unique_id=1501680623]
+offset_left = 623.0
+offset_top = 118.0
+offset_right = 742.0
+offset_bottom = 236.0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_5oaxe")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2sief")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yoo0k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bgrq1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5oaxe")
+text = "
+
+
+
+
+SÚPER COMPLETA"
+autowrap_trim_flags = 0
+
+[node name="bomba frita" type="Button" parent="." unique_id=649238946]
+offset_left = 753.0
+offset_top = 115.0
+offset_right = 872.0
+offset_bottom = 233.0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_5oaxe")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2sief")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yoo0k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bgrq1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5oaxe")
+text = "
+
+
+
+
+BOMBA FRITA"
+autowrap_trim_flags = 0
+
+[node name="margarita" type="Button" parent="." unique_id=1074040]
+offset_left = 175.0
+offset_top = 259.0
+offset_right = 294.0
+offset_bottom = 377.0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_5oaxe")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2sief")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yoo0k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bgrq1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5oaxe")
+text = "
+
+
+
+
+MARGARITA"
+autowrap_trim_flags = 0
+
+[node name="jamon y morrones" type="Button" parent="." unique_id=790043830]
+offset_left = 305.0
+offset_top = 259.0
+offset_right = 424.0
+offset_bottom = 377.0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_5oaxe")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2sief")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yoo0k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bgrq1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5oaxe")
+text = "
+
+
+
+
+JAMÓN Y MORRONES"
+autowrap_trim_flags = 0
+
+[node name="rucula y crudo" type="Button" parent="." unique_id=965823111]
+offset_left = 441.0
+offset_top = 260.0
+offset_right = 560.0
+offset_bottom = 378.0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_5oaxe")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2sief")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yoo0k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bgrq1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5oaxe")
+text = "
+
+
+
+
+RÚCULA Y CRUDO"
+autowrap_trim_flags = 0
+
+[node name="pepperoni" type="Button" parent="." unique_id=1718032014]
+offset_left = 178.0
+offset_top = 410.0
+offset_right = 297.0
+offset_bottom = 528.0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_5oaxe")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2sief")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yoo0k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bgrq1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5oaxe")
+text = "
+
+
+
+
+PEPPERONI"
+autowrap_trim_flags = 0
+
+[node name="albahaca y queso" type="Button" parent="." unique_id=868096931]
+offset_left = 303.0
+offset_top = 411.0
+offset_right = 431.0
+offset_bottom = 529.0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_5oaxe")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2sief")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yoo0k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bgrq1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5oaxe")
+text = "
+
+
+
+
+ALBAHACA Y QUESO"
+autowrap_trim_flags = 0
+
+[node name="cuatro quesos" type="Button" parent="." unique_id=14461269]
+offset_left = 440.0
+offset_top = 410.0
+offset_right = 559.0
+offset_bottom = 528.0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_5oaxe")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2sief")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yoo0k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bgrq1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5oaxe")
+text = "
+
+
+
+
+CUATRO QUESOS"
+autowrap_trim_flags = 0
+
+[node name="volverInicio" type="Button" parent="." unique_id=1678588048]
 offset_left = 103.0
 offset_top = 185.0
 offset_right = 172.0
@@ -52,8 +265,38 @@ theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 
 theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
 theme_override_icons/icon = ExtResource("4_xc1ui")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_u4qys")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_y7rrd")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_m3n02")
 icon = ExtResource("4_xc1ui")
 expand_icon = true
 
+[node name="volverRecetario" type="Button" parent="." unique_id=413944549]
+offset_left = 574.0
+offset_top = 19.0
+offset_right = 663.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0.9490196, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_icons/icon = ExtResource("4_xc1ui")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_by63r")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bjywv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uacvg")
+icon = ExtResource("5_u4qys")
+expand_icon = true
+
 [connection signal="pressed" from="queso" to="." method="_on_queso_pressed"]
-[connection signal="pressed" from="volver" to="." method="_on_volver_pressed"]
+[connection signal="pressed" from="fugazzeta" to="." method="_on_fugazzeta_pressed"]
+[connection signal="pressed" from="jamon" to="." method="_on_jamon_pressed"]
+[connection signal="pressed" from="supercompleta" to="." method="_on_supercompleta_pressed"]
+[connection signal="pressed" from="bomba frita" to="." method="_on_bomba_frita_pressed"]
+[connection signal="pressed" from="margarita" to="." method="_on_margarita_pressed"]
+[connection signal="pressed" from="jamon y morrones" to="." method="_on_jamon_y_morrones_pressed"]
+[connection signal="pressed" from="rucula y crudo" to="." method="_on_rucula_y_crudo_pressed"]
+[connection signal="pressed" from="pepperoni" to="." method="_on_pepperoni_pressed"]
+[connection signal="pressed" from="albahaca y queso" to="." method="_on_albahaca_y_queso_pressed"]
+[connection signal="pressed" from="cuatro quesos" to="." method="_on_cuatro_quesos_pressed"]
+[connection signal="pressed" from="volverInicio" to="." method="_on_volver_pressed"]
+[connection signal="pressed" from="volverRecetario" to="." method="_on_volver_recetario_pressed"]

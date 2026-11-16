@@ -58,6 +58,7 @@ animations = [{
 }]
 
 [node name="Node2D" type="AnimatedSprite2D" unique_id=1543349636]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_mhdqi")
 frame = 4
 frame_progress = 0.5093623

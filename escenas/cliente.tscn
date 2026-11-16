@@ -99,6 +99,7 @@ root_node = NodePath("../Sprite2D")
 libraries/ = SubResource("AnimationLibrary_v48nf")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1661216469]
+texture_filter = 1
 position = Vector2(-0.99999905, 1.0000019)
 scale = Vector2(4.51303, 4.6323533)
 texture = ExtResource("3_0ck5c")

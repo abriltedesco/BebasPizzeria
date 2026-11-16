@@ -44,7 +44,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_adj8k")
 theme_override_font_sizes/font_size = 38
-text = "Nombre "
+text = " Nombre "
 
 [node name="VSeparator2" type="VSeparator" parent="VBoxContainer/datosIngrediente" unique_id=2139931442]
 layout_mode = 2
@@ -54,7 +54,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_adj8k")
 theme_override_font_sizes/font_size = 38
-text = "cantidad"
+text = " Cantidad "
 
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/datosIngrediente" unique_id=1024087630]
 layout_mode = 2
@@ -64,7 +64,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_adj8k")
 theme_override_font_sizes/font_size = 38
-text = "precio"
+text = " precio "
 
 [node name="botonesUnidad" type="HBoxContainer" parent="VBoxContainer" unique_id=67576906]
 layout_mode = 2
