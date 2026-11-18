@@ -15,9 +15,6 @@ func actualizar_tiempo(segundos: int) -> void:
 	var resto = segundos % 60
 	label_tiempo.text = "%02d:%02d" % [minutos, resto]
 
-func actualizar_puntaje(dinero: int, completados: int, fallidos: int) -> void:
-	label_puntaje.text = "Puntaje: $%d" % dinero
-
 func actualizar_aviso(vista_cocina: bool, hay_cliente: bool) -> void:
 	aviso_cliente.visible = vista_cocina and hay_cliente
 

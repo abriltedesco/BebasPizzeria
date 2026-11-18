@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://bwhqupnoyiu1x" path="res://scripts/manejar_dialogos.gd" id="5_2c7ub"]
 [ext_resource type="PackedScene" uid="uid://brpmjhh8585mf" path="res://escenas/interfaces/orden.tscn" id="5_v4w84"]
 [ext_resource type="AudioStream" uid="uid://b8igfihwr4vml" path="res://assets/sonidos/timbre.mp3" id="6_timbre"]
+[ext_resource type="Texture2D" uid="uid://e6kgnhesmbra" path="res://assets/tipjar.png" id="7_vv7fu"]
+[ext_resource type="FontFile" uid="uid://bxrixcbxf2rqt" path="res://assets/fonts/Pix32.ttf" id="8_fwnfk"]
 
 [sub_resource type="Curve2D" id="Curve2D_ruta"]
 _data = {
@@ -32,10 +34,10 @@ position = Vector2(1100, 290)
 position = Vector2(600, 370)
 
 [node name="Control" parent="." unique_id=931416878 instance=ExtResource("5_v4w84")]
-offset_left = 886.0
-offset_top = 10.0
-offset_right = 886.0
-offset_bottom = 10.0
+offset_left = 450.0
+offset_top = 535.0
+offset_right = 450.0
+offset_bottom = 535.0
 
 [node name="ManejarFila" type="Node" parent="." unique_id=2023902003]
 script = ExtResource("4_ritnq")
@@ -45,3 +47,20 @@ script = ExtResource("5_2c7ub")
 
 [node name="TimbreCliente" type="AudioStreamPlayer" parent="." unique_id=558213476]
 stream = ExtResource("6_timbre")
+
+[node name="Tipjar" type="Sprite2D" parent="." unique_id=76941627]
+position = Vector2(155, 403)
+scale = Vector2(1.7916666, 1.9033334)
+texture = ExtResource("7_vv7fu")
+
+[node name="LabelPropina" type="Label" parent="." unique_id=1639631493]
+offset_left = 118.0
+offset_top = 405.0
+offset_right = 190.0
+offset_bottom = 446.0
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("8_fwnfk")
+theme_override_font_sizes/font_size = 18
+text = "TIPS: 
+$0"
+horizontal_alignment = 1

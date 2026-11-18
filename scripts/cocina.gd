@@ -6,6 +6,7 @@ var overlay: TutorialOverlay = null
 var en_tutorial = false
 
 func _ready() -> void:
+	add_to_group("cocina")
 	StockManager.inicializar_stock()
 	visibility_changed.connect(_on_visibility_changed)
 

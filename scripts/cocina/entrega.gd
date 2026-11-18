@@ -12,6 +12,10 @@ func _ready() -> void:
 	add_to_group("entrega")
 
 func interactuar(jugador: CharacterBody2D) -> void:
+	var cocina = get_tree().get_first_node_in_group("cocina")
+	if cocina and cocina.en_tutorial:
+		return
+		
 	if jugador.mano_item != "pizzaplato" or PedidoManager.pedidos_activos.is_empty():
 		return
 		

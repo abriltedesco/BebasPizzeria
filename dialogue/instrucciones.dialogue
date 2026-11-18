@@ -1,8 +1,12 @@
 ~ nivel_1
-Jefe: ¡Bienvenida a la cocina! Te muestro cómo funciona todo.
+Jefe: ¡Bienvenida a la cocina! Podés ir pasando esta charla apretando ENTER. Te muestro cómo funciona todo.
+
+Jefe: Primero, para moverte rápido sin usar el mouse: apretá H para ir al mostrador de órdenes y K para volver a la cocina. 
+
+Jefe: Apretá R en cualquier momento para abrir el recetario y ver qué ingredientes lleva la pizza que el cliente te pidió.
 
 do resaltar("Queso", "Acercate y apretá E para agarrar queso")
-Jefe: Los ingredientes salen de estos cajones. En este nivel el queso, el tomate y la masa son ilimitados.
+Jefe: Los ingredientes salen de estos cajones. En este nivel el queso, el tomate y la masa son ilimitados (recordá mirar la receta con R).
 do esperarMano("queso")
 
 do resaltar("Mesa", "Apretá E para dejar el queso en la mesa")
@@ -13,13 +17,13 @@ do resaltar("Horno", "Apretá E para dejarla")
 Jefe: Cuando esté armada, ponela en una de las hornallas. Cada cliente pide un punto de cocción: poco cocida (3-6 segundos), medio cocida (7-11) o muy cocida (12-15). Mirá el contador sobre la barra del horno para saber cuándo sacarla. Si la sacás antes de los 2 segundos sale cruda, ¡y si pasa de los 15 se quema!
 
 do resaltar("Plato", "Apretá E para agarrarlo")
-Jefe: Cuando la sacas del horno, apoyala en la mesa y agarrá un plato para poder entregarlo. Un buen tip: cuando se esté cocinando aprovechá a apoyar platos en la mesa y luego directamente colocá la pizza encima de alguno!! 
+Jefe: Cuando la sacas del horno, apoyala en la mesa y agarrá un plato para poder entregarlo. Un buen tip: cuando se esté cocinando aprovechá a apoyar platos en la mesa y luego directamente colocá la pizza encima de alguno.
 
 do resaltar("Entrega")
-Jefe: Una vez lista, dejala acá para que la reciba el cliente :) SPOILER! a partir de los próximos niveles eligirás a quien entregarlo con un botón, en este entregas directo
+Jefe: Una vez lista, dejala acá para que la reciba el cliente. ¡Ojo! A partir de los próximos niveles vas a ir al mostrador con H y elegirás a quién entregarle usando el mouse.
 
 do resaltar("")
-Jefe: ¡Listo! A trabajar.
+Jefe: ¡Listo! Ya podés empezar a trabajar.
 => END
 
 ~ nivel_2

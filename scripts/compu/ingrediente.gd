@@ -39,11 +39,11 @@ func calcularCosto() -> int:
 
 func confirmarStock() -> void:
 	var cantidad_comprada = unidadesAcomprar()
-	datos["stock"] = stock
 	if cantidad_comprada > 0:
 		StockManager.agregar_stock(datos["nombre"], cantidad_comprada)
+	stock = datos["stock"]
 	actualizarDatos()
-
+	
 func actualizarDatos() -> void:
 	cantidadLabel.text = str(stock)
 	cantidadCambiada.emit()

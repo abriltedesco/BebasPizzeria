@@ -11,6 +11,7 @@ var atendiendo = false
 var timer_spawner = 2.0 
 
 func _ready() -> void:
+	Puntaje.cambio_puntaje.connect(_on_cambio_puntaje)
 	orden.visible = false
 	PedidoManager.pedido_resuelto.connect(_on_pedido_resuelto_global)
 	
@@ -135,6 +136,9 @@ func _cliente_se_va_enojado(cliente_nodo: Node, idx_fila: int) -> void:
 	await clienteMov.salida_terminada
 	if is_instance_valid(cliente_nodo):
 		cliente_nodo.queue_free()
+	
+func _on_cambio_puntaje(dinero, completados, fallidos):
+	$LabelPropina.text = "TIPS:\n$" % dinero
 
 func _on_cliente_entregar_presionado(numOrden: int) -> void:
 	if PedidoManager.pizza_preparada.is_empty():

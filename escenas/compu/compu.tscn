@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cf0tqoepl6kou" path="res://scripts/compu/lista_ing.gd" id="1_dgjwq"]
 [ext_resource type="Texture2D" uid="uid://bcx3yeyem2p2p" path="res://assets/cuadricula.jpeg" id="2_5m6pe"]
 [ext_resource type="Script" uid="uid://dho076jugrajt" path="res://scripts/compu/cargar_plata_del_jugador.gd" id="2_dgjwq"]
-[ext_resource type="Script" uid="uid://b7qgoxpo1q4ed" path="res://scripts/compu/calcular_precio_compra.gd" id="3_5m6pe"]
 [ext_resource type="FontFile" uid="uid://bxrixcbxf2rqt" path="res://assets/fonts/Pix32.ttf" id="3_uuffo"]
 [ext_resource type="Texture2D" uid="uid://dbyphjk6abs18" path="res://assets/izquierda.png" id="4_ke7wg"]
 
@@ -96,27 +95,7 @@ theme_override_fonts/font = ExtResource("3_uuffo")
 theme_override_font_sizes/font_size = 48
 text = "$ XXX.XX"
 
-[node name="BotonTiempo" type="Button" parent="Control/Panel" unique_id=591233358]
-layout_mode = 0
-offset_left = 965.0
-offset_top = 563.0
-offset_right = 1127.7742
-offset_bottom = 621.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.15294118, 0.15294118, 0.15294118, 1)
-theme_override_colors/font_hover_color = Color(0.15294118, 0.15294118, 0.15294118, 1)
-theme_override_fonts/font = ExtResource("3_uuffo")
-theme_override_font_sizes/font_size = 26
-theme_override_styles/normal = SubResource("StyleBoxFlat_it06w")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ojfsy")
-theme_override_styles/hover = SubResource("StyleBoxFlat_sx1j1")
-text = "COMPRAR"
-
 [node name="cargarPlataDelJugador" type="Node" parent="." unique_id=2012018393]
 script = ExtResource("2_dgjwq")
 
-[node name="calcularPrecioCompra" type="Node" parent="." unique_id=44644054]
-script = ExtResource("3_5m6pe")
-
 [connection signal="pressed" from="Control/Panel/comprar" to="Control/Panel/ScrollContainer/listaIngredientes" method="_on_comprar_pressed"]
-[connection signal="pressed" from="Control/Panel/BotonTiempo" to="Control/Panel/ScrollContainer/listaIngredientes" method="_on_comprar_pressed"]

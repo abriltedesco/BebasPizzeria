@@ -5,7 +5,7 @@ class_name compu
 @onready var colision = $CollisionShape2D
 @onready var pantallaCompu = $pantallaCompu
 @onready var botonVolver = $pantallaCompu/Control/Panel/volver
-@onready var botonTiempo = $pantallaCompu/Control/Panel/BotonTiempo
+@onready var botonTiempo = get_node_or_null("pantallaCompu/Control/Panel/BotonTiempo")
 
 var costoTiempo: int = 50
 var segundosExtra: float = 30.0

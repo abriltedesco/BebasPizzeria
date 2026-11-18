@@ -12,6 +12,7 @@ const SPEED= 300
 var mano_item= ""
 var mano_item_tipo=""
 var plato_en_mano = false
+var e_presionada_antes = false
 
 func _ready() -> void:
 	add_to_group("jugador")
@@ -19,6 +20,12 @@ func _ready() -> void:
 		mano.clear()
 
 func _physics_process(_delta: float) -> void:
+	var e_ahora := Input.is_key_pressed(KEY_E)
+	if is_visible_in_tree():
+		if Input.is_action_just_pressed("interactuar") or (e_ahora and !e_presionada_antes):
+			interactuar()
+	e_presionada_antes = e_ahora
+	
 	var direction= Input.get_axis("izquierda", "derecha")
 	var direction2= Input.get_axis("arriba", "abajo")
 
@@ -42,11 +49,6 @@ func _physics_process(_delta: float) -> void:
 		lucia.play("default")
 
 	move_and_slide()
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interactuar") or event.is_action_pressed("ui_accept") or event.is_action_pressed("ui_select"):
-		interactuar()
-
 
 func interactuar() -> void:
 	var origen: Vector2= cuerpo.global_position
