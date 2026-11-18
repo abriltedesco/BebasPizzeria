@@ -1,4 +1,6 @@
 extends Node
+signal stock_actualizado
+signal stock_insuficiente
 
 func inicializar_stock() -> void:
 	for ing in BaseDeDatos.listaIngredientes:
@@ -12,7 +14,8 @@ func inicializar_stock() -> void:
 					ing["stock"] = 4
 				_:
 					ing["stock"] = 2 
-					
+	stock_actualizado.emit()
+			
 func requiere_stock(nombre_ing: String) -> bool:
 	if ProgresoManager.nivel_actual < 4:
 		return false
@@ -28,16 +31,23 @@ func obtener_stock(nombre_ing: String) -> int:
 	return 0
 	
 func consumir_stock(nombre_ing: String) -> bool:
+	if ProgresoManager.nivel_actual < 4:
+		return true
+		
 	for ing in BaseDeDatos.listaIngredientes:
 		if ing["nombre"] == nombre_ing:
 			if ing.get("stock", 0) > 0:
 				ing["stock"] -= 1
+				stock_actualizado.emit()
 				return true
-			return false
+			else:
+				stock_insuficiente.emit(nombre_ing)
+				return false
 	return false
 	
 func agregar_stock(nombre_ing: String, cantidad: int) -> void:
 	for ing in BaseDeDatos.listaIngredientes:
 		if ing["nombre"] == nombre_ing:
 			ing["stock"] = ing.get("stock", 0) + cantidad
+			stock_actualizado.emit()
 			return

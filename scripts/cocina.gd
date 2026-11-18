@@ -4,12 +4,18 @@ var instMostradas = false
 var escena = null
 var overlay: TutorialOverlay = null
 var en_tutorial = false
+@onready var sonido_error: AudioStreamPlayer2D = $sonidoError
 
 func _ready() -> void:
 	add_to_group("cocina")
 	StockManager.inicializar_stock()
+	StockManager.stock_insuficiente.connect(_on_stock_insuficiente)
 	visibility_changed.connect(_on_visibility_changed)
 
+func _on_stock_insuficiente(_nombre_ing: String) -> void:
+	if sonido_error:
+		sonido_error.play()
+		
 func mostrar_instrucciones() -> void:
 	if ProgresoManager.nivel_actual >= 5:
 		return
