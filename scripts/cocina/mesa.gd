@@ -54,8 +54,9 @@ func agregar_item(item_mano: String, tipo_mano: String, zona: CollisionShape2D, 
 		nuevo_sprite.texture= load(BaseDeDatos.spritePizzaHecha(tipo_mano))
 	elif item_mano== "pizzaquemada":
 		nuevo_sprite.texture= load("res://assets/comida/pizzaquemada.png")
-	elif item_mano== "pizzaplato":
-		nuevo_sprite.texture= load("res://assets/comida/pizzaplato.png")
+	elif item_mano== "cajapizza":
+		nuevo_sprite.texture= load("res://assets/comida/cajapizza.png")
+		nuevo_sprite.scale= Vector2(0.055, 0.055)
 
 	nuevo_sprite.position= zona.position
 	add_child(nuevo_sprite)
@@ -164,13 +165,13 @@ func intentar_emplatar(zona: CollisionShape2D) -> void:
 		quitar_item_en_indice(lugar_plato)
 		quitar_item_en_indice(lugar_pizza)
 
-	var tipo_pizzaplato = tipo_pizza
+	var tipo_caja = tipo_pizza
 	if quemada:
-		tipo_pizzaplato = "quemada:" + tipo_pizza
+		tipo_caja = "quemada:" + tipo_pizza
 	elif cruda:
-		tipo_pizzaplato = "sincocinar:" + tipo_pizza
+		tipo_caja = "sincocinar:" + tipo_pizza
 
-	agregar_item("pizzaplato", tipo_pizzaplato, zona, coccion_pizza)
+	agregar_item("cajapizza", tipo_caja, zona, coccion_pizza)
 
 func buscar_item_en_zona(item: String, zona: CollisionShape2D) -> int:
 	for lugar in range(items_en_mesa.size() - 1, -1, -1):

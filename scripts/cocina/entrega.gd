@@ -16,7 +16,7 @@ func interactuar(jugador: CharacterBody2D) -> void:
 	if cocina and cocina.en_tutorial:
 		return
 		
-	if jugador.mano_item != "pizzaplato" or PedidoManager.pedidos_activos.is_empty():
+	if jugador.mano_item != "cajapizza" or PedidoManager.pedidos_activos.is_empty():
 		return
 		
 	var tipo_entregado: String = jugador.mano_item_tipo

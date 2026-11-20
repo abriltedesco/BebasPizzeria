@@ -26,8 +26,9 @@ func set_item(nombre: String, tipo: String = "") -> void:
 			"plato":
 				sprite.texture= load("res://assets/comida/plato.png")
 				sprite.scale= Vector2(0.1, 0.1)
-			"pizzaplato":
-				sprite.texture= load("res://assets/comida/pizzaplato.png")
+			"cajapizza":
+				sprite.texture= load("res://assets/comida/cajapizza.png")
+				sprite.scale= Vector2(0.05, 0.05)
 			"pizzacruda":
 				sprite.texture= load("res://assets/comida/pizzacruda.png")
 			"pizzahecha":

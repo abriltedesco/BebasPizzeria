@@ -12,7 +12,7 @@ func interactuar(jugador: CharacterBody2D) -> void:
 			print("[PLATO] ingredientes al armar: ", jugador.mano_item_ingredientes if "mano_item_ingredientes" in jugador else "NO EXISTE")
 			ingredientes_guardados = jugador.mano_item_ingredientes.duplicate()
 		
-		jugador.agarrar_item("pizzaplato", jugador.mano_item_tipo)
+		jugador.agarrar_item("cajapizza", jugador.mano_item_tipo)
 		
 		if "mano_item_ingredientes" in jugador:
 			jugador.mano_item_ingredientes = ingredientes_guardados

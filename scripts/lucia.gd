@@ -65,7 +65,7 @@ func interactuar() -> void:
 func agarrar_item(item: String, tipo: String ="") -> void:
 	mano_item= item
 	mano_item_tipo=tipo
-	if item=="plato" or item=="pizzaplato":
+	if item=="plato":
 		plato_en_mano=true
 	else:
 		plato_en_mano=false

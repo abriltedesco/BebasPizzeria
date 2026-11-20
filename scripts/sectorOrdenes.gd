@@ -138,7 +138,7 @@ func _cliente_se_va_enojado(cliente_nodo: Node, idx_fila: int) -> void:
 		cliente_nodo.queue_free()
 	
 func _on_cambio_puntaje(dinero, completados, fallidos):
-	$LabelPropina.text = "TIPS:\n$" % dinero
+	$LabelPropina.text = "TIPS:\n$" + str(dinero)
 
 func _on_cliente_entregar_presionado(numOrden: int) -> void:
 	if PedidoManager.pizza_preparada.is_empty():
