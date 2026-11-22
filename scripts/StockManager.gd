@@ -1,6 +1,6 @@
 extends Node
 signal stock_actualizado
-signal stock_insuficiente
+signal stock_insuficiente(nombre_ing: String)
 
 func inicializar_stock() -> void:
 	for ing in BaseDeDatos.listaIngredientes:

@@ -4,6 +4,7 @@ signal cantidadCambiada
 
 var datos: Dictionary
 var stock: int = 0
+var base: int = 0
 
 @onready var nombreLabel = %nombreIngrediente
 @onready var precioLabel = %precioIngrediente
@@ -19,7 +20,8 @@ func configurar(datosDiccionario: Dictionary) -> void:
 	datos = datosDiccionario
 	nombreLabel.text = datos["nombre"]
 	precioLabel.text = "$" + str(datos["valor"])
-	stock = int(datos.get("stock", 0))
+	base = StockManager.obtener_stock(datos["nombre"])
+	stock = base
 	actualizarDatos()
 
 func sumarStock() -> void:
@@ -27,21 +29,22 @@ func sumarStock() -> void:
 	actualizarDatos()
 
 func restarStock() -> void:
-	if stock > datos["stock"]:
+	if stock > base:
 		stock -= 1
 		actualizarDatos()
 
 func unidadesAcomprar() -> int:
-	return stock - datos["stock"]
+	return stock - base
 
 func calcularCosto() -> int:
-	return unidadesAcomprar() * datos["valor"]
+	return unidadesAcomprar() * int(datos["valor"])
 
 func confirmarStock() -> void:
 	var cantidad_comprada = unidadesAcomprar()
 	if cantidad_comprada > 0:
 		StockManager.agregar_stock(datos["nombre"], cantidad_comprada)
-	stock = datos["stock"]
+	base = StockManager.obtener_stock(datos["nombre"])
+	stock = base
 	actualizarDatos()
 	
 func actualizarDatos() -> void:

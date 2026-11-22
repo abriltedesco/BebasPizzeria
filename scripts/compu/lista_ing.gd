@@ -4,16 +4,33 @@ var escenaIngrediente = load("res://escenas/compu/ingrediente.tscn")
 signal totalCambiado(total: int)
 
 func _ready() -> void:
-	if owner:
-		owner.visibility_changed.connect(_on_compu_visibility_changed)
+	var pantalla := _buscar_pantalla()
+	if pantalla:
+		pantalla.visibility_changed.connect(_on_compu_visibility_changed)
+	StockManager.stock_actualizado.connect(_on_stock_actualizado)
 	cargar_ingredientes()
 
+func _buscar_pantalla() -> CanvasLayer:
+	var nodo: Node = get_parent()
+	while nodo:
+		if nodo is CanvasLayer:
+			return nodo
+		nodo = nodo.get_parent()
+	return null
+
 func _on_compu_visibility_changed() -> void:
-	if owner and owner.visible:
+	var pantalla := _buscar_pantalla()
+	if pantalla and pantalla.visible:
+		cargar_ingredientes()
+
+func _on_stock_actualizado() -> void:
+	var pantalla := _buscar_pantalla()
+	if pantalla and not pantalla.visible:
 		cargar_ingredientes()
 
 func cargar_ingredientes() -> void:
 	for hijo in get_children():
+		remove_child(hijo)
 		hijo.queue_free()
 		
 	for datos in BaseDeDatos.listaIngredientes:
@@ -50,3 +67,4 @@ func _on_comprar_pressed() -> void:
 	for ingrediente in get_children():
 		if not ingrediente.is_queued_for_deletion():
 			ingrediente.confirmarStock()
+	totalCambiado.emit(calcularTotal())
