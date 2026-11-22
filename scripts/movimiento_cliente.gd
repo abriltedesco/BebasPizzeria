@@ -47,6 +47,8 @@ func movimientoEntrar() -> void:
 	_al_terminar_entrar()
 
 func _al_terminar_entrar() -> void:
+	if animacion:
+		animacion.pause()
 	movimiento_terminado.emit()
 
 func irse() -> void:

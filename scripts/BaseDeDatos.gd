@@ -22,8 +22,7 @@ var listaOrdenes = [
 	
 	{"tipo": "Cuatro Quesos", "dificultad": "dificil", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "roquefortCortado", "parmesanoCortado", "provoloneCortado"], "desde": 4},
 	{"tipo": "Super Completa", "dificultad": "dificil", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "jamonCortado", "morronCortado", "huevoCortado", "aceitunaCortada"], "desde": 4},
-	{"tipo": "Bomba Frita", "dificultad": "dificil", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "papas", "cheddarCortado", "pancetaCortada"], "desde": 4},
-	{"tipo": "Albahaca y queso", "dificultad": "dificil", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "albahaca", "aceite"], "desde": 4}
+	{"tipo": "Bomba Frita", "dificultad": "dificil", "ingredientes": ["masa", "tomateCortado", "quesoCortado", "papas", "cheddarCortado", "pancetaCortada"], "desde": 4}
 	
 ]
 

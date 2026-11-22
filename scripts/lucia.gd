@@ -46,7 +46,8 @@ func _physics_process(_delta: float) -> void:
 		velocity.y= move_toward(velocity.y, 0, SPEED)
 
 	if direction== 0 and direction2== 0:
-		lucia.play("default")
+		lucia.stop()
+		lucia.frame = 0
 
 	move_and_slide()
 
