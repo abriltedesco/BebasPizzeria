@@ -63,6 +63,7 @@ func _on_comprar_pressed() -> void:
 		
 	Puntaje.dinero -= total
 	Puntaje.cambio_puntaje.emit(Puntaje.dinero, Puntaje.pedidos_completados, Puntaje.pedidos_fallidos)
+	Puntaje.reproducirSonidoCompra()
 	
 	for ingrediente in get_children():
 		if not ingrediente.is_queued_for_deletion():

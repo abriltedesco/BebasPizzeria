@@ -7,7 +7,7 @@ var contenedor_pedidos: Control
 
 func crear_contenedor_pedidos(padre: CanvasLayer) -> void:
 	contenedor_pedidos = Control.new()
-	contenedor_pedidos.position = Vector2(600, 15)
+	contenedor_pedidos.position = Vector2(600, 588)
 	padre.add_child(contenedor_pedidos)
 
 func actualizar_tiempo(segundos: int) -> void:

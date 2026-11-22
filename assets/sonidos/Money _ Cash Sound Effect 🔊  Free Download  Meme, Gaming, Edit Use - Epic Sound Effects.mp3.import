@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://tqi2v4fuy2s8"
+path="res://.godot/imported/Money _ Cash Sound Effect 🔊  Free Download  Meme, Gaming, Edit Use - Epic Sound Effects.mp3-19348c60c4cf984e8a3516df71155d77.mp3str"
+
+[deps]
+
+source_file="res://assets/sonidos/Money _ Cash Sound Effect 🔊  Free Download  Meme, Gaming, Edit Use - Epic Sound Effects.mp3"
+dest_files=["res://.godot/imported/Money _ Cash Sound Effect 🔊  Free Download  Meme, Gaming, Edit Use - Epic Sound Effects.mp3-19348c60c4cf984e8a3516df71155d77.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

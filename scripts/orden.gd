@@ -20,7 +20,7 @@ func _process(_delta):
 	var coccion = datos_propios.get("coccion", "")
 	
 	label_orden.text = "#" + str(numOrden) + " - " + nombrePizza
-	label_coccion.text = "%s (%s)" % [coccion, ValidadorPizzas.rango_coccion_texto(coccion)] if coccion != "" else ""
+	label_coccion.text = coccion
 	var tiempo_actual = datos_propios.get("tiempo_transcurrido", 0.0)
 	var duracion_total = datos_propios.get("duracion", 60.0)
 	

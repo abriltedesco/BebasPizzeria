@@ -55,6 +55,7 @@ func _on_comprar_tiempo_pressed() -> void:
 	
 	Puntaje.dinero -= costoTiempo
 	Puntaje.cambio_puntaje.emit(Puntaje.dinero, Puntaje.pedidos_completados, Puntaje.pedidos_fallidos)
+	Puntaje.reproducirSonidoCompra()
 	
 	var nivel = get_tree().current_scene
 	if nivel and nivel.has_node("TimerPartida"):

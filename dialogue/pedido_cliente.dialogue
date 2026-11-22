@@ -1,6 +1,6 @@
 ~ start
 Cliente: Hola !!! soy {{ClienteActual.nombre}}, queria pedir una pizza de {{ClienteActual.pizza}}
-Cliente: La quiero {{ClienteActual.coccion}} ({{ClienteActual.rango_coccion}} en el horno).
+Cliente: La quiero {{ClienteActual.coccion}}.
 Cliente: Me gustaria que tenga....
 => END
 

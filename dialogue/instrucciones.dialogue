@@ -17,7 +17,12 @@ do resaltar("Horno", "Apretá E para dejarla")
 Jefe: Cuando esté armada, ponela en una de las hornallas. Cada cliente pide un punto de cocción: poco cocida (3-6 segundos), medio cocida (7-11) o muy cocida (12-15). Mirá el contador sobre la barra del horno para saber cuándo sacarla. Si la sacás antes de los 2 segundos sale cruda, ¡y si pasa de los 15 se quema!
 
 do resaltar("Plato", "Apretá E para agarrarlo")
-Jefe: Cuando la sacas del horno, apoyala en la mesa y agarrá un plato para poder entregarlo. Un buen tip: cuando se esté cocinando aprovechá a apoyar platos en la mesa y luego directamente colocá la pizza encima de alguno.
+Jefe: Para sacar la pizza del horno tenés que tener un plato en la mano. Agarrá uno.
+do esperarMano("plato")
+
+do resaltar("Horno", "Con el plato en la mano, apretá E para sacarla")
+Jefe: Acercate al horno con el plato y apretá E cuando esté en el punto que pidió el cliente. La pizza sale directo en el plato, sin apoyarla en la mesa. Si la sacás sin plato, no se puede.
+do esperarMano("cajapizza")
 
 do resaltar("Entrega")
 Jefe: Una vez lista, dejala acá para que la reciba el cliente. ¡Ojo! A partir de los próximos niveles vas a ir al mostrador con H y elegirás a quién entregarle usando el mouse.

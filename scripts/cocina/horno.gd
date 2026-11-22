@@ -158,19 +158,20 @@ func interactuar(jugador: CharacterBody2D) -> void:
 				hornalla.spriteP.visible = true
 			jugador.soltar_item()
 			
-	elif jugador.mano_item == "":
+	elif jugador.mano_item == "plato":
 		if hornalla.pizza != "":
-			var resultado := "pizzahecha"
+			var prefijo := ""
 			if hornalla.tiempo >= quemada:
-				resultado = "pizzaquemada"
+				prefijo = "quemada:"
 			elif hornalla.tiempo < cruda:
-				resultado = "pizzacruda"
+				prefijo = "sincocinar:"
 
-			var tipoResultado = hornalla.tipo
+			var tipoResultado = prefijo + hornalla.tipo
 			var ingredientesResultado = hornalla.ingredientes.duplicate()
 			var tiempoCoccion = hornalla.tiempo
 			vaciarHornalla(hornalla)
-			jugador.agarrar_item(resultado, tipoResultado)
+			jugador.soltar_item()
+			jugador.agarrar_item("cajapizza", tipoResultado)
 			jugador.mano_item_coccion = tiempoCoccion
 
 			if "mano_item_ingredientes" in jugador:

@@ -27,7 +27,7 @@ Preparate para 5 días en nuestro local trabajando a full ! :)
 - Agarrá cada ingrediente y andá dejándolo en la mesa (siempre interactuás con la tecla **E**)
 - Dependiendo del nivel, los ingredientes requieren preparación extra: vas a tener que cortarlos en la tabla o amasar en la mesa central
 - Cuando tengas la pizza armada, llevala al horno, pero cuidado!!!! no la dejes más de 4 segundos o se quema
-- Primero sacá la pizza y apoyala en la mesa, después agarrá el plato
+- Primero agarrá el plato, después sacá la pizza del horno con el plato en la mano (sin apoyarla en la mesa)
 - Al terminarla, dejala en el sector de entrega para que la reciba el cliente
 
 ## Progresión de Niveles

@@ -14,6 +14,16 @@ const premioDificultad={
 	"dificil": 30
 }
 	
+var reproductorCompra: AudioStreamPlayer
+
+func _ready() -> void:
+	reproductorCompra = AudioStreamPlayer.new()
+	reproductorCompra.stream = load("res://assets/sonidos/Money _ Cash Sound Effect 🔊  Free Download  Meme, Gaming, Edit Use - Epic Sound Effects.mp3")
+	add_child(reproductorCompra)
+
+func reproducirSonidoCompra() -> void:
+	reproductorCompra.play()
+
 func sumarPedidoCompletado(dificultad: String = "facil") -> void:
 	pedidos_completados+= 1
 	dinero+= premioDificultad.get(dificultad, 10)

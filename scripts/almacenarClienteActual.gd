@@ -5,7 +5,6 @@ var pizza
 var dificultad
 var listaOrden
 var coccion = ""
-var rango_coccion = ""
 var respuesta
 
 var indice= 0
