@@ -3,7 +3,11 @@ extends Node
 var listaClientes = [
 	{"nombre": "Ana", "asset": "res://assets/personajes/cliente2.png"},
 	{"nombre": "María", "asset": "res://assets/personajes/cliente3.png"},
-	{"nombre": "Helena", "asset": "res://assets/personajes/cliente4.png"}
+	{"nombre": "Helena", "asset": "res://assets/personajes/cliente4.png"},
+	{"nombre": "Luz", "asset": "res://assets/personajes/cliente5.png"},
+	{"nombre": "Camila", "asset": "res://assets/personajes/cliente6.png"},
+	{"nombre": "Diana", "asset": "res://assets/personajes/cliente7.png"},
+	{"nombre": "Esme", "asset": "res://assets/personajes/cliente8.png"}
 	#{"nombre": "Daniel", "asset": "res://assets/"},
 	#{"nombre": "Thiago", "asset": "res://assets/"}
 ]
